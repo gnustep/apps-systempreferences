@@ -1,0 +1,12 @@
+
+PreferencePanes framework
+# cd PreferencePanes
+# make install
+
+SystemPreferences.app
+# cd SystemPreferences
+# make install
+
+Modules
+# cd Modules
+# make install

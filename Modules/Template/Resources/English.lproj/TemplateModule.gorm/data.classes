@@ -1,0 +1,21 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "closeMainWindow:",
+	    "nextButtAction:",
+	    "prevButtAction:",
+	    "runInfoPanel:",
+	    "showAllButtAction:"
+	);
+	Super = NSObject;
+    };
+    TemplateModule = {
+	Actions = (
+	);
+	Outlets = (
+	    _window
+	);
+	Super = NSObject;
+    };
+}

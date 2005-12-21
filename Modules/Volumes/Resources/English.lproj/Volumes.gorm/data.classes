@@ -1,0 +1,51 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "closeMainWindow:",
+	    "mpointButtAction:",
+	    "mtabButtAction:",
+	    "mtypeButtAction:",
+	    "nextButtAction:",
+	    "prevButtAction:",
+	    "runInfoPanel:",
+	    "showAllButtAction:"
+	);
+	Super = NSObject;
+    };
+    Volumes = {
+	Actions = (
+	    "mtypeButtAction:",
+	    "mpointButtAction:",
+	    "mtabButtAction:"
+	);
+	Outlets = (
+	    mtypeTitle,
+	    mtypeLabel1,
+	    mtypeLabel2,
+	    mtypeScroll,
+	    mtypeField,
+	    mtypeAdd,
+	    mtypeRemove,
+	    mtypeRevert,
+	    mtypeSet,
+	    mpointTitle,
+	    mpointLabel1,
+	    mpointLabel2,
+	    mpointScroll,
+	    mpointField,
+	    mpointAdd,
+	    mpointRemove,
+	    mpointRevert,
+	    mpointSet,
+	    mtabTitle,
+	    mtabLabel1,
+	    mtabLabel2,
+	    mtabLabel3,
+	    mtabField,
+	    mtabSet,
+	    _window
+	);
+	Super = NSObject;
+    };
+}

@@ -1,0 +1,25 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "closeMainWindow:",
+	    "runInfoPanel:",
+	    "showAllButtAction:"
+	);
+	Super = NSObject;
+    };
+    SystemPreferences = {
+	Actions = (
+	    "showAllButtAction:",
+	    "closeMainWindow:",
+	    "runInfoPanel:"
+	);
+	Outlets = (
+	    win,
+	    controlsBox,
+	    showAllButt,
+	    prefsBox
+	);
+	Super = NSObject;
+    };
+}

@@ -1,0 +1,7 @@
+{
+    NSIcon = "SystemPreferences.tiff";
+    ApplicationDescription = "SystemPreferences";
+    ApplicationIcon = "SystemPreferences.tiff";
+    ApplicationName = SystemPreferences;
+    ApplicationRelease = "1.0";
+}

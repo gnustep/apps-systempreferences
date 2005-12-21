@@ -1,0 +1,10 @@
+
+{
+  GSBundleIdentifier = org.gnustep.templatemodule;
+	GSBundleVersion = "1.0";
+	GSPrefPaneIconFile = "TemplateModule.tiff";
+	GSPrefPaneIconLabel = Test;
+  NSExecutable = TemplateModule;
+	NSMainNibFile = TemplateModule;
+	NSPrincipalClass = TemplateModule;
+}

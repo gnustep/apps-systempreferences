@@ -1,0 +1,9 @@
+{
+  GSBundleIdentifier = org.gnustep.filesystemmodule;
+	GSBundleVersion = "1.0";
+	GSPrefPaneIconFile = "FileSystem.tiff";
+	GSPrefPaneIconLabel = "File System";
+  NSExecutable = FileSystem;
+	NSMainNibFile = FileSystem;
+	NSPrincipalClass = FileSystem;
+}

@@ -1,0 +1,35 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FileSystem = {
+	Actions = (
+	    "spacePopupAction:",
+	    "dotsCheckAction:"
+	);
+	Outlets = (
+	    _window,
+	    dotsLabel1,
+	    dotsLabel2,
+	    dotsLabel3,
+	    dotsTitle,
+	    dotsCheck,
+	    spaceLabel1,
+	    spaceLabel2,
+	    spaceLabel3,
+	    spacePopup,
+	    spaceTitle
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "closeMainWindow:",
+	    "spacePopupAction:",
+	    "dotsCheckAction:",
+	    "nextButtAction:",
+	    "prevButtAction:",
+	    "runInfoPanel:",
+	    "showAllButtAction:"
+	);
+	Super = NSObject;
+    };
+}

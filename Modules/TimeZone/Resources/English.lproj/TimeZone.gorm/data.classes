@@ -1,0 +1,28 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "closeMainWindow:",
+	    "setButtAction:",
+	    "nextButtAction:",
+	    "prevButtAction:",
+	    "runInfoPanel:",
+	    "showAllButtAction:"
+	);
+	Super = NSObject;
+    };
+    TimeZone = {
+	Actions = (
+	    "setButtAction:"
+	);
+	Outlets = (
+	    _window,
+	    imageBox,
+	    setButt,
+	    codeField,
+	    commentsField,
+	    zoneField
+	);
+	Super = NSObject;
+    };
+}

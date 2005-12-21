@@ -1,0 +1,10 @@
+
+{
+  GSBundleIdentifier = org.gnustep.timezonemodule;
+	GSBundleVersion = "1.0";
+	GSPrefPaneIconFile = "TimeZone.tiff";
+	GSPrefPaneIconLabel = "Date & Time";
+  NSExecutable = TimeZone;
+	NSMainNibFile = TimeZone;
+	NSPrincipalClass = TimeZone;
+}

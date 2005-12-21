@@ -1,0 +1,10 @@
+
+{
+  GSBundleIdentifier = org.gnustep.volumesmodule;
+	GSBundleVersion = "1.0";
+	GSPrefPaneIconFile = "Volumes.tiff";
+	GSPrefPaneIconLabel = "Volumes";
+  NSExecutable = Volumes;
+	NSMainNibFile = Volumes;
+	NSPrincipalClass = Volumes;
+}
