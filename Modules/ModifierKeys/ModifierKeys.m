@@ -97,7 +97,7 @@ static NSString *menuEntries = @"\
   
   for (i = 0; i < [titles count]; i++) {
     NSString *title = [titles objectAtIndex: i];
-    id item; 
+    id <NSMenuItem> item;
     
     [menu addItemWithTitle: title];
     item = [menu lastItem];
@@ -112,7 +112,7 @@ static NSString *menuEntries = @"\
   unsigned i;
 
   for (i = 0; i < [items count]; i++) {
-    id item = [items objectAtIndex: i];
+    id <NSMenuItem> item = [items objectAtIndex: i];
     id repobj = [item representedObject];
   
     if (repobj && [repobj isEqual: anobject]) {

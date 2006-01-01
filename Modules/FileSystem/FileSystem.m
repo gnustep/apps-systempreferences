@@ -84,7 +84,13 @@
 
   [defaults setPersistentDomain: domain forName: NSGlobalDomain];
   [defaults synchronize];
-  RELEASE (domain);  
+  RELEASE (domain); 
+  
+	[[NSDistributedNotificationCenter defaultCenter] 
+        postNotificationName: @"GSHideDotFilesDidChangeNotification"
+	 								    object: nil 
+                    userInfo: nil];
+   
   RELEASE (arp);
 }
 

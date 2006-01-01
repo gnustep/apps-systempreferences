@@ -34,6 +34,7 @@ typedef enum {
 } NSPreferencePaneUnselectReply;
 
 @class NSBundle;
+@class NSWindow;
 @class NSView;
 
 @interface NSPreferencePane : NSObject 
@@ -41,7 +42,7 @@ typedef enum {
   NSBundle *_bundle;
   NSDictionary *_info;
   
-  IBOutlet id _window;
+  IBOutlet NSWindow *_window;
   NSView *_mainView;
   
   NSView *_firstKeyView;

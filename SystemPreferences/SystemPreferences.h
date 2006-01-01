@@ -33,16 +33,17 @@
 #endif
 
 @class NSWindow;
+@class NSBox;
 @class SPIconsView;
 
 @interface SystemPreferences : NSObject
 {
   NSWindow *window;
   
-  IBOutlet id win;
-  IBOutlet id controlsBox;
+  IBOutlet NSWindow *win;
+  IBOutlet NSBox *controlsBox;
   IBOutlet id showAllButt;
-  IBOutlet id prefsBox;
+  IBOutlet NSBox *prefsBox;
   
   NSMutableArray *panes;
   id currentPane;

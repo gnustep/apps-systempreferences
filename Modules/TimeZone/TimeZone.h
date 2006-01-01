@@ -32,12 +32,13 @@
   #include <PreferencePanes/PreferencePanes.h>
 #endif
 
+@class NSBox;
 @class MapView;
 @class MapLocation;
 
 @interface TimeZone : NSPreferencePane 
 {
-  IBOutlet id imageBox;
+  IBOutlet NSBox *imageBox;
   MapView *mapView;
   IBOutlet id zoneField;
   IBOutlet id codeField;
