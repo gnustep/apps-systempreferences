@@ -78,18 +78,19 @@
   CREATE_AUTORELEASE_POOL(arp);
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+  NSNumber *hide = [NSNumber numberWithBool: ([dotsCheck state] == NSOnState)];
+  NSDictionary *info = [NSDictionary dictionaryWithObject: hide forKey: @"hide"];
   
-  [domain setObject: [NSNumber numberWithBool: ([dotsCheck state] == NSOnState)] 
-             forKey: @"GSFileBrowserHideDotFiles"];  
+  [domain setObject: hide forKey: @"GSFileBrowserHideDotFiles"];  
 
   [defaults setPersistentDomain: domain forName: NSGlobalDomain];
   [defaults synchronize];
   RELEASE (domain); 
-  
+    
 	[[NSDistributedNotificationCenter defaultCenter] 
         postNotificationName: @"GSHideDotFilesDidChangeNotification"
 	 								    object: nil 
-                    userInfo: nil];
+                    userInfo: info];
    
   RELEASE (arp);
 }
