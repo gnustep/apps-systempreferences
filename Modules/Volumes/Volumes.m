@@ -218,8 +218,12 @@
 
   } else if (sender == mtypeSet) {
     CREATE_AUTORELEASE_POOL(arp);
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+    NSUserDefaults *defaults;
+    NSMutableDictionary *domain;
+
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
   
     [reservedNames removeAllObjects];
   
@@ -347,8 +351,12 @@
 
   } else if (sender == mpointSet) {
     CREATE_AUTORELEASE_POOL(arp);
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+    NSUserDefaults *defaults;
+    NSMutableDictionary *domain;
+
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
   
     [removablePaths removeAllObjects];
   
@@ -394,8 +402,12 @@
   if ([path length] && [path isAbsolutePath]) {
     if ([fm fileExistsAtPath: path isDirectory: &isdir] && (isdir == NO)) {
       CREATE_AUTORELEASE_POOL(arp);
-      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-      NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+      NSUserDefaults *defaults;
+      NSMutableDictionary *domain;
+
+      defaults = [NSUserDefaults standardUserDefaults];
+      [defaults synchronize];
+      domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
 
       [domain setObject: path forKey: @"GSMtabPath"];  
       [defaults setPersistentDomain: domain forName: NSGlobalDomain];

@@ -61,9 +61,15 @@
 - (IBAction)spacePopupAction:(id)sender
 {
   CREATE_AUTORELEASE_POOL(arp);
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
-  NSNumber *index = [NSNumber numberWithInt: [spacePopup indexOfSelectedItem]];
+  NSUserDefaults *defaults;
+  NSMutableDictionary *domain;
+  NSNumber *index;
+
+  defaults = [NSUserDefaults standardUserDefaults];
+  [defaults synchronize];
+  domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+
+  index = [NSNumber numberWithInt: [spacePopup indexOfSelectedItem]];
 
   [domain setObject: index forKey: @"GSDiskSpaceUnits"];  
 
@@ -76,10 +82,17 @@
 - (IBAction)dotsCheckAction:(id)sender
 {
   CREATE_AUTORELEASE_POOL(arp);
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
-  NSNumber *hide = [NSNumber numberWithBool: ([dotsCheck state] == NSOnState)];
-  NSDictionary *info = [NSDictionary dictionaryWithObject: hide forKey: @"hide"];
+  NSUserDefaults *defaults;
+  NSMutableDictionary *domain;
+  NSNumber *hide;
+  NSDictionary *info;
+
+  defaults = [NSUserDefaults standardUserDefaults];
+  [defaults synchronize];
+  domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+
+  hide = [NSNumber numberWithBool: ([dotsCheck state] == NSOnState)];
+  info = [NSDictionary dictionaryWithObject: hide forKey: @"hide"];
   
   [domain setObject: hide forKey: @"GSFileBrowserHideDotFiles"];  
 

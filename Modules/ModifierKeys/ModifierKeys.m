@@ -146,8 +146,12 @@ static NSString *menuEntries = @"\
 
   if (modifier) {
     CREATE_AUTORELEASE_POOL(arp);
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	  NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+    NSUserDefaults *defaults;
+	  NSMutableDictionary *domain;
+    
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
 
     if (sender == firstAlternatePopUp) {
       [domain setObject: modifier forKey: @"GSFirstAlternateKey"];

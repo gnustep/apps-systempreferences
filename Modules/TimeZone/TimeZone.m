@@ -74,8 +74,12 @@
 - (IBAction)setButtAction:(id)sender
 {
   CREATE_AUTORELEASE_POOL(arp);
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSMutableDictionary *domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+  NSUserDefaults *defaults;
+  NSMutableDictionary *domain;
+
+  defaults = [NSUserDefaults standardUserDefaults];
+  [defaults synchronize];
+  domain = [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
 
   [domain setObject: [zoneField stringValue] forKey: @"Local Time Zone"];  
   
