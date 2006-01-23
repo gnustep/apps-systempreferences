@@ -241,7 +241,12 @@
       
     [mtypeField setStringValue: @""];        
     
-    RELEASE (arp);        
+    RELEASE (arp);   
+    
+	  [[NSDistributedNotificationCenter defaultCenter] 
+          postNotificationName: @"GSReservedMountNamesDidChangeNotification"
+	 								      object: nil 
+                      userInfo: nil];
   }
 }
 
@@ -365,7 +370,12 @@
     
     [mpointField setStringValue: @""];
     
-    RELEASE (arp);        
+    RELEASE (arp); 
+    
+	  [[NSDistributedNotificationCenter defaultCenter] 
+          postNotificationName: @"GSRemovableMediaPathsDidChangeNotification"
+	 								      object: nil 
+                      userInfo: nil];
   }
 }
 
