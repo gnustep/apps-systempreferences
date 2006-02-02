@@ -68,6 +68,8 @@ void createMenu()
 
 	// Hide
 	addItemToMenu(mainmenu, @"Hide", @"", @"hide:", @"h");
+	addItemToMenu(mainmenu, @"Hide Others", @"", @"hideOtherApplications:", @"H");
+	addItemToMenu(mainmenu, @"Show All", @"", @"unhideAllApplications:", @"");
 	
 	// Quit
 	addItemToMenu(mainmenu, @"Quit", @"", @"terminate:", @"q");
