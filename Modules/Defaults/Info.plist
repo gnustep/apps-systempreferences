@@ -1,0 +1,10 @@
+
+{
+  GSBundleIdentifier = org.gnustep.userdefaultsprefs;
+	GSBundleVersion = "1.0";
+	GSPrefPaneIconFile = "Defaults.tiff";
+	GSPrefPaneIconLabel = Defaults;
+  NSExecutable = Defaults;
+	NSMainNibFile = Defaults;
+	NSPrincipalClass = Defaults;
+}

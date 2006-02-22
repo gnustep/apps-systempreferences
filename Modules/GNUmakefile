@@ -4,7 +4,8 @@ SUBPROJECTS = \
         TimeZone \
         Volumes \
         FileSystem \
-        ModifierKeys
+        ModifierKeys \
+        Defaults
 
 -include GNUmakefile.preamble
 

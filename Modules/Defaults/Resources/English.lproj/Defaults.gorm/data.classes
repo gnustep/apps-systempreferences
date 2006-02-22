@@ -1,0 +1,68 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    Defaults = {
+	Actions = (
+	    "arrayAddAction:",
+	    "arrayRemoveAction:",
+	    "boolPopupAction:",
+	    "boolSetAction:",
+	    "arraySetAction:",
+	    "numberSetAction:",
+	    "stringSetAction:",
+	    "boolDefaultRevertAction:",
+	    "arrayDefaultRevertAction:",
+	    "numberDefaultRevertAction:",
+	    "stringDefaultRevertAction:"
+	);
+	Outlets = (
+	    _window,
+	    categoryField,
+	    categoryLabel,
+	    descriptionView,
+	    editorBox,
+	    namesScroll,
+	    editorsWin,
+	    boolEditorBox,
+	    arrayEditorBox,
+	    numberEditorBox,
+	    stringEditorBox,
+	    arrayEdAdd,
+	    arrayEdRemove,
+	    arrayEdScroll,
+	    arrayEdSet,
+	    boolEdPopup,
+	    boolEdSet,
+	    arrayEdField,
+	    numberEdField,
+	    numberEdSet,
+	    stringEdField,
+	    stringEdSet,
+	    boolEdDefaultRevert,
+	    arrayEdDefaultRevert,
+	    numberEdDefaultRevert,
+	    stringEdDefaultRevert
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "arrayAddAction:",
+	    "arrayRemoveAction:",
+	    "arraySetAction:",
+	    "boolDefaultRevertAction:",
+	    "boolPopupAction:",
+	    "boolSetAction:",
+	    "closeMainWindow:",
+	    "arrayDefaultRevertAction:",
+	    "nextButtAction:",
+	    "numberDefaultRevertAction:",
+	    "numberSetAction:",
+	    "prevButtAction:",
+	    "runInfoPanel:",
+	    "showAllButtAction:",
+	    "stringDefaultRevertAction:",
+	    "stringSetAction:"
+	);
+	Super = NSObject;
+    };
+}
