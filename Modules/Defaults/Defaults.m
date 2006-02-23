@@ -281,14 +281,14 @@
 
   if (usrvalue != nil) {
     if ([usrvalue isEqual: defvalue] == NO) {
-    //  NSLog(@"setting: %@ for: %@", [usrvalue description], defname);
+      NSLog(@"setting: %@ for: %@", [usrvalue description], defname);
       [domain setObject: usrvalue forKey: defname]; 
     } else {
-   //   NSLog(@"removing: %@ ", defname);
+      NSLog(@"removing: %@ ", defname);
       [domain removeObjectForKey: defname];
     }
   } else {
-  //  NSLog(@"removing: %@ ", defname);
+    NSLog(@"removing: %@ ", defname);
     [domain removeObjectForKey: defname];
   }
 
