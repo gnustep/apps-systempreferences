@@ -104,6 +104,12 @@
 	description = "A string value that defaults to \"GWorkspace\". This defines the application NSWorkspace will try to connect to process some operations that require an external application. This is a new feature and has not been tested.";
 	editor = <*I0>;
     };
+    GSDontShowAppIcon = {
+	category = gui;
+	defaultvalue = <*BN>;
+	description = "A boolean value, NO by default. Specifies wether the application icon window should be displayed. Set to YES for background server applications.";
+	editor = <*I1>;
+    };
     GSX11HandlesWindowDecorations = {
 	category = back;
 	defaultvalue = <*BY>;
