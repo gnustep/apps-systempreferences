@@ -1,0 +1,5 @@
+2006-08-31  Fred Kiefer <FredKiefer@gmx.de>
+
+	* Modules/Defaults/Defaults.m: Include limits.h to have INT_MAX
+	and INT_MIN defined. 
+	Patch by Andreas Höschler <ahoesch@smartsoft.de>.

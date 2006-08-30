@@ -24,6 +24,8 @@
 
 #include <AppKit/AppKit.h>
 #include "Defaults.h"
+// For INT_MAX and INT_MIN
+#include <limits.h>
 
 @implementation Defaults
 
