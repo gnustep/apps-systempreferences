@@ -1,3 +1,7 @@
+2006-09-10  Riccardo Mottola <riccardo@kaffe.org>
+
+	* Modules/ColorSchemes: added color schemes module
+	
 2006-08-31  Fred Kiefer <FredKiefer@gmx.de>
 
 	* Modules/Defaults/Defaults.m: Include limits.h to have INT_MAX
