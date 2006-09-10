@@ -153,7 +153,6 @@ NSLog(@"examining dir %@", file);
     	[currColorList release];
     currColorList = [currentColors retain];
     [preview setColors:currColorList];
-//    [currentColors writeToFile: nil];
 }
 
 - (IBAction)styleAction:(id)sender
@@ -187,6 +186,16 @@ NSLog(@"examining dir %@", file);
     default:
     	break;
     }
+}
+
+- (IBAction)apply:(id)sender
+{
+    [currColorList writeToFile: nil];
+}
+
+- (IBAction)colorChanged:(id)sender
+{
+    NSLog(@"Color changed");
 }
 
 @end

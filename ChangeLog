@@ -1,5 +1,9 @@
 2006-09-10  Riccardo Mottola <riccardo@kaffe.org>
 
+	* Modules/ColorSchemes: implemented Apply, improved interface
+	
+2006-09-10  Riccardo Mottola <riccardo@kaffe.org>
+
 	* Modules/ColorSchemes: added color schemes module
 	
 2006-08-31  Fred Kiefer <FredKiefer@gmx.de>

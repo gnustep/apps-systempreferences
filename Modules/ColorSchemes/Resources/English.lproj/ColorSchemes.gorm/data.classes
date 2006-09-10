@@ -3,7 +3,9 @@
     ColorSchemes = {
 	Actions = (
 	    "settingsAction:",
-	    "styleAction:"
+	    "styleAction:",
+	    "apply:",
+	    "colorChanged:"
 	);
 	Outlets = (
 	    _window,
@@ -16,6 +18,8 @@
     };
     FirstResponder = {
 	Actions = (
+	    "apply:",
+	    "colorChanged:",
 	    "settingsAction:",
 	    "styleAction:"
 	);

@@ -37,20 +37,22 @@
 
 @interface ColorSchemes : NSPreferencePane
 {
-    IBOutlet PreviewView *preview;
+    IBOutlet PreviewView   *preview;
     IBOutlet NSPopUpButton *colorSettings;
     IBOutlet NSPopUpButton *style;
-    IBOutlet NSColorWell *colorWell;
+    IBOutlet NSColorWell   *colorWell;
 
     NSDictionary *dictSchemes;
     NSDictionary *currScheme;
-    NSColorList *currColorList;
-    BOOL loaded;
+    NSColorList  *currColorList;
+    BOOL         loaded;
 }
 
 
 - (IBAction)styleAction:(id)sender;
 - (IBAction)settingsAction:(id)sender;
+- (IBAction)apply:(id)sender;
+- (IBAction)colorChanged:(id)sender;
 
 @end
 
