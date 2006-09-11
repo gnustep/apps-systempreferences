@@ -99,7 +99,6 @@
 	{
 	    NSMutableDictionary	*scheme;
 	    NSString		*name;
-NSLog(@"examining dir %@", file);
 	    if ((scheme = [NSDictionary dictionaryWithContentsOfFile: file])
 			&& (name = [scheme objectForKey: @"Name"])
 			&& ![[list allKeys] containsObject: name])
@@ -123,6 +122,14 @@ NSLog(@"examining dir %@", file);
   dictSchemes = [[self searchSchemes] retain];
   [style removeAllItems];
   [style addItemsWithTitles:[dictSchemes allKeys]];
+  
+  /* retrieve the current system colors */
+  currColorList = [NSColorList colorListNamed: @"System"];
+  [preview setColors:currColorList];
+  
+  /* set the first color well */
+  [colorSettings selectItemAtIndex:0];
+  [self settingsAction:self];
 }
 
 
@@ -169,23 +176,189 @@ NSLog(@"examining dir %@", file);
     [self interpretColorScheme:currScheme];
 }
 
-- (IBAction)settingsAction:(id)sender
+- (NSString *)decodeSettingName:(int)setting
 {
-    switch([colorSettings indexOfSelectedItem])
+    NSString *key;
+    
+    key = nil;
+    switch(setting)
     {
     case 0:
-    	NSLog(@"0");
+    	key = @"controlLightHighlightColor";
     	break;
     case 1:
-    	NSLog(@"1");
+    	key = @"controlHighlightColor";
 	break;
     case 2:
+    	key = @"controlShadowColor";
     	break;
     case 3:
+    	key = @"controlDarkShadowColor";
+    	break;
+    case 4:
+    	key = @"controlBackgroundColor";
+    	break;
+    case 5:
+    	key = @"controlTextColor";
+    	break;
+    case 6:
+    	key = @"";
+    	break;
+    case 7:
+    	break;
+    case 8:
+    	key = @"disabledControlTextColor";
+    	break;
+    case 9:
+    	key = @"keyboardFocusIndicatorColor";
+	break;
+    case 10:
+    	key = @"scrollBarColor";
+    	break;
+    case 11:
+    	key = @"knobColor";
+    	break;
+    case 12:
+    	break;
+    case 13:
+    	key = @"selectedControlTextColor";
+    	break;
+    case 14:
+    	key = @"selectedMenuItemColor";
+    	break;
+    case 15:
+	key = @"selectedMenuItemTextColor";
+	break;
+    case 16:
+    	key = @"selectedKnobColor";
+    	break;
+    case 17:
+    	key = @"selectedTextColor";
+	break;
+    case 18:
+    	key = @"selectedTextBackgroundColor";
+    	break;
+    case 19:
+    	key = @"gridColor";
+    	break;
+    case 20:
+    	key = @"headerColor";
+	break;
+    case 21:
+    	key = @"headerTextColor";
+	break;
+    case 22:
+    	key = @"windowBackgroundColor";
+    	break;
+    case 23:
+    	key = @"windowFrameColor";
+    	break;
+    case 24:
+    	key = @"windowFrameTextColor";
     	break;
     default:
     	break;
     }
+    return key;
+}
+
+- (void)writeColorInScheme:(int)setting :(NSColor*)color
+{
+    switch(setting)
+    {
+    case 0:
+    	[currColorList setColor: color forKey: @"controlLightHighlightColor"];
+    	break;
+    case 1:
+    	[currColorList setColor: color forKey: @"controlHighlightColor"];
+	break;
+    case 2:
+    	[currColorList setColor: color forKey: @"controlShadowColor"];
+    	break;
+    case 3:
+    	[currColorList setColor: color forKey: @"controlDarkShadowColor"];
+    	break;
+    case 4:
+    	[currColorList setColor: color forKey: @"controlBackgroundColor"];
+	[currColorList setColor: color forKey: @"controlColor"];
+    	break;
+    case 5:
+    	[currColorList setColor: color forKey: @"controlTextColor"];
+    	break;
+    case 6:
+    	break;
+    case 7:
+    	break;
+    case 8:
+    	[currColorList setColor: color forKey: @"disabledControlTextColor"];
+    	break;
+    case 9:
+    	[currColorList setColor: color forKey: @"keyboardFocusIndicatorColor"];
+    	break;
+    case 10:
+    	[currColorList setColor: color forKey: @"scrollBarColor"];
+	break;
+    case 11:
+    	[currColorList setColor: color forKey: @"knobColor"];
+	break;
+    case 12:
+    	break;
+    case 13:
+    	[currColorList setColor: color forKey: @"selectedControlTextColor"];
+    	break;
+    case 14:
+    	[currColorList setColor: color forKey: @"selectedMenuItemColor"];
+	break;
+    case 15:
+    	[currColorList setColor: color forKey: @"selectedMenuItemTextColor"];
+	break;
+    case 16:
+    	[currColorList setColor: color forKey: @"selectedKnobColor"];
+	break;
+    case 17:
+    	[currColorList setColor: color forKey: @"selectedTextColor"];
+    	break;
+    case 18:
+    	[currColorList setColor: color forKey: @"selectedTextBackgroundColor"];
+    	break;
+    case 19:
+    	[currColorList setColor: color forKey: @"gridColor"];
+    	break;
+    case 20:
+    	[currColorList setColor: color forKey: @"windowBackgroundColor"];
+	break;
+    case 21:
+    	[currColorList setColor: color forKey: @"headerTextColor"];
+	break;
+    case 22:
+    	[currColorList setColor: color forKey: @"windowFrameColor"];
+    	break;
+    case 23:
+    	[currColorList setColor: color forKey: @"windowFrameColor"];
+    	break;
+    case 24:
+    	[currColorList setColor: color forKey: @"windowFrameTextColor"];
+    	break;
+    default:
+    	break;
+    }
+}
+
+- (IBAction)settingsAction:(id)sender
+{
+    NSColor *colorOfSetting;
+    NSString *colorKey;
+
+    
+    NSLog(@"selected: %d", [colorSettings indexOfSelectedItem]);
+    colorKey = [self decodeSettingName:[colorSettings indexOfSelectedItem]];
+    colorOfSetting = [currColorList colorWithKey:colorKey];
+    if (colorOfSetting != nil)
+    {
+        [colorWell setColor:colorOfSetting];
+	
+    } else
+    	NSLog(@"Color of that setting not encoded");
 }
 
 - (IBAction)apply:(id)sender
@@ -195,7 +368,8 @@ NSLog(@"examining dir %@", file);
 
 - (IBAction)colorChanged:(id)sender
 {
-    NSLog(@"Color changed");
+    [self writeColorInScheme: [colorSettings indexOfSelectedItem] :[colorWell color]];
+    [preview setColors:currColorList];
 }
 
 @end
