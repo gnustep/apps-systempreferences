@@ -81,7 +81,6 @@
     
     
     /* create a list of directories to look into */
-    NSLog(@"searching for schemes directories");
     directories = [[NSMutableArray alloc] initWithCapacity: 3];
     enu = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES) objectEnumerator];
     
@@ -116,7 +115,6 @@
   if (loaded == NO)
   {
        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-       NSLog(@"mainViewDidLoad");
        loaded = YES;
   }
   dictSchemes = [[self searchSchemes] retain];
@@ -167,7 +165,6 @@
     id schemeKey;
     
     schemeKey = [[style selectedItem] title];
-    NSLog(@"selected %@", [dictSchemes objectForKey:schemeKey]);
     
     [currScheme release];
     currScheme = [NSDictionary dictionaryWithContentsOfFile: [dictSchemes objectForKey:schemeKey]];
@@ -202,9 +199,10 @@
     	key = @"controlTextColor";
     	break;
     case 6:
-    	key = @"";
+    	key = @"textColor";
     	break;
     case 7:
+    	key = @"textBackgroundColor";
     	break;
     case 8:
     	key = @"disabledControlTextColor";
@@ -219,6 +217,7 @@
     	key = @"knobColor";
     	break;
     case 12:
+    	key = @"selectedControlColor";
     	break;
     case 13:
     	key = @"selectedControlTextColor";
@@ -268,6 +267,7 @@
     {
     case 0:
     	[currColorList setColor: color forKey: @"controlLightHighlightColor"];
+	[currColorList setColor: color forKey: @"highlightColor"];
     	break;
     case 1:
     	[currColorList setColor: color forKey: @"controlHighlightColor"];
@@ -277,6 +277,7 @@
     	break;
     case 3:
     	[currColorList setColor: color forKey: @"controlDarkShadowColor"];
+	[currColorList setColor: color forKey: @"shadowColor"];
     	break;
     case 4:
     	[currColorList setColor: color forKey: @"controlBackgroundColor"];
@@ -286,9 +287,11 @@
     	[currColorList setColor: color forKey: @"controlTextColor"];
     	break;
     case 6:
+        [currColorList setColor: color forKey: @"textColor"];
     	break;
     case 7:
-    	break;
+    	[currColorList setColor: color forKey: @"textBackgroundColor"];
+	break;
     case 8:
     	[currColorList setColor: color forKey: @"disabledControlTextColor"];
     	break;
@@ -302,6 +305,7 @@
     	[currColorList setColor: color forKey: @"knobColor"];
 	break;
     case 12:
+    	[currColorList setColor: color forKey: @"selectedControlColor"];
     	break;
     case 13:
     	[currColorList setColor: color forKey: @"selectedControlTextColor"];
@@ -325,13 +329,13 @@
     	[currColorList setColor: color forKey: @"gridColor"];
     	break;
     case 20:
-    	[currColorList setColor: color forKey: @"windowBackgroundColor"];
+    	[currColorList setColor: color forKey: @"headerColor"];
 	break;
     case 21:
     	[currColorList setColor: color forKey: @"headerTextColor"];
 	break;
     case 22:
-    	[currColorList setColor: color forKey: @"windowFrameColor"];
+    	[currColorList setColor: color forKey: @"windowBackgroundColor"];
     	break;
     case 23:
     	[currColorList setColor: color forKey: @"windowFrameColor"];
@@ -349,8 +353,6 @@
     NSColor *colorOfSetting;
     NSString *colorKey;
 
-    
-    NSLog(@"selected: %d", [colorSettings indexOfSelectedItem]);
     colorKey = [self decodeSettingName:[colorSettings indexOfSelectedItem]];
     colorOfSetting = [currColorList colorWithKey:colorKey];
     if (colorOfSetting != nil)
