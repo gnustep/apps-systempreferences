@@ -90,7 +90,7 @@
   return [uniqueIdentifier hash];
 }
 
-- (BOOL) isEqual:s (id)other
+- (BOOL) isEqual: (id)other
 {
   if (other == self)
     {
