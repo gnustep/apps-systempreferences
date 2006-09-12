@@ -3,7 +3,7 @@
   GSBundleIdentifier = org.gnustep.colorschemesprefs;
 	GSBundleVersion = "1.0";
 	GSPrefPaneIconFile = "ColorSchemes.tiff";
-	GSPrefPaneIconLabel = "Color schemes";
+	GSPrefPaneIconLabel = "Color Schemes";
     	NSExecutable = ColorSchemes;
 	NSMainNibFile = ColorSchemes;
 	NSPrincipalClass = ColorSchemes;
