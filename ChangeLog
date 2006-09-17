@@ -1,3 +1,9 @@
+2006-09-17  Richard Frith-Macdonald <rfm@gnu.org>
+
+	* GNUmakefile: added top level makefile to build/install the
+	whole system preferences stuff.
+	* INSTALL: removed install instructions ... now done by makefile
+
 2006-09-10  Riccardo Mottola <riccardo@kaffe.org>
 
 	* Modules/ColorSchemes: implemented Apply, improved interface
