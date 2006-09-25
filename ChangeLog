@@ -1,3 +1,7 @@
+2006-09-25  Enrico Sersale <enrico.sersale@gmail.com>
+
+	* Modules/Fonts: added fonts module by Ingolf Jandt <i.jandt@web.de>
+
 2006-09-17  Richard Frith-Macdonald <rfm@gnu.org>
 
 	* GNUmakefile: added top level makefile to build/install the

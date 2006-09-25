@@ -6,6 +6,7 @@ SUBPROJECTS = \
         FileSystem \
         ModifierKeys \
 	ColorSchemes \
+        Fonts \
         Defaults
 
 -include GNUmakefile.preamble

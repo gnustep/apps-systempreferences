@@ -1,0 +1,28 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "closeMainWindow:",
+	    "keyPopupAction:",
+	    "nextButtAction:",
+	    "prevButtAction:",
+	    "runInfoPanel:",
+	    "setButtonAction:",
+	    "showAllButtAction:"
+	);
+	Super = NSObject;
+    };
+    FontModule = {
+	Actions = (
+	    "keyPopupAction:",
+	    "setButtonAction:"
+	);
+	Outlets = (
+	    _window,
+	    keyPopup,
+	    setButton,
+	    previewTextField
+	);
+	Super = NSObject;
+    };
+}
