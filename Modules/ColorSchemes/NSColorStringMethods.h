@@ -33,7 +33,6 @@
 @interface NSColor (StringMethods)
 
 + (NSColor *) colorWithRGBStringRepresentation: (NSString *) aString;
-- (NSString *) RGBStringRepresentation;
 
 @end
 
