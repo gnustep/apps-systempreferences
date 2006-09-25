@@ -1,4 +1,4 @@
-2006-09-10  Riccardo Mottola <riccardo@kaffe.org>
+2006-09-25  Riccardo Mottola <riccardo@kaffe.org>
 	* Modules/ColorSchemes/NSColorStringMethods.h:
 	removed useless declaration
 	* Modules/ColorSchemes/PreviewView.m:
