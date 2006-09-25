@@ -5,7 +5,7 @@
  * Author: Riccardo Mottola <riccardo@kaffe.org>
  * Date: September 2006
  *
- * Original idea from Prefereces.app of the Backbone project
+ * Original idea from Preferences.app of the Backbone project
  *
  * This file is part of the GNUstep ColorSchemes Preference Pane
  *
@@ -25,6 +25,7 @@
  */
  
 #import "PreviewView.h"
+#import <AppKit/NSStringDrawing.h>
 
 @implementation PreviewView
 
@@ -37,34 +38,27 @@
 
 - (void) drawTextfield: (NSRect) border : (NSRect) clip
 {
-    /* these are role names only */
-    NSColor *black;
-    NSColor *dark;
-    NSColor *light;
-    NSColor *white;
     NSColor *bgd;
     NSColor *colrs[8];
-    
-    NSRectEdge up_sides[] = {NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge,
-                             NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge};
-    NSRectEdge dn_sides[] = {NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
-                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge};
+    NSString *text;
+    NSDictionary *attrs;
     NSRect frame;
+    NSRect textRect;    
+    NSRectEdge up_sides[] = { NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+                             NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge };
+    NSRectEdge dn_sides[] = { NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge };
 
 	
-    black = [colors colorWithKey: @"controlDarkShadowColor"];
-    dark = [colors colorWithKey: @"controlShadowColor"];
-    light = [colors colorWithKey: @"controlColor"];
-    white = [colors colorWithKey: @"controlLightHighlightColor"];
     bgd = [colors colorWithKey: @"textBackgroundColor"];
-    colrs[0] = dark;
-    colrs[1] = white;
-    colrs[2] = white;
-    colrs[3] = dark;
-    colrs[4] = black;
-    colrs[5] = light;
-    colrs[6] = light;
-    colrs[7] = black;
+    colrs[0] = [colors colorWithKey: @"controlShadowColor"];
+    colrs[1] = [colors colorWithKey: @"controlLightHighlightColor"];
+    colrs[2] = [colors colorWithKey: @"controlLightHighlightColor"];
+    colrs[3] = [colors colorWithKey: @"controlShadowColor"];
+    colrs[4] = [colors colorWithKey: @"controlDarkShadowColor"];
+    colrs[5] = [colors colorWithKey: @"controlColor"];
+    colrs[6] = [colors colorWithKey: @"controlColor"];
+    colrs[7] = [colors colorWithKey: @"controlDarkShadowColor"];
 
     if ([[NSView focusView] isFlipped] == YES)
     {
@@ -76,32 +70,34 @@
 
     [bgd set];
     NSRectFill (frame);
+    
+    text = @"NSTextField";
+    textRect = NSInsetRect(frame, 3, 0);
+    attrs = [NSDictionary dictionaryWithObject:[colors colorWithKey: @"controlTextColor"] forKey:NSForegroundColorAttributeName];
+    [text drawInRect:textRect withAttributes:attrs];
 } 
 
 - (void) drawButton: (NSRect) border : (NSRect) clip
 {
-    NSColor *black;
-    NSColor *dark;
-    NSColor *white;
-    NSColor *bgd;
+    NSColor *background;
     NSColor *colrs[6];
-
-    NSRectEdge up_sides[] = {NSMaxXEdge, NSMinYEdge, NSMinXEdge,
-                            NSMaxYEdge, NSMaxXEdge, NSMinYEdge};
-    NSRectEdge dn_sides[] = {NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
-                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge};
+    NSString *text;
+    NSDictionary *attrs;
     NSRect frame;
+    NSRect textRect;
     
-    black = [colors colorWithKey: @"controlDarkShadowColor"];
-    dark = [colors colorWithKey: @"controlShadowColor"];
-    white = [colors colorWithKey: @"controlLightHighlightColor"];
-    bgd = [colors colorWithKey: @"controlBackgroundColor"];
-    colrs[0] = black;
-    colrs[1] = black;
-    colrs[2] = white;
-    colrs[3] = white;
-    colrs[4] = dark;
-    colrs[5] = dark;
+    NSRectEdge up_sides[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+                            NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
+    NSRectEdge dn_sides[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
+
+    background = [colors colorWithKey: @"controlBackgroundColor"];
+    colrs[0] = [colors colorWithKey: @"controlDarkShadowColor"];
+    colrs[1] = [colors colorWithKey: @"controlDarkShadowColor"];
+    colrs[2] = [colors colorWithKey: @"controlLightHighlightColor"];
+    colrs[3] = [colors colorWithKey: @"controlLightHighlightColor"];
+    colrs[4] = [colors colorWithKey: @"controlShadowColor"];
+    colrs[5] = [colors colorWithKey: @"controlShadowColor"];
     
     if ([[NSView focusView] isFlipped] == YES)
     {
@@ -111,8 +107,13 @@
     	frame = NSDrawColorTiledRects(border, clip, up_sides, colrs, 6);
     }
 
-    [bgd set];
+    [background set];
     NSRectFill (frame);
+    
+    text = @"NSButton";
+    attrs = [NSDictionary dictionaryWithObject:[colors colorWithKey: @"controlTextColor"] forKey:NSForegroundColorAttributeName];
+    textRect = NSInsetRect(frame, (NSWidth(frame) - [text sizeWithAttributes:attrs].width) / 2, 0);
+    [text drawInRect:textRect withAttributes:attrs];
 }
 
 - (void) drawSlider: (NSRect)border : (NSRect)clip
