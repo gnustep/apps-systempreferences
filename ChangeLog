@@ -1,3 +1,7 @@
+2006-09-26  Enrico Sersale <enrico.sersale@gmail.com>
+
+	* Modules/Fonts/FontModule.m: impemented -willUnselect (by Ingolf Jandt <i.jandt@web.de>)
+
 2006-09-25  Riccardo Mottola <riccardo@kaffe.org>
 	* Modules/ColorSchemes/NSColorStringMethods.h:
 	removed useless declaration

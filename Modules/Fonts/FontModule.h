@@ -37,6 +37,7 @@
 - (void) setButtonAction: (id)sender;
 - (void) updatePreview;
 - (void) changeFont: (id) sender;
+- (void) willUnselect;
 - (void) dealloc;
 @end
 

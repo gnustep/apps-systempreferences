@@ -126,6 +126,12 @@
     }
 }
 
+-(void) willUnselect
+{
+  NSFontPanel *panel = [[NSFontManager sharedFontManager] fontPanel:NO];
+  if (panel!=nil) [panel close];
+}
+
 -(void) dealloc
 {
   [fontKeys release];
