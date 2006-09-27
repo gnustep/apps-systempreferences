@@ -118,16 +118,57 @@
 
 - (void) drawSlider: (NSRect)border : (NSRect)clip
 {
-    NSColor *black = [colors colorWithKey: @"controlShadowColor"];
-    NSColor *bgd = [colors colorWithKey: @"scrollBarColor"];
+    NSColor *colrs[6];
+    NSColor *shadow;
+    NSColor *bgd;
+    NSColor *knobColor;
+    NSRectEdge up_sides[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+                            NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
+    NSRectEdge dn_sides[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
+    NSRect frame;
+    NSRect knobFrame;
+    NSImage *dimpleImage;
+    NSPoint dimplePoint;
 
-    NSRect frame =  NSInsetRect (border, 2, 2);
+    shadow = [colors colorWithKey: @"controlShadowColor"];
+    bgd = [colors colorWithKey: @"scrollBarColor"];
+    knobColor = [colors colorWithKey: @"knobColor"];
+    
+    colrs[0] = [colors colorWithKey: @"controlDarkShadowColor"];
+    colrs[1] = [colors colorWithKey: @"controlDarkShadowColor"];
+    colrs[2] = [colors colorWithKey: @"controlLightHighlightColor"];
+    colrs[3] = [colors colorWithKey: @"controlLightHighlightColor"];
+    colrs[4] = [colors colorWithKey: @"controlShadowColor"];
+    colrs[5] = [colors colorWithKey: @"controlShadowColor"];
 
-    [black set];
+    frame =  NSInsetRect (border, 2, 2);
+
+    [shadow set];
     NSFrameRect (border);
 
     [bgd set];
     NSRectFill (frame);
+    
+    knobFrame = NSInsetRect(frame, 0, NSHeight(frame) / 4);
+    
+    // draw the knob
+    if ([[NSView focusView] isFlipped] == YES)
+    {
+    	knobFrame = NSDrawColorTiledRects(knobFrame, clip, dn_sides, colrs, 6);
+    } else
+    {
+    	knobFrame = NSDrawColorTiledRects(knobFrame, clip, up_sides, colrs, 6);
+    }
+    [knobColor set];
+    NSRectFill (knobFrame);
+    
+    dimpleImage = [NSImage imageNamed:@"common_Dimple"];
+    dimplePoint = NSMakePoint(
+    	NSMidX(knobFrame) - [dimpleImage size].width / 2,
+    	NSMidY(knobFrame) - [dimpleImage size].height / 2
+	);
+    [dimpleImage compositeToPoint:dimplePoint operation:NSCompositeSourceOver];
 }
 
 - (void) drawRect: (NSRect)rect
