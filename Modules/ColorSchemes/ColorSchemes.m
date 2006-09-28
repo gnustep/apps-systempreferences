@@ -30,6 +30,7 @@
 - (void) dealloc
 {
     [dictSchemes release];
+    [super dealloc];
 }
 
 
@@ -114,7 +115,7 @@
 {
   if (loaded == NO)
   {
-       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+       [NSUserDefaults standardUserDefaults];
        loaded = YES;
   }
   dictSchemes = [[self searchSchemes] retain];
@@ -130,6 +131,14 @@
   [self settingsAction:self];
 }
 
+-(void) willUnselect
+{
+  NSColorPanel *panel = [NSColorPanel sharedColorPanel];
+
+  if ([panel isVisible]) {
+    [panel close];  
+  }
+}
 
 - (void)interpretColorScheme:(NSDictionary *)scheme
 {
