@@ -21,6 +21,10 @@
 #  Boston, MA 02111 USA
 #
 
+# Install into the system root by default
+GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
+RPM_DISABLE_RELOCATABLE=YES
+
 # This usually happens when you source GNUstep.sh, then run ./configure,
 # then log out, then log in again and try to compile
 ifeq ($(GNUSTEP_MAKEFILES),)
