@@ -1,3 +1,9 @@
+2006-10-21  Riccardo Mottola <riccardo@kaffe.org>
+
+	* Modules/ColorSchemes/PreviewView.m,
+	Modules/ColorSchemes/PreviewView.h:
+	some refactoring
+
 2006-09-30  Enrico Sersale <enrico@fibernet.ro>
 
 	* Modules/TimeZone/Resources/zones.db:
