@@ -173,20 +173,19 @@
 
 - (void) drawRect: (NSRect)rect
 {
-    NSRect  slider = NSMakeRect (rect.origin.x, rect.origin.y,
-                                22, rect.size.height);
-    NSRect  text = NSMakeRect (rect.origin.x + 30, rect.origin.y + 40,
-                               rect.size.width - 38, 24);
-    NSRect  button = NSMakeRect ((rect.origin.x + rect.size.width) - (64+8), 8,
-                                 64, 24);
-
+    nsSlider = NSMakeRect (rect.origin.x, rect.origin.y,
+                         22, rect.size.height);
+    nsTextField = NSMakeRect (rect.origin.x + 30, rect.origin.y + 40,
+                       rect.size.width - 38, 24);
+    nsButton = NSMakeRect ((rect.origin.x + rect.size.width) - (64+8), 8,
+                         64, 24);
     [[colors colorWithKey: @"windowBackgroundColor"] set];
 
     NSRectFill (rect);
 
-    [self drawTextfield: text : rect];
-    [self drawSlider: slider : rect];
-    [self drawButton: button : rect];
+    [self drawTextfield: nsTextField : rect];
+    [self drawSlider: nsSlider : rect];
+    [self drawButton: nsButton : rect];
 }
 
 @end

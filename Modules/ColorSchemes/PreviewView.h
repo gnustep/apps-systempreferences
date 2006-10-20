@@ -28,7 +28,10 @@
 
 @interface PreviewView: NSView
 {
-    NSColorList *colors;	
+    NSColorList *colors;
+    NSRect      nsSlider;
+    NSRect      nsTextField;
+    NSRect      nsButton;
 }
 
 - (void) drawButton: (NSRect)rect : (NSRect) clip;
