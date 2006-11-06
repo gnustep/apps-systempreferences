@@ -21,6 +21,9 @@
 #  Boston, MA 02111 USA
 #
 
+VERSION = 1.0.1
+PACKAGE_NAME = SystemPreferences 
+
 # Install into the system root by default
 GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 RPM_DISABLE_RELOCATABLE=YES
