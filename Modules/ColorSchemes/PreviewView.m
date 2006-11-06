@@ -119,18 +119,12 @@
 - (void) drawRadio: (NSRect) border : (NSRect) clip
 {
     NSColor *background;
-    NSColor *colrs[6];
     NSString *text;
     NSDictionary *attrs;
     NSRect frame;
     NSRect textRect;
     NSImage *radioImage;
     NSPoint radioPoint;
-
-    NSRectEdge edgesFlipUp[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
-                            NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
-    NSRectEdge edgesFlipDown[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
-                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
 
     background = [colors colorWithKey: @"controlBackgroundColor"];
 
@@ -213,7 +207,7 @@
                          22, rect.size.height);
     nsTextField = NSMakeRect (rect.origin.x + 30, rect.size.height - 30,
                        rect.size.width - 38, 24);
-    nsButton = NSMakeRect ((rect.origin.x + rect.size.width) - (64+8), rect.size.height - 60,
+    nsButton = NSMakeRect (rect.origin.x + 30, rect.size.height - 60,
                          64, 24);
     nsRadio = NSMakeRect (rect.origin.x + 30, rect.size.height - 90,
                          64, 24);
