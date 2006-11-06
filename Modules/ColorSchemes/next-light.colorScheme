@@ -1,0 +1,31 @@
+{
+    Name = "GNUstep lighter";
+    controlBackgroundColor = "0.75 0.75 0.75";
+    controlColor = "0.75 0.75 0.75";
+    controlDarkShadowColor = "0 0 0";
+    controlHighlightColor = "0.75 0.75 0.75";
+    controlLightHighlightColor = "1 1 1";
+    controlShadowColor = "0.5 0.5 0.5";
+    controlTextColor = "0 0 0";
+    disabledControlTextColor = "0.5 0.5 0.5";
+    gridColor = "0.5 0.5 0.5";
+    headerColor = "0.75 0.75 0.75";
+    headerTextColor = "0 0 0";
+    highlightColor = "1 1 1";
+    keyboardFocusIndicatorColor = "0 0 0";
+    knobColor = "0.75 0.75 0.75";
+    scrollBarColor = "0.5 0.5 0.5";
+    selectedControlColor = "1 1 1";
+    selectedControlTextColor = "0 0 0";
+    selectedKnobColor = "0.75 0.75 0.75";
+    selectedMenuItemColor = "1 1 1";
+    selectedMenuItemTextColor = "0 0 0";
+    selectedTextBackgroundColor = "0.75 0.75 0.75";
+    selectedTextColor = "0 0 0";
+    shadowColor = "0 0 0";
+    textBackgroundColor = "1 1 1";
+    textColor = "0 0 0";
+    windowBackgroundColor = "0.75 0.75 0.75";
+    windowFrameColor = "0 0 0";
+    windowFrameTextColor = "1 1 1";
+}
