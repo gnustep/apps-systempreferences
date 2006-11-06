@@ -44,9 +44,9 @@
     NSDictionary *attrs;
     NSRect frame;
     NSRect textRect;    
-    NSRectEdge up_sides[] = { NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipUp[] = { NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge,
                              NSMaxYEdge, NSMaxXEdge, NSMinYEdge, NSMinXEdge };
-    NSRectEdge dn_sides[] = { NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipDown[] = { NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
                              NSMinYEdge, NSMaxXEdge, NSMaxYEdge, NSMinXEdge };
 
 	
@@ -62,10 +62,10 @@
 
     if ([[NSView focusView] isFlipped] == YES)
     {
-    	frame = NSDrawColorTiledRects(border, clip, dn_sides, colrs, 8);
+    	frame = NSDrawColorTiledRects(border, clip, edgesFlipDown, colrs, 8);
     } else
     {
-    	frame = NSDrawColorTiledRects(border, clip, up_sides, colrs, 8);
+    	frame = NSDrawColorTiledRects(border, clip, edgesFlipUp, colrs, 8);
     }
 
     [bgd set];
@@ -86,9 +86,9 @@
     NSRect frame;
     NSRect textRect;
     
-    NSRectEdge up_sides[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipUp[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
                             NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
-    NSRectEdge dn_sides[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipDown[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
                              NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
 
     background = [colors colorWithKey: @"controlBackgroundColor"];
@@ -101,10 +101,10 @@
     
     if ([[NSView focusView] isFlipped] == YES)
     {
-    	frame = NSDrawColorTiledRects(border, clip, dn_sides, colrs, 6);
+    	frame = NSDrawColorTiledRects(border, clip, edgesFlipDown, colrs, 6);
     } else
     {
-    	frame = NSDrawColorTiledRects(border, clip, up_sides, colrs, 6);
+    	frame = NSDrawColorTiledRects(border, clip, edgesFlipUp, colrs, 6);
     }
 
     [background set];
@@ -127,9 +127,9 @@
     NSImage *radioImage;
     NSPoint radioPoint;
 
-    NSRectEdge up_sides[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipUp[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
                             NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
-    NSRectEdge dn_sides[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipDown[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
                              NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
 
     background = [colors colorWithKey: @"controlBackgroundColor"];
@@ -158,9 +158,9 @@
     NSColor *shadow;
     NSColor *bgd;
     NSColor *knobColor;
-    NSRectEdge up_sides[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipUp[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
                             NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
-    NSRectEdge dn_sides[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+    NSRectEdge edgesFlipDown[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
                              NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
     NSRect frame;
     NSRect knobFrame;
@@ -191,10 +191,10 @@
     // draw the knob
     if ([[NSView focusView] isFlipped] == YES)
     {
-    	knobFrame = NSDrawColorTiledRects(knobFrame, clip, dn_sides, colrs, 6);
+    	knobFrame = NSDrawColorTiledRects(knobFrame, clip, edgesFlipDown, colrs, 6);
     } else
     {
-    	knobFrame = NSDrawColorTiledRects(knobFrame, clip, up_sides, colrs, 6);
+    	knobFrame = NSDrawColorTiledRects(knobFrame, clip, edgesFlipUp, colrs, 6);
     }
     [knobColor set];
     NSRectFill (knobFrame);
