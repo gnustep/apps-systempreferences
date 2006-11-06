@@ -1,3 +1,13 @@
+1006-11-06  Riccardo Mottola <riccardo@kaffe.org>
+
+	* GNUmakefile: added package name and version
+	* Modules/ColorSchemes/GNUmakefile.postamble: added
+	* Modules/ColorSchemes/PreviewView.m,
+	Modules/ColorSchemes/PreviewView.h:
+	refactored, cleaned and added Radio
+	
+	added some colorschemes.
+
 2006-10-21  Riccardo Mottola <riccardo@kaffe.org>
 
 	* Modules/ColorSchemes/PreviewView.m,
