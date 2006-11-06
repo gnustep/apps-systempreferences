@@ -32,6 +32,7 @@
     NSRect      nsSlider;
     NSRect      nsTextField;
     NSRect      nsButton;
+    NSRect      nsRadio;
 }
 
 - (void) drawButton: (NSRect)rect : (NSRect) clip;

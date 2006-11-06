@@ -72,8 +72,8 @@
     NSRectFill (frame);
     
     text = @"NSTextField";
-    textRect = NSInsetRect(frame, 3, 0);
     attrs = [NSDictionary dictionaryWithObject:[colors colorWithKey: @"controlTextColor"] forKey:NSForegroundColorAttributeName];
+    textRect = NSInsetRect(frame, 3, (NSHeight(frame) - [text sizeWithAttributes:attrs].height) / 2);
     [text drawInRect:textRect withAttributes:attrs];
 } 
 
@@ -112,7 +112,43 @@
     
     text = @"NSButton";
     attrs = [NSDictionary dictionaryWithObject:[colors colorWithKey: @"controlTextColor"] forKey:NSForegroundColorAttributeName];
-    textRect = NSInsetRect(frame, (NSWidth(frame) - [text sizeWithAttributes:attrs].width) / 2, 0);
+    textRect = NSInsetRect(frame, (NSWidth(frame) - [text sizeWithAttributes:attrs].width) / 2, (NSHeight(frame) - [text sizeWithAttributes:attrs].height) / 2);
+    [text drawInRect:textRect withAttributes:attrs];
+}
+
+- (void) drawRadio: (NSRect) border : (NSRect) clip
+{
+    NSColor *background;
+    NSColor *colrs[6];
+    NSString *text;
+    NSDictionary *attrs;
+    NSRect frame;
+    NSRect textRect;
+    NSImage *radioImage;
+    NSPoint radioPoint;
+
+    NSRectEdge up_sides[] = { NSMaxXEdge, NSMinYEdge, NSMinXEdge,
+                            NSMaxYEdge, NSMaxXEdge, NSMinYEdge };
+    NSRectEdge dn_sides[] = { NSMaxXEdge, NSMaxYEdge, NSMinXEdge,
+                             NSMinYEdge, NSMaxXEdge, NSMaxYEdge };
+
+    background = [colors colorWithKey: @"controlBackgroundColor"];
+
+    frame = NSMakeRect(border.origin.x, border.origin.y, border.size.width, border.size.height);;
+    
+    [background set];
+    NSRectFill (frame);
+    
+    radioImage = [NSImage imageNamed:@"common_RadioOn"];
+    radioPoint = NSMakePoint(
+	frame.origin.x,
+	frame.origin.y + (NSHeight(frame) - [radioImage size].height) / 2
+	);
+    [radioImage compositeToPoint:radioPoint operation:NSCompositeSourceOver];
+
+    text = @"Radio";
+    attrs = [NSDictionary dictionaryWithObject:[colors colorWithKey: @"controlTextColor"] forKey:NSForegroundColorAttributeName];
+    textRect = NSInsetRect(NSMakeRect(frame.origin.x + [radioImage size].width + 5, frame.origin.y, frame.size.width - [radioImage size].width - 5, frame.size.height), 0, (NSHeight(frame) - [text sizeWithAttributes:attrs].height)/ 2);
     [text drawInRect:textRect withAttributes:attrs];
 }
 
@@ -175,9 +211,11 @@
 {
     nsSlider = NSMakeRect (rect.origin.x, rect.origin.y,
                          22, rect.size.height);
-    nsTextField = NSMakeRect (rect.origin.x + 30, rect.origin.y + 40,
+    nsTextField = NSMakeRect (rect.origin.x + 30, rect.size.height - 30,
                        rect.size.width - 38, 24);
-    nsButton = NSMakeRect ((rect.origin.x + rect.size.width) - (64+8), 8,
+    nsButton = NSMakeRect ((rect.origin.x + rect.size.width) - (64+8), rect.size.height - 60,
+                         64, 24);
+    nsRadio = NSMakeRect (rect.origin.x + 30, rect.size.height - 90,
                          64, 24);
     [[colors colorWithKey: @"windowBackgroundColor"] set];
 
@@ -186,6 +224,7 @@
     [self drawTextfield: nsTextField : rect];
     [self drawSlider: nsSlider : rect];
     [self drawButton: nsButton : rect];
+    [self drawRadio: nsRadio : rect];
 }
 
 @end
