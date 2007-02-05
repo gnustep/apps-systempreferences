@@ -26,11 +26,7 @@
 #define MODIFIER_KEYS_H
 
 #include <Foundation/Foundation.h>
-#ifdef __APPLE__
-  #include <GSPreferencePanes/PreferencePanes.h>
-#else
-  #include <PreferencePanes/PreferencePanes.h>
-#endif
+#include "PreferencePanes.h"
 
 @interface ModifierKeys : NSPreferencePane
 {

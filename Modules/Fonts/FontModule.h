@@ -15,14 +15,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
  */
 
-#include <AppKit/AppKit.h>
 #include <Foundation/Foundation.h>
-
-#ifdef __APPLE__
-  #include <GSPreferencePanes/PreferencePanes.h>
-#else
-  #include <PreferencePanes/PreferencePanes.h>
-#endif
+#include <AppKit/AppKit.h>
+#include "PreferencePanes.h"
 
 @interface FontModule :  NSPreferencePane
 {

@@ -27,12 +27,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
-#ifdef __APPLE__
-  #include <GSPreferencePanes/PreferencePanes.h>
-#else
-  #include <PreferencePanes/PreferencePanes.h>
-#endif
-
+#include "PreferencePanes.h"
 #import "PreviewView.h"
 
 @interface ColorSchemes : NSPreferencePane

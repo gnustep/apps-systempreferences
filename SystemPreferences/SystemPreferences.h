@@ -26,11 +26,7 @@
 #define SYSTEM_PREFERENCES_H
 
 #include <Foundation/Foundation.h>
-#ifdef __APPLE__
-  #include <GSPreferencePanes/PreferencePanes.h>
-#else
-  #include <PreferencePanes/PreferencePanes.h>
-#endif
+#include "PreferencePanes.h"
 
 @class NSWindow;
 @class NSBox;

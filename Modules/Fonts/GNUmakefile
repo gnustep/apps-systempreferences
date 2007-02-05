@@ -28,3 +28,5 @@ endif
 
 include $(GNUSTEP_MAKEFILES)/bundle.make
 
+-include GNUmakefile.preamble
+-include GNUmakefile.postamble

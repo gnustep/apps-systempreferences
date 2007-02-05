@@ -39,7 +39,7 @@ include $(GNUSTEP_MAKEFILES)/common.make
 #
 # The list of subproject directories
 #
-SUBPROJECTS = PreferencePanes SystemPreferences Modules
+SUBPROJECTS = PreferencePanes Modules SystemPreferences
 
 -include Makefile.preamble
 
