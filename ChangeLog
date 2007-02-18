@@ -1,4 +1,10 @@
-1006-11-06  Riccardo Mottola <riccardo@kaffe.org>
+2007-02-18  Nicola Pero <nicola.pero@meta-innovation.com>
+
+	* Modules/ColorSchemes/GNUmakefile.postamble (after-install):
+	Create the GNUSTEP_LIBRARY/Colors directory before installing into
+	it.
+
+2006-11-06  Riccardo Mottola <riccardo@kaffe.org>
 
 	* GNUmakefile: added package name and version
 	* Modules/ColorSchemes/GNUmakefile.postamble: added

@@ -9,6 +9,7 @@
   
 # Things to do after installing
 after-install::
+	$(MKINSTALLDIRS) $(GNUSTEP_LIBRARY)/Colors
 	$(INSTALL) -m644 $(wildcard *.colorScheme) $(GNUSTEP_LIBRARY)/Colors
 
 # Things to do before uninstalling
