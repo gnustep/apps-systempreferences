@@ -6,7 +6,15 @@
 	* SystemPreferences/GNUmakefile.preamble: Fixed
 	ADDITIONAL_LIB_DIRS to work on MinGW (Problem reported by
 	xavier.glattard@online.fr).
-
+	* Modules/ColorSchemes/GNUmakefile.preamble: Same change.
+	* Modules/Defaults/GNUmakefile.preamble: Same change.
+	* Modules/Filesystem/GNUmakefile.preamble: Same change.
+	* Modules/Fonts/GNUmakefile.preamble: Same change.
+	* Modules/ModifierKeys/GNUmakefile.preamble: Same change.
+	* Modules/Template/GNUmakefile.preamble: Same change.
+	* Modules/Timezone/GNUmakefile.preamble: Same change.
+	* Modules/Volumes/GNUmakefile.preamble: Same change.
+	
 2007-02-18  Nicola Pero <nicola.pero@meta-innovation.com>
 
 	* Modules/ColorSchemes/GNUmakefile.postamble (after-install):
