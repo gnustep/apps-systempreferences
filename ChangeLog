@@ -1,3 +1,14 @@
+2007-03-07  Nicola Pero <nicola.pero@meta-innovation.com>
+
+	The application now compiles and runs on MinGW.
+	* SystemPreferences/SystemPreferences.m (changeFont:): New method
+	that forwards changeFont: to the current pane if it responds to
+	the selector.
+	* SystemPreferences/SystemPreferences.h (changeFont:): New method.
+	* Modules/Fonts/FontModule.m: Removed category/notification
+	workaround to get the changeFont: call.
+	* Modules/Fonts/FontModule.h: Removed category workaround.
+	
 2007-03-06  Nicola Pero <nicola.pero@meta-innovation.com>
 
 	* GNUmakefile (GNUSTEP_MAKEFILES): If not set, use gnustep-config

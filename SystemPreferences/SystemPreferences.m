@@ -215,6 +215,18 @@ static SystemPreferences *systemPreferences = nil;
   }
 }
 
+/*
+ * Forward changeFont: messages from the FontPanel to the current
+ * Pane.
+ */
+- (void) changeFont: (id)sender
+{
+  if ([currentPane respondsToSelector: @selector(changeFont:)])
+    {
+      [currentPane changeFont: sender];
+    }
+}
+
 - (void)clickOnIconOfPane:(id)pane
 {
   NSView *view = [pane loadMainView];

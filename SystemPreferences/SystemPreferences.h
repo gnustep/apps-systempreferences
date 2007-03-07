@@ -55,6 +55,8 @@
 
 - (void)addPanesFromDirectory:(NSString *)dir;
 
+- (void) changeFont: (id)sender;
+
 - (void)clickOnIconOfPane:(id)pane;
 
 - (IBAction)showAllButtAction:(id)sender;

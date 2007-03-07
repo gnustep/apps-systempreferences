@@ -36,16 +36,3 @@
 - (void) dealloc;
 @end
 
-
-/*Category to catch SystemPreferences' changeFont: action.
- *Workaround for PreferencePanes' not recieving the event.
- *Thanks to Enrico Sersale for the idea.
- */
-@interface SystemPreferences : NSObject
-{}
-@end
-
-@interface SystemPreferences (FontMethods)
-- (void)changeFont:(id)sender;
-@end
-

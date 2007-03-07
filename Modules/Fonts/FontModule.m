@@ -19,13 +19,6 @@
 #include "FontModule.h"
 
 #include <Foundation/NSNotification.h>
-@implementation SystemPreferences (FontMethods)
-- (void)changeFont:(id)sender
-{
-  [[NSNotificationCenter defaultCenter] postNotificationName: @"FontPaneShallChangeFont"
-					object: nil];
-}
-@end
 
 @implementation FontModule
 
@@ -47,11 +40,6 @@
 	    @"User Font", @"User Fixed-Pitch Font", nil]];
   [keyPopup selectItemAtIndex: 0];
 
-  [[NSNotificationCenter defaultCenter] addObserver: self
-                                       selector: @selector(changeFont:)
-                                       name: @"FontPaneShallChangeFont"
-                                       object: nil];
-
   [self updatePreview];
 }
 
@@ -62,29 +50,28 @@
 
 - (void) setButtonAction: (id)sender
 {
-  NSFontManager *fontMgr=[NSFontManager sharedFontManager];
-  [fontMgr setSelectedFont: [previewTextField font]isMultiple:NO];
+  NSFontManager *fontMgr = [NSFontManager sharedFontManager];
+  [fontMgr setSelectedFont: [previewTextField font]  isMultiple:NO];
   [fontMgr orderFrontFontPanel: self];
 }
 
 - (void) changeFont: (id) sender
 {
-  /* NSFont *newFont= [sender convertFont: [previewTextField font]];
-   * because of the workaround sender is now the notification center
-   */
-  NSFont *newFont= [[NSFontManager sharedFontManager] convertFont: [previewTextField font]];
-
+  NSFont *newFont= [sender convertFont: [previewTextField font]];
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSMutableDictionary *domain = [[defaults 
-			  persistentDomainForName: NSGlobalDomain] mutableCopy];
-  
+  NSMutableDictionary *domain = 
+    [[defaults 
+       persistentDomainForName: NSGlobalDomain] mutableCopy];
+
   if (newFont != nil)
     {
-      NSString *fontKey = [fontKeys objectAtIndex: [keyPopup indexOfSelectedItem]];
+      NSString *fontKey = [fontKeys objectAtIndex: 
+				      [keyPopup indexOfSelectedItem]];
 
       [domain setObject:[newFont fontName] 
 	      forKey: fontKey];
-      [domain setObject: [NSString stringWithFormat: @"%.1f", [newFont pointSize]]
+      [domain setObject: 
+		[NSString stringWithFormat: @"%.1f", [newFont pointSize]]
 	      forKey: [fontKey stringByAppendingString:@"Size"]];
 
       [defaults setPersistentDomain: domain forName: NSGlobalDomain];
@@ -109,8 +96,10 @@
       if (sizeString!=nil)
 	{
 	  fontSize=[sizeString floatValue];
-	  [previewTextField setFont: [NSFont fontWithName: fontName size:fontSize]];
-	  [previewTextField setStringValue: [fontName stringByAppendingFormat:
+	  [previewTextField setFont: [NSFont fontWithName: fontName 
+					     size:fontSize]];
+	  [previewTextField setStringValue: 
+			      [fontName stringByAppendingFormat:
 					  @", %.1f pt",	fontSize]];
 	}
       else
@@ -129,7 +118,10 @@
 -(void) willUnselect
 {
   NSFontPanel *panel = [[NSFontManager sharedFontManager] fontPanel:NO];
-  if (panel!=nil) [panel close];
+  if (panel!=nil)
+    {
+      [panel close];
+    }
 }
 
 -(void) dealloc
