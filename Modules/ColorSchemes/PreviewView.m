@@ -5,7 +5,8 @@
  * Author: Riccardo Mottola <riccardo@kaffe.org>
  * Date: September 2006
  *
- * Original idea from Preferences.app of the Backbone project
+ * Original idea from Preferences.app by Jeff Teunissen 
+ * of the Backbone project
  *
  * This file is part of the GNUstep ColorSchemes Preference Pane
  *
