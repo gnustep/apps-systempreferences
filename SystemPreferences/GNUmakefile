@@ -7,7 +7,7 @@ include $(GNUSTEP_MAKEFILES)/common.make
 
 PACKAGE_NAME = SystemPreferences
 APP_NAME = SystemPreferences
-VERSION = 1.0
+VERSION = 1.1
 SystemPreferences_PRINCIPAL_CLASS = SystemPreferences
 SystemPreferences_APPLICATION_ICON = SystemPreferences.tiff
 SystemPreferences_HAS_RESOURCE_BUNDLE = yes

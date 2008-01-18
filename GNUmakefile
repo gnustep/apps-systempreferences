@@ -21,7 +21,7 @@
 #  Boston, MA 02111 USA
 #
 
-VERSION = 1.0.1
+VERSION = 1.0.2
 PACKAGE_NAME = SystemPreferences 
 
 # This usually happens when you source GNUstep.sh, then run ./configure,
