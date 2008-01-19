@@ -1,3 +1,10 @@
+2008-01-19  Adam Fedor  <fedor@gnu.org>
+
+	* GNUmakefile: Add install domain so windows installer
+	can find it.
+	* SystemPreferences.nsi.in: New file
+	* README: Update.
+
 2008-01-18 18:23-EDT Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* Version 1.0.2

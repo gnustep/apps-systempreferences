@@ -20,9 +20,12 @@
 #  Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02111 USA
 #
+GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 VERSION = 1.0.2
 PACKAGE_NAME = SystemPreferences 
+SVN_MODULE_NAME = systempreferences
+SVN_BASE_URL=svn+ssh://svn.gna.org/svn/gnustep/apps
 
 # This usually happens when you source GNUstep.sh, then run ./configure,
 # then log out, then log in again and try to compile

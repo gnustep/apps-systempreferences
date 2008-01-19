@@ -1,3 +1,33 @@
+Introduction
+============
 
-This is the implementation of the PreferencePanes framework (NSPreferencePane) as described in the Apple Documentation.
+This is the implementation of the PreferencePanes framework (NSPreferencePane) 
+as described in the Apple Documentation.
+
+Inspiration for some of the panels comes from Jeff Teunissen's original
+Preferences application (Backbone project: http://www.nongnu.org/backbone/).
+
+License
+=======
+
+This GNUstep application is covered under the GNU
+Public License. This generally means if you make changes to these programs,
+you cannot charge a fee, other than distribution fees, for others to
+use the program. You should read the COPYING file for more information.
+
+How can you help?
+=================
+
+   * Give us feedback!  Tell us what you like; tell us what you think
+     could be better.
+
+     Please log bug reports on the GNUstep project page
+     <http://savannah.gnu.org/bugs/?group=gnustep> or send bug reports
+     to <bug-gnustep@gnu.org>.
+
+   Copyright (C) 2006 Free Software Foundation
+
+   Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
 
