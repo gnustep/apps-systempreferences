@@ -314,12 +314,12 @@ static SystemPreferences *systemPreferences = nil;
   [d setObject: @"System Preferences" forKey: @"ApplicationName"];
   [d setObject: @"GNUstep System Preferences" 
      forKey: @"ApplicationDescription"];
-  [d setObject: @"SystemPreferences 1.0.1" forKey: @"ApplicationRelease"];
-  [d setObject: @"02 2006" forKey: @"FullVersionID"];
+  [d setObject: @"SystemPreferences 1.0.2" forKey: @"ApplicationRelease"];
+  [d setObject: @"01 2008" forKey: @"FullVersionID"];
   [d setObject: [NSArray arrayWithObject: @"Enrico Sersale <enrico@dtedu.net>"]
      forKey: @"Authors"];
   [d setObject: @"See http://www.dtedu.net/systempreferences" forKey: @"URL"];
-  [d setObject: @"Copyright (C) 2005, 2006 Free Software Foundation, Inc."
+  [d setObject: @"Copyright (C) 2005-2008 Free Software Foundation, Inc."
         forKey: @"Copyright"];
   [d setObject: @"Released under the GNU General Public License 2.0"
      forKey: @"CopyrightDescription"];

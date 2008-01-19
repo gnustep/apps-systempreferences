@@ -3,5 +3,5 @@
     ApplicationDescription = "SystemPreferences";
     ApplicationIcon = "SystemPreferences.tiff";
     ApplicationName = SystemPreferences;
-    ApplicationRelease = "1.0";
+    ApplicationRelease = "1.0.2";
 }
