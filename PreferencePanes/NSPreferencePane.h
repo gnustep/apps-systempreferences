@@ -26,6 +26,7 @@
 #define NS_PREFERENCE_PANE_H
 
 #include <Foundation/Foundation.h>
+#include <AppKit/NSNibDeclarations.h>
 
 typedef enum {
   NSUnselectCancel,	
