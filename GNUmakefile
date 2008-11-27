@@ -20,7 +20,6 @@
 #  Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02111 USA
 #
-GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 VERSION = 1.0.2
 PACKAGE_NAME = SystemPreferences 
