@@ -1,3 +1,9 @@
+2009-01-09 13:38-EST Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* PreferencePanes/NSPreferencePane.m: Remove checks for 
+	"GSPrefPaneIconFile", "GSPrefPaneIconLabel", "NSExecutable",
+	"NSMainNibFile","NSPrincipalClass"
+
 2009-01-09 10:12-EST Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* PreferencePanes/NSPreferencePane.m: Try Info-gnustep.plist if

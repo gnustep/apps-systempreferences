@@ -38,7 +38,7 @@
 
 - (NSDictionary *) checkDictionaryAtPath: (NSString *)path
 {
-#define CHECK_ENTRY(x) if ([dict objectForKey: x] == nil) return nil
+  // #define CHECK_ENTRY(x) if ([dict objectForKey: x] == nil) return nil
 
   if (path)
     {
@@ -47,6 +47,10 @@
       if (dict)
 	{
 	  NSString *identstr = [dict objectForKey: @"GSBundleIdentifier"];
+	  if(identstr == nil || [identstr isEqual: @""])
+	    {
+	      identstr = [dict objectForKey: @"CFBundleIdentifier"];
+	    }
 
 	  if (identstr)
 	    {
@@ -68,11 +72,11 @@
 	      return nil;
 	    }
 
-	  CHECK_ENTRY (@"GSPrefPaneIconFile");
-	  CHECK_ENTRY (@"GSPrefPaneIconLabel");
-	  CHECK_ENTRY (@"NSExecutable");
-	  CHECK_ENTRY (@"NSMainNibFile");
-	  CHECK_ENTRY (@"NSPrincipalClass");
+	  // CHECK_ENTRY (@"GSPrefPaneIconFile");
+	  // CHECK_ENTRY (@"GSPrefPaneIconLabel");
+	  // CHECK_ENTRY (@"NSExecutable");
+	  // CHECK_ENTRY (@"NSMainNibFile");
+	  // CHECK_ENTRY (@"NSPrincipalClass");
 
 	  return dict;
 	}
