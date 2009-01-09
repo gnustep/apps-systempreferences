@@ -127,16 +127,24 @@
   if (self)
     {
       NSString *path = [bundle pathForResource: @"Info" ofType: @"plist"];
-
       _info = [self checkDictionaryAtPath: path];
       if (_info == nil)
 	{
-	  [NSException raise: NSInternalInconsistencyException
-		      format: @"Bad Info.plist dictionary!"];
-	  DESTROY (self);
-	  return self;
+	  // If the Info.plist doesn't work, then try to use the generated
+	  // Info-gnustep.plist as a last resort.
+	  path = [bundle pathForResource: @"Info-gnustep" ofType: @"plist"];
+	  _info = [self checkDictionaryAtPath: path];
+	  if(_info == nil)
+	    {
+	      [NSException raise: NSInternalInconsistencyException
+			   format: @"Bad Info.plist dictionary!"];
+	      DESTROY (self);
+	      return self;
+	    }
 	}
-      else
+
+      // if we got a valid dictionary...
+      if(_info != nil)
 	{
 	  RETAIN (_info);
 	  ASSIGN (_bundle, bundle);
@@ -220,7 +228,7 @@
       name = [name stringByDeletingPathExtension];
     }
 
-  return ((name != nil) ? name : @"Main");
+  return ((name != nil) ? name : (NSString *)@"Main");
 }
 
 - (NSView *) mainView
