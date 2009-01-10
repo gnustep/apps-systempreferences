@@ -15,7 +15,6 @@ FontModule_PRINCIPAL_CLASS = FontModule
 
 FontModule_RESOURCE_FILES = \
 FontModule.tiff \
-Info.plist \
 Resources/English.lproj 
 
 ifeq ($(findstring darwin, $(GNUSTEP_TARGET_OS)), darwin)

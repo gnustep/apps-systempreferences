@@ -14,7 +14,6 @@ ColorSchemes_OBJC_FILES = NSColorStringMethods.m PreviewView.m ColorSchemes.m
 ColorSchemes_PRINCIPAL_CLASS = ColorSchemes
 
 ColorSchemes_RESOURCE_FILES = \
-Info.plist \
 ColorSchemes.tiff \
 Resources/English.lproj 
 

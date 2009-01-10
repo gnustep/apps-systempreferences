@@ -14,7 +14,6 @@ FileSystem_OBJC_FILES = FileSystem.m
 FileSystem_PRINCIPAL_CLASS = FileSystem
 
 FileSystem_RESOURCE_FILES = \
-Info.plist \
 FileSystem.tiff \
 Resources/English.lproj 
 

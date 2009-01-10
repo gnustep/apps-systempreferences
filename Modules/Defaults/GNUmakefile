@@ -14,7 +14,6 @@ Defaults_OBJC_FILES = Defaults.m
 Defaults_PRINCIPAL_CLASS = Defaults
 
 Defaults_RESOURCE_FILES = \
-Info.plist \
 Defaults.tiff \
 Resources/English.lproj 
 

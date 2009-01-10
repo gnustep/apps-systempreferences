@@ -35,9 +35,10 @@ static SystemPreferences *systemPreferences = nil;
 
 + (id)systemPreferences
 {
-	if (systemPreferences == nil) {
-		systemPreferences = [[SystemPreferences alloc] init];
-	}	
+  if (systemPreferences == nil)
+    {
+      systemPreferences = [[SystemPreferences alloc] init];
+    }	
   return systemPreferences;
 }
 
@@ -49,7 +50,7 @@ static SystemPreferences *systemPreferences = nil;
   RELEASE (panes);
   RELEASE (iconsView);
     
-	[super dealloc];
+  [super dealloc];
 }
 
 - (id)init
@@ -63,15 +64,15 @@ static SystemPreferences *systemPreferences = nil;
     fm = [NSFileManager defaultManager];
     nc = [NSNotificationCenter defaultCenter];
 
-	  [nc addObserver: self
-	         selector: @selector(paneUnselectNotification:)
-		           name: @"NSPreferencePaneDoUnselectNotification"
-		         object: nil];
+    [nc addObserver: self
+	   selector: @selector(paneUnselectNotification:)
+	       name: @"NSPreferencePaneDoUnselectNotification"
+	     object: nil];
 
-	  [nc addObserver: self
-	         selector: @selector(paneUnselectNotification:)
-		           name: @"NSPreferencePaneCancelUnselectNotification"
-		         object: nil];
+    [nc addObserver: self
+	   selector: @selector(paneUnselectNotification:)
+	       name: @"NSPreferencePaneCancelUnselectNotification"
+	     object: nil];
 
     pendingAction = NULL;
   }
@@ -84,7 +85,7 @@ static SystemPreferences *systemPreferences = nil;
   unsigned int style = NSTitledWindowMask | NSMiniaturizableWindowMask;
   NSString *bundlesDir;
   
-	if ([NSBundle loadNibNamed: nibName owner: self] == NO) {
+  if ([NSBundle loadNibNamed: nibName owner: self] == NO) {
     NSLog(@"failed to load %@!", nibName);
     [NSApp terminate: self];
   } 
@@ -130,12 +131,11 @@ static SystemPreferences *systemPreferences = nil;
     CREATE_AUTORELEASE_POOL (pool);
     NSPreferencePane *pane = [panes objectAtIndex: i];
     NSBundle *bundle = [pane bundle];
+    NSDictionary *dict = [bundle infoDictionary];
     /* 
       All the following objects are guaranted to exist because they are 
       checked in the -initWithBundle: method of the NSPreferencePane class.    
     */
-    NSString *path = [bundle pathForResource: @"Info" ofType: @"plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
     NSString *iname = [dict objectForKey: @"GSPrefPaneIconFile"];
     NSString *ipath = [bundle pathForResource: iname ofType: nil];
     NSImage *image = [[NSImage alloc] initWithContentsOfFile: ipath];
@@ -330,7 +330,7 @@ static SystemPreferences *systemPreferences = nil;
 - (BOOL)windowShouldClose:(id)sender
 {
   [self updateDefaults];
-	return YES;
+  return YES;
 }
 
 @end

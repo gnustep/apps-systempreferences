@@ -14,7 +14,6 @@ TemplateModule_OBJC_FILES = TemplateModule.m
 TemplateModule_PRINCIPAL_CLASS = TemplateModule
 
 TemplateModule_RESOURCE_FILES = \
-Info.plist \
 TemplateModule.tiff \
 Resources/English.lproj 
 

@@ -27,7 +27,7 @@
 
 @interface NSPreferencePane (private)
 
-- (NSDictionary *) checkDictionaryAtPath: (NSString *)path;
+- (NSDictionary *) checkDictionary: (NSDictionary*)dict;
 
 - (NSString *) uniqueIdentifier;
 
@@ -36,50 +36,44 @@
 
 @implementation NSPreferencePane (private)
 
-- (NSDictionary *) checkDictionaryAtPath: (NSString *)path
+- (NSDictionary *) checkDictionary: (NSDictionary*)dict
 {
   // #define CHECK_ENTRY(x) if ([dict objectForKey: x] == nil) return nil
-
-  if (path)
+  if (dict)
     {
-      NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+      NSString *identstr = [dict objectForKey: @"GSBundleIdentifier"];
 
-      if (dict)
+      if (identstr)
 	{
-	  NSString *identstr = [dict objectForKey: @"GSBundleIdentifier"];
+	  NSArray		*components;
+	  NSMutableString	*str;
+	  unsigned		i;
 	  if(identstr == nil || [identstr isEqual: @""])
 	    {
 	      identstr = [dict objectForKey: @"CFBundleIdentifier"];
 	    }
 
-	  if (identstr)
+	  components = [identstr componentsSeparatedByString: @"."];
+	  str = [NSMutableString stringWithCapacity: 32];
+	  for (i = 0; i < [components count]; i++)
 	    {
-	      NSArray		*components;
-	      NSMutableString	*str;
-	      unsigned		i;
-
-	      components = [identstr componentsSeparatedByString: @"."];
-	      str = [NSMutableString stringWithCapacity: 32];
-	      for (i = 0; i < [components count]; i++)
-		{
-		  [str appendString:
-		    [[components objectAtIndex: i] capitalizedString]];
-		}
-	      uniqueIdentifier = [[NSString alloc] initWithString: str];
+	      [str appendString:
+		[[components objectAtIndex: i] capitalizedString]];
 	    }
-	  else
-	    {
-	      return nil;
-	    }
-
-	  // CHECK_ENTRY (@"GSPrefPaneIconFile");
-	  // CHECK_ENTRY (@"GSPrefPaneIconLabel");
-	  // CHECK_ENTRY (@"NSExecutable");
-	  // CHECK_ENTRY (@"NSMainNibFile");
-	  // CHECK_ENTRY (@"NSPrincipalClass");
-
-	  return dict;
+	  uniqueIdentifier = [[NSString alloc] initWithString: str];
 	}
+      else
+	{
+	  return nil;
+	}
+
+      CHECK_ENTRY (@"GSPrefPaneIconFile");
+      CHECK_ENTRY (@"GSPrefPaneIconLabel");
+      CHECK_ENTRY (@"NSExecutable");
+      CHECK_ENTRY (@"NSMainNibFile");
+      CHECK_ENTRY (@"NSPrincipalClass");
+
+      return dict;
     }
   return nil;
 }
@@ -115,7 +109,6 @@
 - (void) dealloc
 {
   TEST_RELEASE (_bundle);
-  TEST_RELEASE (_info);
   TEST_RELEASE (_mainView);
   TEST_RELEASE (uniqueIdentifier);
   [super dealloc];
@@ -130,28 +123,13 @@
 
   if (self)
     {
-      NSString *path = [bundle pathForResource: @"Info" ofType: @"plist"];
-      _info = [self checkDictionaryAtPath: path];
-      if (_info == nil)
-	{
-	  // If the Info.plist doesn't work, then try to use the generated
-	  // Info-gnustep.plist as a last resort.
-	  path = [bundle pathForResource: @"Info-gnustep" ofType: @"plist"];
-	  _info = [self checkDictionaryAtPath: path];
-	  if(_info == nil)
-	    {
-	      [NSException raise: NSInternalInconsistencyException
-			   format: @"Bad Info.plist dictionary!"];
-	      DESTROY (self);
-	      return self;
-	    }
-	}
-
-      // if we got a valid dictionary...
-      if(_info != nil)
-	{
-	  RETAIN (_info);
+      if ([self checkDictionary: [bundle infoDictionary]])
+        {
 	  ASSIGN (_bundle, bundle);
+	}
+      else
+	{
+	  DESTROY(self);
 	}
     }
 
@@ -225,7 +203,7 @@
 
 - (NSString *) mainNibName
 {
-  NSString *name = [_info objectForKey: @"NSMainNibFile"];
+  NSString *name = [[_bundle infoDictionary] objectForKey: @"NSMainNibFile"];
 
   if (name)
     {
@@ -351,7 +329,7 @@
 
 - (NSString *) iconLabel
 {
-  return [_info objectForKey: @"GSPrefPaneIconLabel"];
+  return [[_bundle infoDictionary] objectForKey: @"GSPrefPaneIconLabel"];
 }
 
 - (NSComparisonResult) comparePane:(id)other

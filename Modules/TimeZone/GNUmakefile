@@ -16,7 +16,6 @@ MapView.m
 TimeZone_PRINCIPAL_CLASS = TimeZone
 
 TimeZone_RESOURCE_FILES = \
-Info.plist \
 TimeZone.tiff \
 Resources/English.lproj \
 Resources/zones.db \

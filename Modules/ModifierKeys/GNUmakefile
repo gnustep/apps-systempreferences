@@ -14,7 +14,6 @@ ModifierKeys_OBJC_FILES = ModifierKeys.m
 ModifierKeys_PRINCIPAL_CLASS = ModifierKeys
 
 ModifierKeys_RESOURCE_FILES = \
-Info.plist \
 ModifierKeys.tiff \
 Resources/English.lproj 
 

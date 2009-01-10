@@ -15,7 +15,6 @@ Volumes.m
 Volumes_PRINCIPAL_CLASS = Volumes
 
 Volumes_RESOURCE_FILES = \
-Info.plist \
 Volumes.tiff \
 Resources/English.lproj 
 

@@ -1,3 +1,28 @@
+2009-01-10 Richard Frith-Macdonald <rfm@gnu.org>
+
+	* PreferencePanes/NSPreferencePane.m: Use infoDictionary of bundle
+	* SystemPreferences/SystemPreferences.m: Use infoDictionary of bundle
+	* Modules/FileSystem/GNUmakefile: Remove non-standard Info.plist install
+	* Modules/ColorSchemes/GNUmakefile: ditto
+	* Modules/Defaults/GNUmakefile: ditto
+	* Modules/Fonts/GNUmakefile: ditto
+	* Modules/TimeZone/GNUmakefile: ditto
+	* Modules/ModifierKeys/GNUmakefile: ditto
+	* Modules/Volumes/GNUmakefile: ditto
+	* Modules/Template/GNUmakefile: ditto
+	* Modules/FileSystem/Info.plist: Rename to .. FileSystemInfo.plist
+	* Modules/ColorSchemes/Info.plist: Rename to .. ColorSchemesInfo.plist
+	* Modules/Defaults/Info.plist: Reanme to ... DefaultsInfo.plist
+	* Modules/Fonts/Info.plist: Rename to ... FontModuleInfo.plist
+	* Modules/ModifierKeys/Info.plist: Rename to ... ModifierKeysInfo.plist
+	* Modules/TimeZone/Info.plist: Rename to ... TimeZoneInfo.plist
+	* Modules/Volumes/Info.plist: Rename to ... VolumesInfo.plist
+	* Modules/Template/Info.plist: Rename to ... TemplateInfo.plist
+	Basically, replace all non-standard handling of Info plists with the
+	standard mechanism so that they are installed in the normal place and
+	the infoDictionary method of NSBundle will find them... simplify
+	everything and avoid confusion in future (hopefully).
+
 2009-01-09 13:38-EST Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* PreferencePanes/NSPreferencePane.m: Remove checks for 
