@@ -38,7 +38,7 @@
 
 - (NSDictionary *) checkDictionary: (NSDictionary*)dict
 {
-  // #define CHECK_ENTRY(x) if ([dict objectForKey: x] == nil) return nil
+#define CHECK_ENTRY(x) if ([dict objectForKey: x] == nil) return nil
   if (dict)
     {
       NSString *identstr = [dict objectForKey: @"GSBundleIdentifier"];
