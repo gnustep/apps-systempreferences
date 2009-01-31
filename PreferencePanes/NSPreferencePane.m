@@ -38,7 +38,6 @@
 
 - (NSDictionary *) checkDictionary: (NSDictionary*)dict
 {
-#define CHECK_ENTRY(x) if ([dict objectForKey: x] == nil) return nil
   if (dict)
     {
       NSString *identstr = [dict objectForKey: @"GSBundleIdentifier"];
@@ -66,12 +65,6 @@
 	{
 	  return nil;
 	}
-
-      CHECK_ENTRY (@"GSPrefPaneIconFile");
-      CHECK_ENTRY (@"GSPrefPaneIconLabel");
-      CHECK_ENTRY (@"NSExecutable");
-      CHECK_ENTRY (@"NSMainNibFile");
-      CHECK_ENTRY (@"NSPrincipalClass");
 
       return dict;
     }
