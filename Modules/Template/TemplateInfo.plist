@@ -1,6 +1,6 @@
 
 {
-  GSBundleIdentifier = org.gnustep.templatemodule;
+  CFBundleIdentifier = org.gnustep.templatemodule;
 	GSBundleVersion = "1.0";
 	GSPrefPaneIconFile = "TemplateModule.tiff";
 	GSPrefPaneIconLabel = Test;

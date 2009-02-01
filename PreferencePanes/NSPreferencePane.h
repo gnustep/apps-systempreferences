@@ -50,7 +50,7 @@ typedef enum {
   NSView *_initialKeyView;
   NSView *_lastKeyView;
   
-  NSString *uniqueIdentifier;
+  void	*_reserved;
 }
 
 //

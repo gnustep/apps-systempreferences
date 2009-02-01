@@ -1,6 +1,6 @@
 
 {
-  GSBundleIdentifier = org.gnustep.timezonemodule;
+  CFBundleIdentifier = org.gnustep.timezonemodule;
 	GSBundleVersion = "1.0";
 	GSPrefPaneIconFile = "TimeZone.tiff";
 	GSPrefPaneIconLabel = "Date & Time";

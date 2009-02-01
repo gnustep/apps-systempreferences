@@ -1,6 +1,6 @@
 
 {
-  GSBundleIdentifier = org.gnustep.volumesmodule;
+  CFBundleIdentifier = org.gnustep.volumesmodule;
 	GSBundleVersion = "1.0";
 	GSPrefPaneIconFile = "Volumes.tiff";
 	GSPrefPaneIconLabel = "Volumes";

@@ -1,6 +1,6 @@
 
 {
-  GSBundleIdentifier = org.gnustep.colorschemesprefs;
+  CFBundleIdentifier = org.gnustep.colorschemesprefs;
 	GSBundleVersion = "1.0";
 	GSPrefPaneIconFile = "ColorSchemes.tiff";
 	GSPrefPaneIconLabel = "Color Schemes";

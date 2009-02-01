@@ -1,6 +1,6 @@
 
 {
-  GSBundleIdentifier = org.gnustep.modifierkeysprefs;
+  CFBundleIdentifier = org.gnustep.modifierkeysprefs;
 	GSBundleVersion = "1.0";
 	GSPrefPaneIconFile = "ModifierKeys.tiff";
 	GSPrefPaneIconLabel = "Modifier keys";

@@ -25,60 +25,18 @@
 #include <AppKit/AppKit.h>
 #include "NSPreferencePane.h"
 
-@interface NSPreferencePane (private)
+@implementation NSPreferencePane
 
-- (NSDictionary *) checkDictionary: (NSDictionary*)dict;
-
-- (NSString *) uniqueIdentifier;
-
-@end
-
-
-@implementation NSPreferencePane (private)
-
-- (NSDictionary *) checkDictionary: (NSDictionary*)dict
+- (void) dealloc
 {
-  if (dict)
-    {
-      NSString *identstr = [dict objectForKey: @"GSBundleIdentifier"];
-
-      if (identstr)
-	{
-	  NSArray		*components;
-	  NSMutableString	*str;
-	  unsigned		i;
-	  if(identstr == nil || [identstr isEqual: @""])
-	    {
-	      identstr = [dict objectForKey: @"CFBundleIdentifier"];
-	    }
-
-	  components = [identstr componentsSeparatedByString: @"."];
-	  str = [NSMutableString stringWithCapacity: 32];
-	  for (i = 0; i < [components count]; i++)
-	    {
-	      [str appendString:
-		[[components objectAtIndex: i] capitalizedString]];
-	    }
-	  uniqueIdentifier = [[NSString alloc] initWithString: str];
-	}
-      else
-	{
-	  return nil;
-	}
-
-      return dict;
-    }
-  return nil;
-}
-
-- (NSString *) uniqueIdentifier
-{
-  return uniqueIdentifier;
+  TEST_RELEASE (_bundle);
+  TEST_RELEASE (_mainView);
+  [super dealloc];
 }
 
 - (unsigned) hash
 {
-  return [uniqueIdentifier hash];
+  return [[_bundle bundleIdentifier] hash];
 }
 
 - (BOOL) isEqual: (id)other
@@ -89,24 +47,11 @@
     }
   if ([other isKindOfClass: [NSPreferencePane class]])
     {
-      return [uniqueIdentifier isEqual: [other uniqueIdentifier]];
+      return [[_bundle bundleIdentifier]
+	isEqual: [[other bundle] bundleIdentifier]];
     }
   return NO;
 }
-
-@end
-
-
-@implementation NSPreferencePane
-
-- (void) dealloc
-{
-  TEST_RELEASE (_bundle);
-  TEST_RELEASE (_mainView);
-  TEST_RELEASE (uniqueIdentifier);
-  [super dealloc];
-}
-
 //
 // Initializing the preference pane
 //
@@ -116,7 +61,7 @@
 
   if (self)
     {
-      if ([self checkDictionary: [bundle infoDictionary]])
+      if ([bundle bundleIdentifier] != nil)
         {
 	  ASSIGN (_bundle, bundle);
 	}
