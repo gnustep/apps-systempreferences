@@ -136,10 +136,10 @@ static SystemPreferences *systemPreferences = nil;
       All the following objects are guaranted to exist because they are 
       checked in the -initWithBundle: method of the NSPreferencePane class.    
     */
-    NSString *iname = [dict objectForKey: @"GSPrefPaneIconFile"];
+    NSString *iname = [dict objectForKey: @"NSPrefPaneIconFile"];
     NSString *ipath = [bundle pathForResource: iname ofType: nil];
     NSImage *image = [[NSImage alloc] initWithContentsOfFile: ipath];
-    NSString *lstr = [dict objectForKey: @"GSPrefPaneIconLabel"];
+    NSString *lstr = [dict objectForKey: @"NSPrefPaneIconLabel"];
     SPIcon *icon;
     
     icon = [[SPIcon alloc] initForPane: pane iconImage: image labelString: lstr];

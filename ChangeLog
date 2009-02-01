@@ -1,17 +1,19 @@
 2009-02-01 Richard Frith-Macdonald <rfm@gnu.org>
 
-	* PreferencePanes/NSPreferencePane.h:
-	* PreferencePanes/NSPreferencePane.m:
-	* Modules/FileSystem/FileSystemInfo.plist:
 	* Modules/ColorSchemes/ColorSchemesInfo.plist:
 	* Modules/Defaults/DefaultsInfo.plist:
+	* Modules/FileSystem/FileSystemInfo.plist:
 	* Modules/Fonts/FontModuleInfo.plist:
 	* Modules/ModifierKeys/ModifierKeysInfo.plist:
+	* Modules/Template/TemplateInfo.plist:
 	* Modules/TimeZone/TimeZoneInfo.plist:
 	* Modules/Volumes/VolumesInfo.plist:
-	* Modules/Template/TemplateInfo.plist:
+	* PreferencePanes/NSPreferencePane.h:
+	* PreferencePanes/NSPreferencePane.m:
+	* SystemPreferences/SystemPreferences.m:
 	Remove strange non-standard use of GSBundleIdentifier and replace
-	with the normal bundle identifier maechanism.
+	with the normal bundle identifier mechanism.
+	Also change other info keys to standard ones.
 
 2009-01-30 20:59-EST Gregory John Casamento <greg_casamento@yahoo.com>
 

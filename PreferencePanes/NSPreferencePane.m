@@ -267,7 +267,7 @@
 
 - (NSString *) iconLabel
 {
-  return [[_bundle infoDictionary] objectForKey: @"GSPrefPaneIconLabel"];
+  return [[_bundle infoDictionary] objectForKey: @"NSPrefPaneIconLabel"];
 }
 
 - (NSComparisonResult) comparePane:(id)other
