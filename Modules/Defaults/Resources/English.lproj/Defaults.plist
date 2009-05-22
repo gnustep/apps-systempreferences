@@ -92,6 +92,12 @@
 	description = "A boolean value, NO by default. When the feature is on, thumbnail files according to the Freedesktop specification are used in [NSWorkspace iconForFile:] when available.";
 	editor = <*I1>;
     };
+    GSUseGhostResize = {
+        category = gui;
+        defaultvalue = <*BN>;
+        description = "A boolean value, NO by default. When the feature is on, SplitViews are resized the traditional way without live-resizing. Useful for slow displays.";
+	editor = <*I1>;
+    };
     GSUseWMTaskBar = {
 	category = back;
 	defaultvalue = <*BY>;

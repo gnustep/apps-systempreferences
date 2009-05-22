@@ -1,3 +1,7 @@
+2009-05-23 Riccardo Mottola <rmottola@users.sf.net>
+
+	* Modules/Defaults/Resources/English.lproj/Defaults.plist: added live resizing of SplitViews
+
 2009-02-01 Richard Frith-Macdonald <rfm@gnu.org>
 
 	* Modules/ColorSchemes/ColorSchemesInfo.plist:
