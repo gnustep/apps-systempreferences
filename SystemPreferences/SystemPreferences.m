@@ -241,7 +241,7 @@ static SystemPreferences *systemPreferences = nil;
   [(NSBox *)prefsBox setContentView: view];
   [currentPane didSelect];
     
-  [window setFrame: wr display: YES];
+  [window setFrame: wr display: YES animate: YES];
   
   [showAllButt setEnabled: YES];
 }
@@ -276,7 +276,7 @@ static SystemPreferences *systemPreferences = nil;
     [(NSBox *)prefsBox setContentView: iconsView];
     [currentPane didUnselect];
 
-    [window setFrame: wr display: YES];
+    [window setFrame: wr display: YES animate: YES];
 
     currentPane = nil;
     [showAllButt setEnabled: NO];
