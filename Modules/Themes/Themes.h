@@ -25,10 +25,11 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 #import "PreferencePanes.h"
-//#import "PreviewView.h"
+
 
 @interface Themes : NSPreferencePane
 {
+  IBOutlet NSMatrix	*matrix;
   /*    IBOutlet PreviewView   *preview;
     IBOutlet NSPopUpButton *colorSettings;
     IBOutlet NSPopUpButton *style;
