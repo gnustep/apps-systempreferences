@@ -1,9 +1,0 @@
-{
-    CFBundleIdentifier = org.gnustep.themesprefs;
-    NOTE = "Automatically generated, do not edit!";
-    NSExecutable = Themes;
-    NSMainNibFile = Themes;
-    NSPrefPaneIconFile = "";
-    NSPrefPaneIconLabel = Themes;
-    NSPrincipalClass = Themes;
-}
