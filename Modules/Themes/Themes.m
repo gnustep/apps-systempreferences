@@ -32,34 +32,56 @@
 
 - (void)mainViewDidLoad
 {
+  NSRect	frame;
+  //  NSView	*container;
+  NSButtonCell	*proto;
+
   if (loaded == NO)
   {
        [NSUserDefaults standardUserDefaults];
        loaded = YES;
   }
-#if 0
-  dictSchemes = [[self searchSchemes] retain];
-  [style removeAllItems];
-  [style addItemsWithTitles:[dictSchemes allKeys]];
-  
-  /* retrieve the current system colors */
-  currColorList = [NSColorList colorListNamed: @"System"];
-  [preview setColors:currColorList];
-  
-  /* set the first color well */
-  [colorSettings selectItemAtIndex:0];
-#endif
+
+  proto = [[NSButtonCell alloc] init];
+  [proto setBordered: NO];
+  [proto setAlignment: NSCenterTextAlignment];
+  [proto setImagePosition: NSImageAbove];
+  [proto setSelectable: NO];
+  [proto setEditable: NO];
+
+  [matrix setPrototype: proto];
+  [matrix renewRows:1 columns:1];
+  [matrix setAutosizesCells: NO];
+  [matrix setCellSize: NSMakeSize(72,72)];
+  [matrix setIntercellSpacing: NSMakeSize(8,8)];
+  [matrix setAutoresizingMask: NSViewNotSizable];
+  [matrix setMode: NSRadioModeMatrix];
+  [matrix setAction: @selector(changeSelection:)];
+  [matrix setTarget: self];
+
+
+
+  [self loadThemes:self];
 
   [self settingsAction:self];
 }
 
+/** standard to implement fot Preference Panes */
 -(void) willUnselect
 {
 
 }
 
+- (void) changeSelection: (id)sender
+{
+  NSButtonCell	*cell = [sender selectedCell];
+  NSString	*name = [cell title];
 
-- (void) update: (id)sender
+  //  [GSTheme setTheme: [GSTheme loadThemeNamed: name]];
+}
+
+
+- (void) loadThemes: (id)sender
 {
   NSArray		*array;
   GSTheme		*theme = [GSTheme loadThemeNamed: @"GNUstep.theme"];
@@ -82,7 +104,7 @@
 
   /* Ensure the first cell contains the default theme.
    */
-  cell = [matrix cellAtRow: count++ column: 0];
+  cell = [matrix cellAtRow: 0 column: count++];
   [cell setImage: [theme icon]];
   [cell setTitle: [theme name]];
 
@@ -125,10 +147,10 @@
 	{
 	  if (count >= existing)
 	    {
-	      [matrix addRow];
+	      [matrix addColumn];
 	      existing++;
 	    }
-	  cell = [matrix cellAtRow: count column: 0];
+	  cell = [matrix cellAtRow: 0 column: count];
 	  [cell setImage: [loaded icon]];
 	  [cell setTitle: [loaded name]];
 	  count++;
@@ -139,7 +161,7 @@
    */
   while (count < existing)
     {
-      cell = [matrix cellAtRow: count column: 0];
+      cell = [matrix cellAtRow: 0 column: count];
       [cell setImage: nil];
       [cell setTitle: @""];
       count++;
@@ -151,10 +173,10 @@
   count = [array count];
   while (count-- > 0)
     {
-      cell = [matrix cellAtRow: count column: 0];
+      cell = [matrix cellAtRow: 0 column: count];
       if ([[cell title] isEqual: selected])
         {
-	  [matrix selectCellAtRow: count column: 0];
+	  [matrix selectCellAtRow: 0 column: count];
 	  break;
 	}
     }
