@@ -1,0 +1,38 @@
+
+# Additional flags to pass to the preprocessor
+#ADDITIONAL_CPPFLAGS += 
+
+# Additional flags to pass to the Objective-C compiler
+ADDITIONAL_OBJCFLAGS += -Wall 
+
+# Additional flags to pass to the C compiler
+ADDITIONAL_CFLAGS += -Wall 
+
+# Additional include directories the compiler should search
+ADDITIONAL_INCLUDE_DIRS += -I../../PreferencePanes
+
+# Additional LDFLAGS to pass to the linker
+#ADDITIONAL_LDFLAGS +=  
+
+ifeq ($(findstring darwin, $(GNUSTEP_TARGET_OS)), darwin)
+  FRAMEWORK_NAME = GSPreferencePanes
+else
+  FRAMEWORK_NAME = PreferencePanes
+endif
+
+# With gnustep-make v2, you can use the same -L flags on all systems
+# (the ones here used for mingw32).  So once gnustep-make v2 is
+# widespread, go ahead and remove the distinction.
+ifeq ($(findstring mingw32, $(GNUSTEP_TARGET_OS)), mingw32)
+  ADDITIONAL_LIB_DIRS += -L../../PreferencePanes/$(FRAMEWORK_NAME).framework/$(GNUSTEP_TARGET_LDIR)
+else
+  ADDITIONAL_LIB_DIRS += -L../../PreferencePanes/$(FRAMEWORK_NAME).framework/Versions/Current/$(GNUSTEP_TARGET_LDIR)
+endif
+
+#
+# Flags dealing with installing and uninstalling
+#
+
+# Additional directories to be created during installation
+#ADDITIONAL_INSTALL_DIRS +=
+
