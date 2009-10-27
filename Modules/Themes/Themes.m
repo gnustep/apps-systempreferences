@@ -74,11 +74,16 @@
   NSString	*name = [cell title];
   GSTheme       *selectedTheme;
   NSArray       *authors;
+  NSString      *authorsString;
 
   selectedTheme = [GSTheme loadThemeNamed: name];
   [nameField setStringValue: name];
   authors = [selectedTheme authors];
-  [authorsView setString: [authors objectAtIndex:0]];
+
+  authorsString = nil;
+  if ([authors count] > 0)
+    authorsString = [authors componentsJoinedByString: @"\n"];
+  [authorsView setString: authorsString];
   [versionField setStringValue: [selectedTheme versionString]];
 }
 
