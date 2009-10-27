@@ -9,7 +9,8 @@ SUBPROJECTS = \
         ModifierKeys \
 	ColorSchemes \
         Fonts \
-        Defaults
+        Defaults \
+	Themes
 
 -include GNUmakefile.preamble
 
