@@ -3,6 +3,9 @@
     FirstResponder = {
 	Actions = (
 	    "apply:",
+	    "changeSelection:",
+	    "loadThemes:",
+	    "save:",
 	    "settingsAction:",
 	    "styleAction:",
 	    "themeChanged:"
@@ -19,13 +22,18 @@
     };
     Themes = {
 	Actions = (
-	    "styleAction:",
-	    "settingsAction:",
 	    "apply:",
-	    "themeChanged:"
+	    "save:",
+	    "changeSelection:",
+	    "loadThemes:"
 	);
 	Outlets = (
-	    matrix
+	    matrix,
+	    previewView,
+	    nameField,
+	    detailsView,
+	    authorsView,
+	    versionField
 	);
 	Super = NSPreferencePane;
     };

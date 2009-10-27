@@ -32,8 +32,6 @@
 
 - (void)mainViewDidLoad
 {
-  NSRect	frame;
-  //  NSView	*container;
   NSButtonCell	*proto;
 
   if (loaded == NO)
@@ -62,8 +60,6 @@
 
 
   [self loadThemes:self];
-
-  [self settingsAction:self];
 }
 
 /** standard to implement fot Preference Panes */
@@ -76,8 +72,31 @@
 {
   NSButtonCell	*cell = [sender selectedCell];
   NSString	*name = [cell title];
+  GSTheme       *selectedTheme;
+  NSArray       *authors;
 
-  //  [GSTheme setTheme: [GSTheme loadThemeNamed: name]];
+  selectedTheme = [GSTheme loadThemeNamed: name];
+  [nameField setStringValue: name];
+  authors = [selectedTheme authors];
+  [authorsView setString: [authors objectAtIndex:0]];
+  [versionField setStringValue: [selectedTheme versionString]];
+}
+
+- (IBAction)apply:(id)sender
+{
+  [GSTheme setTheme: [GSTheme loadThemeNamed: [nameField stringValue]]];
+}
+
+- (IBAction)save:(id)sender
+{
+  NSMutableDictionary *domain;
+  NSString            *themeName;
+
+  domain = [[NSUserDefaults standardUserDefaults] persistentDomainForName: NSGlobalDomain];
+  themeName = [nameField stringValue];
+
+  [domain setObject:themeName
+             forKey: @"GSTheme"];
 }
 
 

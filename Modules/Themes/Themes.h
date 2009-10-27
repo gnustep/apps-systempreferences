@@ -30,22 +30,19 @@
 @interface Themes : NSPreferencePane
 {
   IBOutlet NSMatrix	*matrix;
-  /*    IBOutlet PreviewView   *preview;
-    IBOutlet NSPopUpButton *colorSettings;
-    IBOutlet NSPopUpButton *style;
-    IBOutlet NSColorWell   *colorWell;
-
-    NSDictionary *dictSchemes;
-    NSDictionary *currScheme;
-    NSColorList  *currColorList; */
-    BOOL         loaded;
+  IBOutlet NSImageView  *previewView;
+  IBOutlet NSTextField  *nameField;
+  IBOutlet NSTextView   *detailsView;
+  IBOutlet NSTextView   *authorsView;
+  IBOutlet NSTextField  *versionField;
+  BOOL                  loaded;
 }
 
 
-- (IBAction)styleAction:(id)sender;
-- (IBAction)settingsAction:(id)sender;
-- (IBAction)apply:(id)sender;
-- (IBAction)themeChanged:(id)sender;
+- (IBAction)apply: (id)sender;
+- (IBAction)save: (id)sender;
+- (void) changeSelection: (id)sender;
+- (void) loadThemes: (id)sender;
 
 @end
 
