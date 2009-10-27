@@ -33,12 +33,9 @@
 - (void)mainViewDidLoad
 {
   NSButtonCell	*proto;
+  NSString      *currentTheme;
 
-  if (loaded == NO)
-  {
-       [NSUserDefaults standardUserDefaults];
-       loaded = YES;
-  }
+  currentTheme = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: NSGlobalDomain] objectForKey:@"GSTheme"];
 
   proto = [[NSButtonCell alloc] init];
   [proto setBordered: NO];
@@ -94,14 +91,17 @@
 
 - (IBAction)save:(id)sender
 {
+  NSUserDefaults      *defaults;
   NSMutableDictionary *domain;
   NSString            *themeName;
 
-  domain = [[NSUserDefaults standardUserDefaults] persistentDomainForName: NSGlobalDomain];
+  defaults = [NSUserDefaults standardUserDefaults];
+  domain = [defaults persistentDomainForName: NSGlobalDomain];
   themeName = [nameField stringValue];
 
   [domain setObject:themeName
              forKey: @"GSTheme"];
+  [defaults setPersistentDomain: domain forName: NSGlobalDomain];
 }
 
 

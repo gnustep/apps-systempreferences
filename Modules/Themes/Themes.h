@@ -35,7 +35,6 @@
   IBOutlet NSTextView   *detailsView;
   IBOutlet NSTextView   *authorsView;
   IBOutlet NSTextField  *versionField;
-  BOOL                  loaded;
 }
 
 
