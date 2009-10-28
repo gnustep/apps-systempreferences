@@ -96,7 +96,7 @@
   NSString            *themeName;
 
   defaults = [NSUserDefaults standardUserDefaults];
-  domain = [defaults persistentDomainForName: NSGlobalDomain];
+  domain = [NSMutableDictionary dictionaryWithDictionary: [defaults persistentDomainForName: NSGlobalDomain]];
   themeName = [nameField stringValue];
 
   [domain setObject:themeName
