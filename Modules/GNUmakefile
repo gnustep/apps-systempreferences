@@ -7,7 +7,6 @@ SUBPROJECTS = \
         Volumes \
         FileSystem \
         ModifierKeys \
-	ColorSchemes \
         Fonts \
         Defaults \
 	Themes
