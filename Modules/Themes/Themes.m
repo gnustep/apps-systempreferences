@@ -72,8 +72,12 @@
   GSTheme       *selectedTheme;
   NSArray       *authors;
   NSString      *authorsString;
+  NSImage       *previewImage;
+  NSString      *themeDetails;
+  NSString *previewPath;
 
   selectedTheme = [GSTheme loadThemeNamed: name];
+
   [nameField setStringValue: name];
   authors = [selectedTheme authors];
 
@@ -82,6 +86,15 @@
     authorsString = [authors componentsJoinedByString: @"\n"];
   [authorsView setString: authorsString];
   [versionField setStringValue: [selectedTheme versionString]];
+
+  themeDetails = [[[selectedTheme bundle] infoDictionary] objectForKey:@"GSThemeDetails"];
+  [detailsView setString:themeDetails];
+
+  previewPath = [[selectedTheme infoDictionary] objectForKey: @"GSThemePreview"];
+  previewPath = [[selectedTheme bundle] pathForResource: previewPath ofType: nil];  
+  previewImage = [[NSImage alloc] initWithContentsOfFile:previewPath];
+  [previewImage autorelease];
+  [previewView setImage: previewImage];
 }
 
 - (IBAction)apply:(id)sender
