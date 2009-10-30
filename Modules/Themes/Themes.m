@@ -105,12 +105,14 @@
 	    pathForResource: previewPath ofType: nil];  
 	}
     }
-  if (nil != previewPath)
+  if (previewPath == nil)
     {
-      previewImage = [[NSImage alloc] initWithContentsOfFile:previewPath];
-      [previewImage autorelease];
-      [previewView setImage: previewImage];
+      previewPath = [[NSBundle bundleForClass: [self class]]
+	pathForResource: @"no_preview" ofType: @"tiff"];  
     }
+  previewImage = [[NSImage alloc] initWithContentsOfFile:previewPath];
+  [previewImage autorelease];
+  [previewView setImage: previewImage];
 }
 
 - (IBAction)apply:(id)sender
