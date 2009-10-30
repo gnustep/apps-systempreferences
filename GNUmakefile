@@ -21,7 +21,7 @@
 #  Boston, MA 02111 USA
 #
 
-VERSION = 1.0.2
+VERSION = 1.1.0
 PACKAGE_NAME = SystemPreferences 
 SVN_MODULE_NAME = systempreferences
 SVN_BASE_URL=svn+ssh://svn.gna.org/svn/gnustep/apps
