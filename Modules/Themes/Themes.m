@@ -130,8 +130,11 @@
   domain = [NSMutableDictionary dictionaryWithDictionary: [defaults persistentDomainForName: NSGlobalDomain]];
   themeName = [nameField stringValue];
 
-  [domain setObject:themeName
-             forKey: @"GSTheme"];
+  if ([themeName isEqualToString:@"GNUstep"] == YES)
+    [domain removeObjectForKey:@"GSTheme"];
+  else
+    [domain setObject:themeName
+               forKey: @"GSTheme"];
   [defaults setPersistentDomain: domain forName: NSGlobalDomain];
 }
 
