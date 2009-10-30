@@ -1,8 +1,10 @@
 /* SystemPreferences.h
  *  
- * Copyright (C) 2005 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2009 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
+ *         Riccardo Mottola
+ *
  * Date: December 2005
  *
  * This file is part of the GNUstep SystemPreferences application
@@ -25,8 +27,8 @@
 #ifndef SYSTEM_PREFERENCES_H
 #define SYSTEM_PREFERENCES_H
 
-#include <Foundation/Foundation.h>
-#include "PreferencePanes.h"
+#import <Foundation/Foundation.h>
+#import "PreferencePanes.h"
 
 @class NSWindow;
 @class NSBox;
@@ -71,8 +73,6 @@
 
 - (void)closeMainWindow:(id)sender;
 
-- (void)runInfoPanel:(id)sender;
-		 
 @end
 
 #endif // SYSTEM_PREFERENCES_H

@@ -1,7 +1,14 @@
 {
     NSIcon = "SystemPreferences.tiff";
-    ApplicationDescription = "SystemPreferences";
+    ApplicationDescription = "GNUstep System Preferences";
     ApplicationIcon = "SystemPreferences.tiff";
     ApplicationName = SystemPreferences;
-    ApplicationRelease = "1.0.2";
+    ApplicationRelease = "1.1.0";
+    Authors = (
+      "Riccardo Mottola",
+      "Enrico Sersale <enrico\@fibernet.ro>"
+    );
+    URL = "http://www.gnustep.org/experience/systempreferences.html";
+    Copyright = "Copyright (C) 2005-2009 Free Software Foundation, Inc.";
+    CopyrightDescription = "Released under the GNU General Public License 2.0 or later";
 }

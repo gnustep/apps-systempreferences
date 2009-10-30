@@ -1,8 +1,10 @@
 /* SystemPreferences.m
  *  
- * Copyright (C) 2005 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2009 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
+ *         Riccardo Mottola
+ *
  * Date: December 2005
  *
  * This file is part of the GNUstep SystemPreferences application
@@ -22,10 +24,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
  */
 
-#include <AppKit/AppKit.h>
-#include "SystemPreferences.h"
-#include "SPIconsView.h"
-#include "SPIcon.h"
+#import <AppKit/AppKit.h>
+#import "SystemPreferences.h"
+#import "SPIconsView.h"
+#import "SPIcon.h"
 
 static NSString *nibName = @"SystemPreferences.gorm";
 
@@ -304,27 +306,6 @@ static SystemPreferences *systemPreferences = nil;
 - (void)closeMainWindow:(id)sender
 {
   [[[NSApplication sharedApplication] keyWindow] performClose: sender];
-}
-
-- (void)runInfoPanel:(id)sender
-{
-  NSMutableDictionary *d;
-
-  d = AUTORELEASE ([NSMutableDictionary new]);
-  [d setObject: @"System Preferences" forKey: @"ApplicationName"];
-  [d setObject: @"GNUstep System Preferences" 
-     forKey: @"ApplicationDescription"];
-  [d setObject: @"SystemPreferences 1.0.2" forKey: @"ApplicationRelease"];
-  [d setObject: @"01 2008" forKey: @"FullVersionID"];
-  [d setObject: [NSArray arrayWithObject: @"Enrico Sersale <enrico@dtedu.net>"]
-     forKey: @"Authors"];
-  [d setObject: @"See http://www.dtedu.net/systempreferences" forKey: @"URL"];
-  [d setObject: @"Copyright (C) 2005-2008 Free Software Foundation, Inc."
-        forKey: @"Copyright"];
-  [d setObject: @"Released under the GNU General Public License 2.0"
-     forKey: @"CopyrightDescription"];
-  
-  [NSApp orderFrontStandardInfoPanelWithOptions:d];
 }
 
 - (BOOL)windowShouldClose:(id)sender
