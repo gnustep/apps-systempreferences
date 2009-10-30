@@ -15,6 +15,7 @@ Themes_PRINCIPAL_CLASS = Themes
 
 Themes_RESOURCE_FILES = \
 Themes.tiff \
+gnustep_preview_128.tiff \
 Resources/English.lproj 
 
 ifeq ($(findstring darwin, $(GNUSTEP_TARGET_OS)), darwin)

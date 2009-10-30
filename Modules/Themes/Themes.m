@@ -74,7 +74,7 @@
   NSString      *authorsString;
   NSImage       *previewImage;
   NSString      *themeDetails;
-  NSString *previewPath;
+  NSString	*previewPath;
 
   selectedTheme = [GSTheme loadThemeNamed: name];
 
@@ -90,11 +90,27 @@
   themeDetails = [[[selectedTheme bundle] infoDictionary] objectForKey:@"GSThemeDetails"];
   [detailsView setString:themeDetails];
 
-  previewPath = [[selectedTheme infoDictionary] objectForKey: @"GSThemePreview"];
-  previewPath = [[selectedTheme bundle] pathForResource: previewPath ofType: nil];  
-  previewImage = [[NSImage alloc] initWithContentsOfFile:previewPath];
-  [previewImage autorelease];
-  [previewView setImage: previewImage];
+  if (YES == [[selectedTheme name] isEqualToString: @"GNUstep"])
+    {
+      previewPath = [[NSBundle bundleForClass: [self class]]
+	pathForResource: @"gnustep_preview_128" ofType: @"tiff"];  
+    }
+  else
+    {
+      previewPath = [[selectedTheme infoDictionary]
+	objectForKey: @"GSThemePreview"];
+      if (nil != previewPath)
+	{
+          previewPath = [[selectedTheme bundle]
+	    pathForResource: previewPath ofType: nil];  
+	}
+    }
+  if (nil != previewPath)
+    {
+      previewImage = [[NSImage alloc] initWithContentsOfFile:previewPath];
+      [previewImage autorelease];
+      [previewView setImage: previewImage];
+    }
 }
 
 - (IBAction)apply:(id)sender
