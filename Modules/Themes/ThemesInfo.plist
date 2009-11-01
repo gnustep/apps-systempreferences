@@ -3,7 +3,7 @@
   CFBundleIdentifier = org.gnustep.themesprefs;
   NSExecutable = Themes;
   NSMainNibFile = Themes;
-  NSPrefPaneIconFile = "";
+  NSPrefPaneIconFile = "Themes.tiff";
   NSPrefPaneIconLabel = "Themes";
   NSPrincipalClass = Themes;
 }
