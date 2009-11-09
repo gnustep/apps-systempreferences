@@ -116,10 +116,16 @@
 	description = "A boolean value, NO by default. Specifies wether the application icon window should be displayed. Set to YES for background server applications.";
 	editor = <*I1>;
     };
-    GSX11HandlesWindowDecorations = {
+    GSBackHandlesWindowDecorations = {
 	category = back;
 	defaultvalue = <*BY>;
-	description = "A boolean value, by default YES, which indicates if the backend should let the window manager handle window decorations. When set to NO, GNUstep-GUI will handle the window decorations, which is particularly useful if you aren't running any window manager.";
+	description = "A boolean value, by default YES, which indicates if the backend/window-manager handles window decorations. When set to NO, GNUstep-GUI will handle the window decorations, which is particularly useful if you aren't running any window manager.";
+	editor = <*I1>;
+    };
+    GSBackUsesNativeTaskbar = {
+	category = back;
+	defaultvalue = <*BY>;
+	description = "A boolean value, by default YES, which indicates if the backend/window-manager handles window miniaturisation to a taskbar etc. When set to NO, GNUstep-GUI will handle miniaturisation by creating icon miniwindows.  Currently only implemented for the microsoft windows backend.";
 	editor = <*I1>;
     };
     GSXEnableFontSet = {
