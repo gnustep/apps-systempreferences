@@ -176,6 +176,12 @@
 	description = "A string describing the interface style. Setting this may change various aspects of how the library draws elements and responds to user interaction. See the NSInterfaceStyle documentation for more information.";
 	editor = <*I0>;
     };
+    NSMaximumRecentDocumentCount = {
+	category = gui;
+	defaultvalue = <*I5>;
+	description = "An integer that specifies the maximum number of recent documents remembered for an application.";
+	editor = <*I2>;
+    };
     NSMeasurementUnit = {
 	category = gui;
 	defaultvalue = Centimeters;
