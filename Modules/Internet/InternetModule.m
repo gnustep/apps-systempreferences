@@ -31,6 +31,13 @@
 
 - (void)mainViewDidLoad
 {
+  NSWorkspace *ws;
+  NSArray     *httpApps;
+
+  ws = [NSWorkspace sharedWorkspace];
+  httpApps =  [[ws infoForScheme: @"http"] allKeys];
+  [defaultBrowserPopup removeAllItems];
+  [defaultBrowserPopup addItemsWithTitles: httpApps];
 }
 
 -(void) willUnselect
