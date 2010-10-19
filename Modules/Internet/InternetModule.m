@@ -33,11 +33,15 @@
 {
   NSWorkspace *ws;
   NSArray     *httpApps;
+  NSString    *browserName;
 
   ws = [NSWorkspace sharedWorkspace];
   httpApps =  [[ws infoForScheme: @"http"] allKeys];
   [defaultBrowserPopup removeAllItems];
   [defaultBrowserPopup addItemsWithTitles: httpApps];
+
+  browserName = [ws getBestAppInRole: nil forScheme: @"http"];
+  [defaultBrowserPopup selectItemWithTitle: browserName];
 }
 
 -(void) willUnselect
@@ -53,8 +57,9 @@
   browserName = [[defaultBrowserPopup selectedItem] title];
 
   ws = [NSWorkspace sharedWorkspace];
-  [ws setBestApp: browserName inRole: @"Viewer" forExtension: @"html"];
-  [ws setBestApp: browserName inRole: @"Viewer" forExtension: @"htm"];
+  [ws setBestApp: browserName inRole: nil forScheme: @"http"];
+  if ([[ws infoForScheme:@"https"] objectForKey: browserName] != nil)
+      [ws setBestApp: browserName inRole: nil forScheme: @"https"];
 }
 
 

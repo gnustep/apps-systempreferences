@@ -1,3 +1,12 @@
+2010-10-19  Wolfgang Lux  <wolfgang.lux@gmail.com>
+
+	* Modules/Internet/InternetModule.m (-mainViewDidLoad): Select the
+	default browser when the module is loaded.
+
+	* Modules/Internet/InternetModule.m (-browserChanged:): Update the
+	application with the URL scheme http and eventually https when the
+	browser is changed, not any file type associations.
+
 2010-08-15  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* Modules/Defaults/Resources/English.lproj/Defaults.plist:
