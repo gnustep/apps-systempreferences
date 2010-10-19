@@ -44,4 +44,18 @@
 {
 }
 
+- (IBAction) browserChanged: (id)sender
+{
+  NSString *browserName;
+  NSWorkspace *ws;
+
+
+  browserName = [[defaultBrowserPopup selectedItem] title];
+
+  ws = [NSWorkspace sharedWorkspace];
+  [ws setBestApp: browserName inRole: @"Viewer" forExtension: @"html"];
+  [ws setBestApp: browserName inRole: @"Viewer" forExtension: @"htm"];
+}
+
+
 @end

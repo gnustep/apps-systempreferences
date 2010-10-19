@@ -1,7 +1,14 @@
 {
     "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "browserChanged:"
+	);
+	Super = NSObject;
+    };
     InternetModule = {
 	Actions = (
+	    "browserChanged:"
 	);
 	Outlets = (
 	    defaultBrowserPopup

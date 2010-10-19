@@ -32,4 +32,7 @@
 {
   IBOutlet NSPopUpButton *defaultBrowserPopup;
 }
+
+- (IBAction) browserChanged: (id)sender;
+
 @end
