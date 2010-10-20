@@ -1,3 +1,11 @@
+2010-10-20 Riccardo Mottola
+
+	* Modules/GNUmakefile
+	Build internet module by default and install.
+
+	* Modules/Internet/InternetModule.tiff
+	Added icon for the Module (self-created).
+
 2010-10-19  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* Modules/Internet/InternetModule.m (-mainViewDidLoad): Select the
@@ -6,6 +14,17 @@
 	* Modules/Internet/InternetModule.m (-browserChanged:): Update the
 	application with the URL scheme http and eventually https when the
 	browser is changed, not any file type associations.
+
+
+2010-10-19 Riccardo Mottola
+
+	* Modules/Internet/InternetModule.m
+	* Modules/Internet/InternetModule.h
+	* Modules/Internet/InternetModuleInfo.plist
+	* Modules/Internet/GNUmakefile
+	* Modules/Internet/GNUmakefile.preamble
+	* Modules/Internet/Resources/English.lproj/InternetModule.gorm
+	Added internet module (browser selection).
 
 2010-08-15  Wolfgang Lux  <wolfgang.lux@gmail.com>
 

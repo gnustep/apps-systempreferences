@@ -9,7 +9,8 @@ SUBPROJECTS = \
         ModifierKeys \
         Fonts \
         Defaults \
-	Themes
+	Themes \
+	Internet
 
 -include GNUmakefile.preamble
 
