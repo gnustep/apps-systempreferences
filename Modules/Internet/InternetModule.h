@@ -31,6 +31,7 @@
 @interface InternetModule :  NSPreferencePane
 {
   IBOutlet NSPopUpButton *defaultBrowserPopup;
+  IBOutlet NSImageView   *browserIconView;
 }
 
 - (IBAction) browserChanged: (id)sender;

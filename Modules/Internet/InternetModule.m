@@ -5,6 +5,7 @@
  * (c) 2010 Free Software Foundation
  *
  * Authors: Riccardo Mottola
+ *          Wolfgang Lux
  *
  * Created 15 October 2010
  *
@@ -34,6 +35,7 @@
   NSWorkspace *ws;
   NSArray     *httpApps;
   NSString    *browserName;
+  NSImage     *browserIcon;
 
   ws = [NSWorkspace sharedWorkspace];
   httpApps =  [[ws infoForScheme: @"http"] allKeys];
@@ -42,6 +44,9 @@
 
   browserName = [ws getBestAppInRole: nil forScheme: @"http"];
   [defaultBrowserPopup selectItemWithTitle: browserName];
+
+  browserIcon = [ws iconForFile: [ws fullPathForApplication: browserName]];
+  [browserIconView setImage: browserIcon];
 }
 
 -(void) willUnselect
@@ -52,11 +57,13 @@
 {
   NSString *browserName;
   NSWorkspace *ws;
-
-
-  browserName = [[defaultBrowserPopup selectedItem] title];
+  NSImage     *browserIcon;
 
   ws = [NSWorkspace sharedWorkspace];
+  browserName = [[defaultBrowserPopup selectedItem] title];
+  browserIcon = [ws iconForFile: [ws fullPathForApplication: browserName]];
+  [browserIconView setImage: browserIcon];
+
   [ws setBestApp: browserName inRole: nil forScheme: @"http"];
   if ([[ws infoForScheme:@"https"] objectForKey: browserName] != nil)
       [ws setBestApp: browserName inRole: nil forScheme: @"https"];

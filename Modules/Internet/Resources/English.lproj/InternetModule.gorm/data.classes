@@ -11,7 +11,8 @@
 	    "browserChanged:"
 	);
 	Outlets = (
-	    defaultBrowserPopup
+	    defaultBrowserPopup,
+	    browserIconView
 	);
 	Super = NSPreferencePane;
     };
