@@ -6,6 +6,7 @@
 	Changed return value to NSUInteger to match NSObject
 
 	* Modules/Fonts/FontModule.m
+	* Modules/Themes/Themes.m
 	* SystemPreferences/main.m:
 	Fix memory leak.
 

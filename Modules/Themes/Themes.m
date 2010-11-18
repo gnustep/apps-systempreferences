@@ -1,6 +1,6 @@
 /* Themes.h
  *  
- * Copyright (C) 2009 Free Software Foundation, Inc.
+ * Copyright (C) 2009-2010 Free Software Foundation, Inc.
  *
  * Author: Riccardo Mottola <rmottola@users.sf.net>
  * Date: October 2009
@@ -45,6 +45,7 @@
   [proto setEditable: NO];
 
   [matrix setPrototype: proto];
+  [proto release];
   [matrix renewRows:1 columns:1];
   [matrix setAutosizesCells: NO];
   [matrix setCellSize: NSMakeSize(72,72)];
