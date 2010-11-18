@@ -1,6 +1,6 @@
 /* main.m
  *  
- * Copyright (C) 2005-2009 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2010 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  *         Riccardo Mottola
@@ -57,13 +57,13 @@ void createMenu()
 	NSMenuItem *menuItem;
 	
 	// Main
-   mainmenu = AUTORELEASE ([[NSMenu alloc] initWithTitle: @"System Preferences"]);
+	mainmenu = AUTORELEASE ([[NSMenu alloc] initWithTitle: @"System Preferences"]);
 	
 	// Info 	
 	menuItem = addItemToMenu(mainmenu, @"Info", @"", nil, @"");
 	menu = [NSMenu new];
 	[mainmenu setSubmenu: menu forItem: menuItem];
-  RELEASE (menu);
+	RELEASE (menu);
 	addItemToMenu(menu, @"Info Panel...", @"", @"orderFrontStandardInfoPanel:", @"");
 	addItemToMenu(menu, @"Help...", @"", nil, @"?"); 
   
@@ -71,7 +71,7 @@ void createMenu()
 	menuItem = addItemToMenu(mainmenu, @"Edit", @"", nil, @"");
 	menu = [NSMenu new];
 	[mainmenu setSubmenu: menu forItem: menuItem];	
-  RELEASE (menu);
+	RELEASE (menu);
 	addItemToMenu(menu, @"Cut", @"", @"cut:", @"x");
 	addItemToMenu(menu, @"Copy", @"", @"copy:", @"c");
 	addItemToMenu(menu, @"Paste", @"", @"paste:", @"v");
@@ -80,7 +80,7 @@ void createMenu()
 	menuItem = addItemToMenu(mainmenu, @"Windows", @"", nil, @"");
 	menu = [NSMenu new];
 	[mainmenu setSubmenu: menu forItem: menuItem];		
-  RELEASE (menu);
+	RELEASE (menu);
 	addItemToMenu(menu, @"Arrange in Front", @"", nil, @"");
 	addItemToMenu(menu, @"Miniaturize Window", @"", nil, @"");
 	addItemToMenu(menu, @"Close Window", @"", @"closeMainWindow:", @"w");
@@ -88,10 +88,10 @@ void createMenu()
 
 	// Services 
 	menuItem = addItemToMenu(mainmenu, @"Services", @"", nil, @"");
-	menu = AUTORELEASE ([NSMenu new]);
+	menu = [NSMenu new];
 	[mainmenu setSubmenu: menu forItem: menuItem];		
-  RELEASE (menu);
-  [[NSApplication sharedApplication] setServicesMenu: menu];
+	RELEASE (menu);
+	[[NSApplication sharedApplication] setServicesMenu: menu];
 
 	// Hide
 	addItemToMenu(mainmenu, @"Hide", @"", @"hide:", @"h");
