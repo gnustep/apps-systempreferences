@@ -5,6 +5,9 @@
 
 	Changed return value to NSUInteger to match NSObject
 
+	* Modules/Fonts/FontModule.m:
+	Fix memory leak.
+
 2010-10-20 Riccardo Mottola
 
 	* Modules/GNUmakefile

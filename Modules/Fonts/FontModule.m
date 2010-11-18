@@ -1,5 +1,7 @@
 /* (c) Ingolf Jandt, September 2006 
  *
+ * Copyright (C) 2010 Free Software Foundation, Inc.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -15,10 +17,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
  */
 
-#include <AppKit/AppKit.h>
-#include "FontModule.h"
+#import <AppKit/AppKit.h>
+#import "FontModule.h"
 
-#include <Foundation/NSNotification.h>
+#import <Foundation/NSNotification.h>
 
 @implementation FontModule
 
@@ -75,6 +77,7 @@
 	      forKey: [fontKey stringByAppendingString:@"Size"]];
 
       [defaults setPersistentDomain: domain forName: NSGlobalDomain];
+      [domain release];
       [self updatePreview];
     }
 }
