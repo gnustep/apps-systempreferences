@@ -1,6 +1,6 @@
 /* MapView.m
  *  
- * Copyright (C) 2005 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2010 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: December 2005
@@ -211,7 +211,7 @@ double myrintf(double a)
 	[super dealloc];
 }
 
-- (unsigned)hash
+- (NSUInteger)hash
 {
   return (zone != nil) ? [zone hash] : [super hash];
 }

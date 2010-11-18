@@ -1,6 +1,6 @@
 /* NSPreferencePane.m
  *
- * Copyright (C) 2005 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2010 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: December 2005
@@ -34,7 +34,7 @@
   [super dealloc];
 }
 
-- (unsigned) hash
+- (NSUInteger) hash
 {
   return [[_bundle bundleIdentifier] hash];
 }
