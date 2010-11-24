@@ -1,10 +1,13 @@
 2010-11-24 Riccardo Mottola
 
-	* Modules/Themes/Themes.m
+	* Modules/Themes/Themes.m:
 	removed useless statement and variable.
 
-	* Modules/TimeZone/TimeZone.m
+	* Modules/TimeZone/TimeZone.m:
 	Release map to avoid leak.
+
+	* Modules/Fonts/FontModule.m:
+	Allocate domain correctly to avoid leaking it.
 
 2010-11-18 Riccardo Mottola
 

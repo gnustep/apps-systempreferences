@@ -59,22 +59,25 @@
 
 - (void) changeFont: (id) sender
 {
-  NSFont *newFont= [sender convertFont: [previewTextField font]];
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSMutableDictionary *domain = 
-    [[defaults 
-       persistentDomainForName: NSGlobalDomain] mutableCopy];
+  NSFont *newFont;
+
+  newFont = [sender convertFont: [previewTextField font]];
 
   if (newFont != nil)
     {
-      NSString *fontKey = [fontKeys objectAtIndex: 
-				      [keyPopup indexOfSelectedItem]];
+      NSString *fontKey;
+      NSUserDefaults *defaults;
+      NSMutableDictionary *domain; 
+
+      defaults = [NSUserDefaults standardUserDefaults];
+      domain =  [[defaults persistentDomainForName: NSGlobalDomain] mutableCopy];
+      fontKey  = [fontKeys objectAtIndex: [keyPopup indexOfSelectedItem]];
 
       [domain setObject:[newFont fontName] 
-	      forKey: fontKey];
+		 forKey: fontKey];
       [domain setObject: 
 		[NSString stringWithFormat: @"%.1f", [newFont pointSize]]
-	      forKey: [fontKey stringByAppendingString:@"Size"]];
+		 forKey: [fontKey stringByAppendingString:@"Size"]];
 
       [defaults setPersistentDomain: domain forName: NSGlobalDomain];
       [domain release];
