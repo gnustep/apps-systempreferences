@@ -1,3 +1,8 @@
+2010-11-24 Riccardo Mottola
+
+	* Modules/Themes/Themes.m
+	removed useless statement and variable.
+	
 2010-11-18 Riccardo Mottola
 
 	* Modules/TimeZone/MapView.m

@@ -33,9 +33,6 @@
 - (void)mainViewDidLoad
 {
   NSButtonCell	*proto;
-  NSString      *currentTheme;
-
-  currentTheme = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: NSGlobalDomain] objectForKey:@"GSTheme"];
 
   proto = [[NSButtonCell alloc] init];
   [proto setBordered: NO];
