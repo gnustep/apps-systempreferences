@@ -1,6 +1,6 @@
 /* TimeZone.m
  *  
- * Copyright (C) 2005 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2010 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: December 2005
@@ -35,27 +35,30 @@
 
 - (void)mainViewDidLoad
 {
-  if (mapView == nil) {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *zone = [defaults objectForKey: @"Local Time Zone"];
-    NSBundle *bundle = [NSBundle bundleForClass: [self class]];
-    NSString *path = [bundle pathForResource: @"map" ofType: @"tiff"];
-    NSImage *map = [[NSImage alloc] initWithContentsOfFile: path];
+  if (mapView == nil)
+    {
+      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+      NSString *zone = [defaults objectForKey: @"Local Time Zone"];
+      NSBundle *bundle = [NSBundle bundleForClass: [self class]];
+      NSString *path = [bundle pathForResource: @"map" ofType: @"tiff"];
+      NSImage *map = [[NSImage alloc] initWithContentsOfFile: path];
 
-    path = [bundle pathForResource: @"zones" ofType: @"db"];
+      path = [bundle pathForResource: @"zones" ofType: @"db"];
 
-    mapView = [[MapView alloc] initWithFrame: [[imageBox contentView] frame]
-                                withMapImage: map
-                               timeZonesPath: path
-                           forPreferencePane: self];
+      mapView = [[MapView alloc] initWithFrame: [[imageBox contentView] frame]
+				  withMapImage: map
+				 timeZonesPath: path
+			     forPreferencePane: self];
 
-    [(NSBox *)imageBox setContentView: mapView];
-    RELEASE (mapView);
-    
-    if (zone) {
-      [zoneField setStringValue: zone];
-    }
-  }  
+      [(NSBox *)imageBox setContentView: mapView];
+      RELEASE (mapView);
+      RELEASE (map);
+
+      if (zone)
+	{
+	  [zoneField setStringValue: zone];
+	}
+    }  
 }
 
 - (void)showInfoOfLocation:(MapLocation *)loc

@@ -2,7 +2,10 @@
 
 	* Modules/Themes/Themes.m
 	removed useless statement and variable.
-	
+
+	* Modules/TimeZone/TimeZone.m
+	Release map to avoid leak.
+
 2010-11-18 Riccardo Mottola
 
 	* Modules/TimeZone/MapView.m
