@@ -1,3 +1,9 @@
+2011-02-14  Wolfgang Lux  <wolfgang.lux@gmail.com>
+
+	* Modules/Defaults/Resources/English.lproj/Defaults.plist:
+	Add user default that allows placing app icons and mini windows at
+	normal window level.
+
 2010-11-24 Riccardo Mottola
 
 	* Modules/Themes/Themes.m:
