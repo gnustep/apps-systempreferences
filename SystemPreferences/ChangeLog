@@ -1,3 +1,11 @@
+2011-02-14  Wolfgang Lux  <wolfgang.lux@gmail.com>
+
+	* main.m (createMenu):
+	* SystemPreferences.m:
+	Add Select All item to the Edit menu, connect some more Window
+	menu items, and remove needless method implementation to close the
+	main window.
+
 2010-02-04 Gregory John Casamento <greg.casamento@gmail.com>
 
 	* SystemPreferences.ico: Added ico

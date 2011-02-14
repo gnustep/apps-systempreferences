@@ -303,11 +303,6 @@ static SystemPreferences *systemPreferences = nil;
   [window saveFrameUsingName: @"systemprefs"];
 }
 
-- (void)closeMainWindow:(id)sender
-{
-  [[[NSApplication sharedApplication] keyWindow] performClose: sender];
-}
-
 - (BOOL)windowShouldClose:(id)sender
 {
   [self updateDefaults];

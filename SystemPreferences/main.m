@@ -75,15 +75,16 @@ void createMenu()
 	addItemToMenu(menu, @"Cut", @"", @"cut:", @"x");
 	addItemToMenu(menu, @"Copy", @"", @"copy:", @"c");
 	addItemToMenu(menu, @"Paste", @"", @"paste:", @"v");
+	addItemToMenu(menu, @"Select All", @"", @"selectAll:", @"a");
 		
 	// Windows
 	menuItem = addItemToMenu(mainmenu, @"Windows", @"", nil, @"");
 	menu = [NSMenu new];
 	[mainmenu setSubmenu: menu forItem: menuItem];		
 	RELEASE (menu);
-	addItemToMenu(menu, @"Arrange in Front", @"", nil, @"");
-	addItemToMenu(menu, @"Miniaturize Window", @"", nil, @"");
-	addItemToMenu(menu, @"Close Window", @"", @"closeMainWindow:", @"w");
+	addItemToMenu(menu, @"Arrange in Front", @"", @"arrangeInFront:", @"");
+	addItemToMenu(menu, @"Miniaturize Window", @"", @"performMiniaturize:", @"m");
+	addItemToMenu(menu, @"Close Window", @"", @"performClose:", @"w");
   [[NSApplication sharedApplication] setWindowsMenu: menu];
 
 	// Services 
