@@ -122,6 +122,8 @@
         
     [descriptionView setFont: [NSFont systemFontOfSize: 10]];
     [descriptionView setDrawsBackground: NO];
+    // FIXME can't turn off this attribute in Gorm at present
+    [descriptionView setEditable: NO];
 
     currentEntry = nil;    
     loaded = YES;

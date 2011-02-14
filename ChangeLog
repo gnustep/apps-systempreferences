@@ -1,3 +1,8 @@
+2011-02-14  Wolfgang Lux  <wlux@uni-muenster.de>
+
+	* Modules/Defaults/Defaults.m (-mainViewDidLoad): Disable
+	editing for the description string.
+
 2011-02-14  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* Modules/Defaults/Resources/English.lproj/Defaults.plist:
