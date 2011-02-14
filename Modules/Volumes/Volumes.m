@@ -257,6 +257,7 @@
 - (void)mtypeMatrixAction:(id)sender
 {
   [mtypeField setStringValue: @""];
+  [mtypeAdd setEnabled: NO];
   [mtypeRemove setEnabled: ([[mtypeMatrix cells] count] > 0)];  
 }
 
@@ -390,6 +391,7 @@
 - (void)mpointMatrixAction:(id)sender
 {
   [mpointField setStringValue: @""];
+  [mpointAdd setEnabled: NO];
   [mpointRemove setEnabled: ([[mpointMatrix cells] count] > 0)];  
 }
 
@@ -424,13 +426,14 @@
   }
 }
 
-- (void)controlTextDidBeginEditing:(NSNotification *)notif
+- (void)controlTextDidChange:(NSNotification *)notif
 {
+  NSText *text = [[notif userInfo] objectForKey:@"NSFieldEditor"];
   if ([notif object] == mtypeField) {
-    [mtypeAdd setEnabled: YES];
+    [mtypeAdd setEnabled: ([[text string] length] > 0)];
     [mtypeRemove setEnabled: NO]; 
   } else if ([notif object] == mpointField) {
-    [mpointAdd setEnabled: YES];
+    [mpointAdd setEnabled: ([[text string] length] > 0)];
     [mpointRemove setEnabled: NO]; 
   }
 }
