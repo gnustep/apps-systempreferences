@@ -1,3 +1,10 @@
+2011-11-18 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Themes/no_preview.tiff
+	* Modules/Themes/gnustep_preview_128.tiff
+	* Modules/Themes/Themes.tiff
+	Resampled to 72 dpi
+
 2011-02-14  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* Modules/Volumes/Volumes.m (-mtypeMatrixAction:,
