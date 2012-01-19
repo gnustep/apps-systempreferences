@@ -1,3 +1,8 @@
+2012-01-19  Wolfgang Lux  <wolfgang.lux@gmail.com>
+
+	* Modules/Defaults/Resources/English.lproj/Defaults.plist: Add new
+	user defaults for sticky app icons and mini windows, respectively.
+
 2011-11-18 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Themes/no_preview.tiff

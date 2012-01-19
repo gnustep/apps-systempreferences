@@ -141,6 +141,18 @@ With some window managers it may be necessary to set this default to YES to prev
 	description = "A boolean value, by default YES, which indicates if the backend/window-manager handles window miniaturisation to a taskbar etc. When set to NO, GNUstep-GUI will handle miniaturisation by creating icon miniwindows.  Currently only implemented for the microsoft windows backend.";
 	editor = <*I1>;
     };
+    GSStickyAppIcons = {
+	category = back;
+	defaultvalue = <*BN>;
+	description = "A boolean value, by default NO. If set to YES, indicates to the window manager that app icons should be displayed on all desktops.";
+	editor = <*I1>;
+    };
+    GSStickyMiniWindows = {
+	category = back;
+	defaultvalue = <*BN>;
+	description = "A boolean value, by default NO. If set to YES, indicates to the window manager that mini windows should be displayed on all desktops.";
+	editor = <*I1>;
+    };
     GSXEnableFontSet = {
 	category = back;
 	defaultvalue = <*BN>;
