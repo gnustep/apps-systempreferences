@@ -64,10 +64,9 @@
 
 - (void)paneUnselectNotification:(NSNotification *)notif;
 
-- (void)terminateAfterPaneUnselection;
+- (void)closeAfterPaneUnselection;
 
 - (void)updateDefaults;
-
 
 @end
 

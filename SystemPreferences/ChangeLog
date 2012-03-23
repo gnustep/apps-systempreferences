@@ -1,3 +1,15 @@
+2012-03-23  Wolfgang Lux  <wolfgang.lux@gmail.com>
+
+	* SystemPreferences.m (-applicationWillFinishLaunching:,
+	-applicationShouldTerminateAfterLastWindowClosed:,
+	-windowShouldClose:): Add a close button to the main window and
+	terminate the application when the main window is closed.
+
+	* SystemPreferences.h(-terminateAfterPaneUnselection):
+	* SystemPreferences.m(-terminateAfterPaneUnselection): Rename this ...
+	* SystemPreferences.h(-closeAfterPaneUnselection):
+	* SystemPreferences.m(-closeAfterPaneUnselection): ... into this.
+
 2011-02-14  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* main.m (createMenu):

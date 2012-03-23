@@ -84,7 +84,9 @@ static SystemPreferences *systemPreferences = nil;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
-  unsigned int style = NSTitledWindowMask | NSMiniaturizableWindowMask;
+  NSUInteger style = NSTitledWindowMask
+		   | NSClosableWindowMask
+      		   | NSMiniaturizableWindowMask;
   NSString *bundlesDir;
   
   if ([NSBundle loadNibNamed: nibName owner: self] == NO) {
@@ -154,24 +156,32 @@ static SystemPreferences *systemPreferences = nil;
   [iconsView tile];
 }
 
-- (BOOL)applicationShouldTerminate:(NSApplication *)app 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app
 {
-  NSView *view = [prefsBox contentView];
+    return YES;
+}
 
-  if (view != iconsView) {
-    NSPreferencePaneUnselectReply reply = [currentPane shouldUnselect];
+- (BOOL)windowShouldClose:(NSWindow *)win 
+{
+  if (win == window)
+    {
+      NSView *view = [prefsBox contentView];
+
+      if (view != iconsView) {
+	NSPreferencePaneUnselectReply reply = [currentPane shouldUnselect];
     
-    if (reply == NSUnselectCancel) {
-      return NO;
-    } else if (reply == NSUnselectLater) {
-      pendingAction = @selector(terminateAfterPaneUnselection);
-      return NO;
-    }
-  }
+	if (reply == NSUnselectCancel) {
+	  return NO;
+	} else if (reply == NSUnselectLater) {
+	  pendingAction = @selector(closeAfterPaneUnselection);
+	  return NO;
+	}
+      }
 
-  [self showAllButtAction: nil];
+      [self showAllButtAction: nil];
+    }
   [self updateDefaults];
-	return YES;
+  return YES;
 }
 
 - (void)addPanesFromDirectory:(NSString *)dir
@@ -293,20 +303,14 @@ static SystemPreferences *systemPreferences = nil;
   }  
 }
 
-- (void)terminateAfterPaneUnselection
+- (void)closeAfterPaneUnselection
 {
-  [NSApp terminate: self];
+  [window performClose: self];
 }
 
 - (void)updateDefaults
 {
   [window saveFrameUsingName: @"systemprefs"];
-}
-
-- (BOOL)windowShouldClose:(id)sender
-{
-  [self updateDefaults];
-  return YES;
 }
 
 @end
