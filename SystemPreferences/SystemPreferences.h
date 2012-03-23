@@ -1,6 +1,6 @@
 /* SystemPreferences.h
  *  
- * Copyright (C) 2005-2009 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2012 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  *         Riccardo Mottola
@@ -23,9 +23,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
  */
-
-#ifndef SYSTEM_PREFERENCES_H
-#define SYSTEM_PREFERENCES_H
 
 #import <Foundation/Foundation.h>
 #import "PreferencePanes.h"
@@ -71,8 +68,6 @@
 
 - (void)updateDefaults;
 
-- (void)closeMainWindow:(id)sender;
 
 @end
 
-#endif // SYSTEM_PREFERENCES_H

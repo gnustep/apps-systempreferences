@@ -1,3 +1,8 @@
+2012-03-23 Riccardo Mottola <rm@gnu.org>
+
+	* SystemPreferences/SystemPreferences.h
+	Fix warning.
+
 2012-01-19  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* Modules/Defaults/Resources/English.lproj/Defaults.plist: Add new
