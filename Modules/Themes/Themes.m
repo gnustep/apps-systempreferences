@@ -79,7 +79,7 @@
   [nameField setStringValue: name];
   authors = [selectedTheme authors];
 
-  authorsString = nil;
+  authorsString = @"";
   if ([authors count] > 0)
     authorsString = [authors componentsJoinedByString: @"\n"];
   [authorsView setString: authorsString];

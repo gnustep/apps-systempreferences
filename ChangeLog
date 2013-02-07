@@ -1,4 +1,9 @@
+2013-02-07 Fred Kiefer <FredKiefer@gmx.de>
+
+	* Modules/Themes/Themes.m: Don't set a nil authors string.
+
 2013-02-07 Sebastian Reitenbach <sebastia@l00-bugdead-prods.de>
+
 	* Modules/Defaults/Defaults.m
 	* Modules/Volumes/Volumes.m
 	* SystemPreferences/SystemPreferences.m
