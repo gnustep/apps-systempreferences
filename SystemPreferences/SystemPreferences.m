@@ -161,9 +161,9 @@ static SystemPreferences *systemPreferences = nil;
     return YES;
 }
 
-- (BOOL)windowShouldClose:(NSWindow *)win 
+- (BOOL)windowShouldClose:(NSWindow *)_win 
 {
-  if (win == window)
+  if (_win == window)
     {
       NSView *view = [prefsBox contentView];
 

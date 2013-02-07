@@ -530,8 +530,8 @@
     id usrvalue = [currentEntry userValue];
     NSMutableArray *newvalue = [NSMutableArray array];  
     NSArray *cells;
-    int row, col;
-    unsigned i;
+    NSInteger row, col;
+    NSUInteger i;
     
     [arrayEdMatrix getRow: &row column: &col ofCell: cell];
     [arrayEdMatrix removeRow: row];
@@ -562,7 +562,7 @@
   id defvalue = [currentEntry defaultValue];
   id usrvalue = [currentEntry userValue];
   id cell;
-  unsigned i;
+  NSUInteger i;
        
   if ([arrayEdMatrix numberOfColumns] > 0) {        
     [arrayEdMatrix removeColumn: 0];
@@ -595,7 +595,7 @@
   id usrvalue = [currentEntry userValue];
   NSArray *cells = [arrayEdMatrix cells];
   NSMutableArray *newvalue = [NSMutableArray array];
-  unsigned i;
+  NSUInteger i;
 
   for (i = 0; i < [cells count]; i++) {
     [newvalue addObject: [[cells objectAtIndex: i] stringValue]];
@@ -690,7 +690,4 @@
 }
 
 @end
-
-
-
 

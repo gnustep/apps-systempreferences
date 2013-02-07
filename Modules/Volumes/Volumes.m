@@ -177,7 +177,7 @@
     [mtypeMatrix sendAction];
     
   } else if (sender == mtypeRemove) {
-    int row, col;
+    NSInteger row, col;
   
     cell = [mtypeMatrix selectedCell];  
     [mtypeMatrix getRow: &row column: &col ofCell: cell];
@@ -264,9 +264,9 @@
 - (IBAction)mpointButtAction:(id)sender
 {
   NSArray *cells = [mpointMatrix cells];
-  int count = [cells count];
+  NSUInteger count = [cells count];
   id cell;
-  unsigned i;
+  NSUInteger i;
 
   if (sender == mpointAdd) {
     NSString *mpoint = [mpointField stringValue];
@@ -311,7 +311,7 @@
     [mpointMatrix sendAction];
     
   } else if (sender == mpointRemove) {
-    int row, col;
+    NSInteger row, col;
   
     cell = [mpointMatrix selectedCell];  
     [mpointMatrix getRow: &row column: &col ofCell: cell];

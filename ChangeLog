@@ -1,3 +1,9 @@
+2013-02-07 Sebastian Reitenbach <sebastia@l00-bugdead-prods.de>
+	* Modules/Defaults/Defaults.m
+	* Modules/Volumes/Volumes.m
+	* SystemPreferences/SystemPreferences.m
+	  NS(U)Integer conversions
+
 2012-03-23 Riccardo Mottola <rm@gnu.org>
 
 	* SystemPreferences/SystemPreferences.h
