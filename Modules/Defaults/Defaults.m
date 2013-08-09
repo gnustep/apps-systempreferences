@@ -1,6 +1,6 @@
 /* Defaults.m
  *  
- * Copyright (C) 2006 Free Software Foundation, Inc.
+ * Copyright (C) 2006-2013 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: February 2006
@@ -22,10 +22,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
  */
 
-#include <AppKit/AppKit.h>
-#include "Defaults.h"
-// For INT_MAX and INT_MIN
-#include <limits.h>
+#import <AppKit/AppKit.h>
+#import "Defaults.h"
+
+#include <limits.h>  // For INT_MAX and INT_MIN
 
 @implementation Defaults
 
@@ -36,8 +36,9 @@
   TEST_RELEASE (boolEditorBox);
   TEST_RELEASE (numberEditorBox);
   TEST_RELEASE (arrayEditorBox);
+  TEST_RELEASE (listEditorBox);
   
-	[super dealloc];
+  [super dealloc];
 }
 
 - (void)mainViewDidLoad
@@ -60,7 +61,8 @@
     [numberEditorBox removeFromSuperview];
     RETAIN (arrayEditorBox);
     [arrayEditorBox removeFromSuperview];
-    
+    RETAIN (listEditorBox);
+    [listEditorBox removeFromSuperview];
     RELEASE (editorsWin);
     
     [defaults synchronize];
@@ -71,6 +73,7 @@
       NSDictionary *info = [dict objectForKey: defname];
       NSString *category = [info objectForKey: @"category"];
       NSString *description = [info objectForKey: @"description"];
+      NSArray *values = [info objectForKey: @"values"];
       id defvalue = [info objectForKey: @"defaultvalue"];
       int edtype = [[info objectForKey: @"editor"] intValue];
       DefaultEntry *entry;
@@ -79,6 +82,7 @@
                                                 withName: defname 
                                               inCategory: category
                                              description: description
+						  values: values
                                             defaultValue: defvalue 
                                              editorType: edtype];
       [defaultsEntries addObject: entry];
@@ -134,7 +138,7 @@
     
     // Bool
     [boolEdPopup selectItemAtIndex: 0];
-    
+
     // Number
     [numberEdField setStringValue: @""];
     [numberEdField setDelegate: self];
@@ -158,8 +162,11 @@
 	  [arrayEdMatrix setAllowsEmptySelection: YES];
     [arrayEdMatrix setTarget: self]; 
     [arrayEdMatrix setAction: @selector(arrayEdMatrixAction:)]; 
-	  [arrayEdScroll setDocumentView: arrayEdMatrix];	
+	  [arrayEdScroll setDocumentView: arrayEdMatrix];
     RELEASE (arrayEdMatrix);
+
+    // List
+    [listEdPopup selectItemAtIndex: 0];
   
     [self disableControls];
   }
@@ -190,12 +197,14 @@
     int edtype;
     id defvalue;
     id usrvalue;
+    NSArray *values;
     id value;
        
     currentEntry = [self entryWithName: [cell stringValue]];
     edtype = [currentEntry editorType];
     defvalue = [currentEntry defaultValue];  
     usrvalue = [currentEntry userValue];
+    values = [currentEntry values];
     value = (usrvalue == nil) ? defvalue : usrvalue;
           
     [descriptionView setString: [currentEntry description]];
@@ -244,6 +253,17 @@
           [arrayEdDefaultRevert setEnabled: (usrvalue && ([usrvalue isEqual: defvalue] == NO))];
           break;    
         }
+
+    case LIST_EDITOR:
+      [editorBox setContentView: listEditorBox];
+      if (values && [values count] > 0)
+        {
+          [listEdPopup removeAllItems];
+          [listEdPopup addItemsWithTitles:values];
+          [listEdPopup selectItemWithTitle: value];
+        }
+      [listEdDefaultRevert setEnabled: (usrvalue && ([usrvalue isEqual: defvalue] == NO))];
+      break;
         
       default:
         break;
@@ -285,7 +305,7 @@
 
   if (usrvalue != nil) {
     if ([usrvalue isEqual: defvalue] == NO) {
-   //   NSLog(@"setting: %@ for: %@", [usrvalue description], defname);
+   //      NSLog(@"setting: %@ for: %@", [usrvalue description], defname);
       [domain setObject: usrvalue forKey: defname]; 
     } else {
    //   NSLog(@"removing: %@", defname);
@@ -611,6 +631,59 @@
   RELEASE (arp);  
 }
 
+//
+// List
+//
+- (IBAction)listPopupAction:(id)sender
+{
+  NSString *str = [listEdPopup titleOfSelectedItem];
+  id defvalue = [currentEntry defaultValue];
+  id usrvalue = [currentEntry userValue];
+
+  [listEdDefaultRevert setEnabled: ([str isEqual: defvalue] == NO)];  
+
+  if (usrvalue)
+    {
+      [listEdSet setEnabled: ([str isEqual: usrvalue] == NO)];
+    }
+  else
+    {
+      [listEdSet setEnabled: ([str isEqual: defvalue] == NO)];
+    }
+}
+
+- (IBAction)listDefaultRevertAction:(id)sender
+{
+  id defvalue = [currentEntry defaultValue];
+  id usrvalue = [currentEntry userValue];
+
+  [listEdPopup selectItemWithTitle: defvalue];
+  [listEdDefaultRevert setEnabled: NO];
+
+  if (usrvalue)
+    {
+      [listEdSet setEnabled: ([usrvalue isEqual: defvalue] == NO)];  
+    }
+  else
+    {
+      [listEdSet setEnabled: NO];  
+    }
+}
+
+- (IBAction)listSetAction:(id)sender
+{
+  NSString *str = [listEdPopup titleOfSelectedItem];  
+  id usrvalue = [currentEntry userValue];
+
+  if ((usrvalue == nil) || ([str isEqual: usrvalue] == NO))
+    {
+      [currentEntry setUserValue: str];
+      [self updateDefaults];
+    }
+  
+  [listEdSet setEnabled: NO];
+}
+
 @end
 
 
@@ -623,14 +696,15 @@
   RELEASE (description);
   TEST_RELEASE (userValue);
   RELEASE (defaultValue);
-  
-	[super dealloc];
+  RELEASE (values);
+  [super dealloc];
 }
 
 - (id)initWithUserDefaults:(NSUserDefaults *)defaults
                   withName:(NSString *)dfname
                 inCategory:(NSString *)cat
                description:(NSString *)desc
+		    values:(NSArray *)vals
               defaultValue:(id)dval
                 editorType:(int)edtype
 {
@@ -641,6 +715,7 @@
     ASSIGN (category, cat);
     ASSIGN (description, desc);
     ASSIGN (defaultValue, dval);
+    ASSIGN (values, vals);
     editorType = edtype;
     
     userValue = [defaults objectForKey: name];
@@ -682,6 +757,11 @@
   } else {
     DESTROY (userValue);
   }
+}
+
+- (NSArray *)values
+{
+  return values;
 }
 
 - (int)editorType

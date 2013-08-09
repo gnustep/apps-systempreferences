@@ -1,6 +1,7 @@
-/* Defaults.h
+/* -*- mode: objc -*-
+ * Defaults.h
  *  
- * Copyright (C) 2006 Free Software Foundation, Inc.
+ * Copyright (C) 2006-2013 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: February 2006
@@ -25,17 +26,19 @@
 #ifndef DEFAULTS_H
 #define DEFAULTS_H
 
-#include <Foundation/Foundation.h>
-#include "PreferencePanes.h"
+#import <Foundation/Foundation.h>
+#import "PreferencePanes.h"
 
 #define STRING_EDITOR 0
 #define BOOL_EDITOR 1
 #define NUMBER_EDITOR 2
 #define ARRAY_EDITOR 3
+#define LIST_EDITOR 4
 
 @class NSMatrix;
 @class NSBox;
 @class DefaultEntry;
+@class NSPopUpButton;
 
 @interface Defaults : NSPreferencePane 
 {
@@ -70,7 +73,12 @@
   IBOutlet id arrayEdAdd;
   IBOutlet id arrayEdRemove;  
   IBOutlet id arrayEdDefaultRevert;
-  IBOutlet id arrayEdSet;  
+  IBOutlet id arrayEdSet;
+
+  IBOutlet NSBox *listEditorBox;
+  IBOutlet NSPopUpButton *listEdPopup;
+  IBOutlet NSButton *listEdDefaultRevert;
+  IBOutlet NSButton *listEdSet;  
 
   NSMutableArray *defaultsEntries;
   DefaultEntry *currentEntry;   
@@ -128,6 +136,15 @@
 
 - (IBAction)arraySetAction:(id)sender;
 
+//
+// List
+//
+- (IBAction)listPopupAction:(id)sender;
+
+- (IBAction)listDefaultRevertAction:(id)sender;
+
+- (IBAction)listSetAction:(id)sender;
+
 @end
 
 
@@ -135,7 +152,8 @@
 {
   NSString *name;  
   NSString *category;
-  NSString *description;  
+  NSString *description;
+  NSArray *values;
   id defaultValue;
   id userValue;
   int editorType;
@@ -145,6 +163,7 @@
                   withName:(NSString *)dfname
                 inCategory:(NSString *)cat
                description:(NSString *)desc
+		    values:(NSArray *)vals
               defaultValue:(id)dval
                 editorType:(int)edtype;
 
@@ -161,6 +180,8 @@
 - (void)setUserValue:(id)usval;
 
 - (int)editorType; 
+
+- (NSArray *)values;
 
 @end
 

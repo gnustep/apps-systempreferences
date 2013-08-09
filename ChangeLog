@@ -1,3 +1,11 @@
+2013-08-09 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Defaults/Defaults.h
+	* Modules/Defaults/Defaults.m
+	* Modules/Defaults/Resources/English.lproj/Defaults.gorm
+	* Modules/Defaults/Resources/English.lproj/Defaults.plist
+	Add editor for lists and use it for Interface Styles.
+
 2013-02-07 Fred Kiefer <FredKiefer@gmx.de>
 
 	* Modules/Themes/Themes.m: Don't set a nil authors string.

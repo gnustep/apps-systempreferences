@@ -193,7 +193,13 @@ With some window managers it may be necessary to set this default to YES to prev
 	category = gui;
 	defaultvalue = NSNextStepInterfaceStyle;
 	description = "A string describing the interface style. Setting this may change various aspects of how the library draws elements and responds to user interaction. See the NSInterfaceStyle documentation for more information.";
-	editor = <*I0>;
+	values = (
+	       NSNextStepInterfaceStyle,
+	       NSWindows95InterfaceStyle,
+	       NSMacintoshInterfaceStyle,
+	       GSWindowMakerInterfaceStyle
+	);
+	editor = <*I4>;
     };
     NSMaximumRecentDocumentCount = {
 	category = gui;
@@ -211,7 +217,12 @@ With some window managers it may be necessary to set this default to YES to prev
 	category = gui;
 	defaultvalue = NSNextStepInterfaceStyle;
 	description = "An interface style specific to menu operation. If not set the NSInterfaceStyleDefault value is used.";
-	editor = <*I0>;
+	values = (
+	       NSNextStepInterfaceStyle,
+	       NSWindows95InterfaceStyle,
+	       NSMacintoshInterfaceStyle
+	);
+	editor = <*I4>;
     };
     NSPreviewApp = {
 	category = gui;
