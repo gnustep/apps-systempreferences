@@ -1,3 +1,10 @@
+2013-08-26 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Defaults/Defaults.m
+	* Modules/Defaults/GNUmakefile
+	* Modules/Defaults/Resources/English.lproj/Defaults.plist
+	Allow localization of each preference, keyed by defaults name.
+
 2013-08-09 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Defaults/Defaults.h
