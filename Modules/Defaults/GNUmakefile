@@ -17,6 +17,9 @@ Defaults_RESOURCE_FILES = \
 Defaults.tiff \
 Resources/English.lproj 
 
+Defaults_LANGUAGES = \
+Resources/English
+
 ifeq ($(findstring darwin, $(GNUSTEP_TARGET_OS)), darwin)
   ADDITIONAL_GUI_LIBS += -lGSPreferencePanes
 else

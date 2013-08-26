@@ -3,6 +3,7 @@
  * Copyright (C) 2006-2013 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
+ *         Riccardo Mottola <rm@gnu.org>
  * Date: February 2006
  *
  * This file is part of the GNUstep "Defaults" Preference Pane
@@ -72,12 +73,13 @@
       NSString *defname = [keys objectAtIndex: i];
       NSDictionary *info = [dict objectForKey: defname];
       NSString *category = [info objectForKey: @"category"];
-      NSString *description = [info objectForKey: @"description"];
+      NSString *description;
       NSArray *values = [info objectForKey: @"values"];
       id defvalue = [info objectForKey: @"defaultvalue"];
       int edtype = [[info objectForKey: @"editor"] intValue];
       DefaultEntry *entry;
       
+      description = [bundle localizedStringForKey:defname value:@"Description not found" table:nil];
       entry = [[DefaultEntry alloc] initWithUserDefaults: defaults
                                                 withName: defname 
                                               inCategory: category
