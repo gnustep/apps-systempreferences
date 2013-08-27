@@ -1,6 +1,6 @@
 /* TimeZone.m
  *  
- * Copyright (C) 2005-2010 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2013 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: December 2005
@@ -22,9 +22,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
  */
 
-#include <AppKit/AppKit.h>
-#include "TimeZone.h"
-#include "MapView.h"
+#import <AppKit/AppKit.h>
+#import "TimeZone.h"
+#import "MapView.h"
 
 @implementation TimeZone
 
@@ -39,7 +39,7 @@
     {
       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
       NSString *zone = [defaults objectForKey: @"Local Time Zone"];
-      NSBundle *bundle = [NSBundle bundleForClass: [self class]];
+      NSBundle *bundle = [self bundle];
       NSString *path = [bundle pathForResource: @"map" ofType: @"tiff"];
       NSImage *map = [[NSImage alloc] initWithContentsOfFile: path];
 

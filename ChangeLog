@@ -1,3 +1,9 @@
+2013-08-27 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Themes/Themes.m
+	* Modules/TimeZone/TimeZone.m
+	Refer to Bundle using NSPreferencePane accessor
+
 2013-08-26 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Defaults/Defaults.m

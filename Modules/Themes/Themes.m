@@ -1,6 +1,6 @@
 /* Themes.h
  *  
- * Copyright (C) 2009-2010 Free Software Foundation, Inc.
+ * Copyright (C) 2009-2013 Free Software Foundation, Inc.
  *
  * Author: Riccardo Mottola <rmottola@users.sf.net>
  * Date: October 2009
@@ -90,8 +90,7 @@
 
   if (YES == [[selectedTheme name] isEqualToString: @"GNUstep"])
     {
-      previewPath = [[NSBundle bundleForClass: [self class]]
-	pathForResource: @"gnustep_preview_128" ofType: @"tiff"];  
+      previewPath = [[self bundle] pathForResource: @"gnustep_preview_128" ofType: @"tiff"];  
     }
   else
     {
@@ -105,8 +104,7 @@
     }
   if (previewPath == nil)
     {
-      previewPath = [[NSBundle bundleForClass: [self class]]
-	pathForResource: @"no_preview" ofType: @"tiff"];  
+      previewPath = [[self bundle] pathForResource: @"no_preview" ofType: @"tiff"];  
     }
   previewImage = [[NSImage alloc] initWithContentsOfFile:previewPath];
   [previewImage autorelease];
