@@ -30,11 +30,6 @@
 	defaultvalue = <*BN>;
 	editor = <*I1>;
     };
-    GSFileBrowserHideDotFiles = {
-	category = gui;
-	defaultvalue = <*BN>;
-	editor = <*I1>;
-    };
     GSFontAntiAlias = {
 	category = back;
 	defaultvalue = <*BY>;
@@ -55,11 +50,6 @@
 	defaultvalue = (
 	);
 	editor = <*I3>;
-    };
-    GSModifiersAreKeys = {
-	category = back;
-	defaultvalue = <*BN>;
-	editor = <*I1>;
     };
     GSOldClipboard = {
 	category = back;
@@ -89,11 +79,6 @@
     GSUseIconManager = {
         category = gui;
         defaultvalue = <*BN>;
-	editor = <*I1>;
-    };
-    GSUseWMTaskBar = {
-	category = back;
-	defaultvalue = <*BY>;
 	editor = <*I1>;
     };
     GSWorkspaceApplication = {

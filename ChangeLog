@@ -1,5 +1,11 @@
 2013-08-31 Riccardo Mottola <rm@gnu.org>
 
+	* Modules/Defaults/Resources/English.lproj/Defaults.plist
+	* Modules/Defaults/Resources/English.lproj/Localizable.string
+	Remove obsolete Keys pointed out by Fred.
+
+2013-08-31 Riccardo Mottola <rm@gnu.org>
+
 	* Modules/Themes/Resources/English.lproj/Themes.gorm
 	* Modules/Themes/Themes.h
 	* Modules/Themes/Themes.m
