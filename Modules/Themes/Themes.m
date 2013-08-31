@@ -70,6 +70,7 @@
   GSTheme       *selectedTheme;
   NSArray       *authors;
   NSString      *authorsString;
+  NSString      *license;
   NSImage       *previewImage;
   NSString      *themeDetails;
   NSString	*previewPath;
@@ -84,6 +85,10 @@
     authorsString = [authors componentsJoinedByString: @"\n"];
   [authorsView setString: authorsString];
   [versionField setStringValue: [selectedTheme versionString]];
+  license = [selectedTheme license];
+  if (license == nil)
+    license = @"";
+  [licenseField setStringValue:license];
 
   themeDetails = [[[selectedTheme bundle] infoDictionary] objectForKey:@"GSThemeDetails"];
   [detailsView setString:themeDetails];

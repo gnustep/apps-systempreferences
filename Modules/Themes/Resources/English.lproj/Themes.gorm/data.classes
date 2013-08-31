@@ -16,7 +16,7 @@
 	Actions = (
 	);
 	Outlets = (
-	    _window
+	    "_window"
 	);
 	Super = NSObject;
     };
@@ -33,7 +33,8 @@
 	    nameField,
 	    detailsView,
 	    authorsView,
-	    versionField
+	    versionField,
+	    licenseField
 	);
 	Super = NSPreferencePane;
     };

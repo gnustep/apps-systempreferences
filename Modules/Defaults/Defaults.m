@@ -46,7 +46,7 @@
 {
   if (loaded == NO) {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSBundle *bundle = [NSBundle bundleForClass: [self class]];
+    NSBundle *bundle = [self bundle];
     NSString *dictpath = [bundle pathForResource: @"Defaults" ofType: @"plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: dictpath];
     NSArray *keys = [[dict allKeys] sortedArrayUsingSelector: @selector(compare:)];

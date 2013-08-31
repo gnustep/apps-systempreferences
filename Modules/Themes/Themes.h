@@ -1,6 +1,6 @@
 /* Themes.h
  *  
- * Copyright (C) 2009 Free Software Foundation, Inc.
+ * Copyright (C) 2009-2013 Free Software Foundation, Inc.
  *
  * Author: Riccardo Mottola <rmottola@users.sf.net>
  * Date: October 2009
@@ -35,6 +35,7 @@
   IBOutlet NSTextView   *detailsView;
   IBOutlet NSTextView   *authorsView;
   IBOutlet NSTextField  *versionField;
+  IBOutlet NSTextField  *licenseField;
 }
 
 

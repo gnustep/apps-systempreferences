@@ -1,3 +1,8 @@
+2013-08-31 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Defaults/Defaults.m
+	Access bundle cleanly.
+
 2013-08-27 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Themes/Themes.m
