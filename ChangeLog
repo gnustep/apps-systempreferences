@@ -1,5 +1,12 @@
 2013-08-31 Riccardo Mottola <rm@gnu.org>
 
+	* Modules/Themes/Resources/English.lproj/Themes.gorm
+	* Modules/Themes/Themes.h
+	* Modules/Themes/Themes.m
+	Show theme license.
+
+2013-08-31 Riccardo Mottola <rm@gnu.org>
+
 	* Modules/Defaults/Defaults.m
 	Access bundle cleanly.
 
