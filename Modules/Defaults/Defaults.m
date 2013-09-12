@@ -52,7 +52,7 @@
     NSArray *keys = [[dict allKeys] sortedArrayUsingSelector: @selector(compare:)];
     id cell;
     float fonth;
-    unsigned i;
+    NSUInteger i;
     
     RETAIN (stringEditorBox);
     [stringEditorBox removeFromSuperview];
@@ -99,10 +99,10 @@
     fonth = [[cell font] defaultLineHeightForFont];
 
     namesMatrix = [[NSMatrix alloc] initWithFrame: NSMakeRect(0, 0, 100, 100)
-				            	              mode: NSRadioModeMatrix 
-                               prototype: cell
-			       							  numberOfRows: 0 
-                         numberOfColumns: 0];
+                                             mode: NSRadioModeMatrix 
+                                        prototype: cell
+                                     numberOfRows: 0 
+                                  numberOfColumns: 0];
     RELEASE (cell);                     
     [namesMatrix setIntercellSpacing: NSZeroSize];
     [namesMatrix setCellSize: NSMakeSize([namesScroll contentSize].width, fonth)];
@@ -116,7 +116,7 @@
     for (i = 0; i < [defaultsEntries count]; i++) {
       DefaultEntry *entry = [defaultsEntries objectAtIndex: i];
       NSString *name = [entry name];
-      int count = [[namesMatrix cells] count];
+      NSUInteger count = [[namesMatrix cells] count];
       
       [namesMatrix insertRow: count];
       cell = [namesMatrix cellAtRow: count column: 0];   
@@ -154,17 +154,17 @@
     [arrayEdScroll setHasVerticalScroller: YES]; 
     
     arrayEdMatrix = [[NSMatrix alloc] initWithFrame: NSMakeRect(0, 0, 100, 100)
-				            	              mode: NSRadioModeMatrix 
-                               prototype: cell
-			       							  numberOfRows: 0 
-                         numberOfColumns: 0];
+                                               mode: NSRadioModeMatrix 
+                                          prototype: cell
+                                       numberOfRows: 0 
+                                    numberOfColumns: 0];
     [arrayEdMatrix setIntercellSpacing: NSZeroSize];
     [arrayEdMatrix setCellSize: NSMakeSize([arrayEdScroll contentSize].width, fonth)];
     [arrayEdMatrix setAutoscroll: YES];
-	  [arrayEdMatrix setAllowsEmptySelection: YES];
+    [arrayEdMatrix setAllowsEmptySelection: YES];
     [arrayEdMatrix setTarget: self]; 
     [arrayEdMatrix setAction: @selector(arrayEdMatrixAction:)]; 
-	  [arrayEdScroll setDocumentView: arrayEdMatrix];
+    [arrayEdScroll setDocumentView: arrayEdMatrix];
     RELEASE (arrayEdMatrix);
 
     // List
@@ -174,26 +174,22 @@
     [self disableControls];
 
     /* set some locales */
-    [categoryLabel setStringValue:@"foo"];
-    [descriptionLabel setStringValue:@"bar"];
-    /*
-    [categoryLabel setTitle: [bundle localizedStringForKey:@"category" value:@"n/f" table:nil]];
-    [descriptionLabel setTitle: [bundle localizedStringForKey:@"description" value:@"n/f" table:nil]];
-    */
+    [categoryLabel setStringValue: [bundle localizedStringForKey:@"category" value:@"n/f" table:nil]];
+    [descriptionLabel setStringValue: [bundle localizedStringForKey:@"description" value:@"n/f" table:nil]];
   }
 }
 
 - (DefaultEntry *)entryWithName:(NSString *)name
 {
-  unsigned i;
+  NSUInteger i;
 
-  for (i = 0; i < [defaultsEntries count]; i++) {
-    DefaultEntry *entry = [defaultsEntries objectAtIndex: i];
-
-    if ([[entry name] isEqual: name]) {
-      return entry;
+  for (i = 0; i < [defaultsEntries count]; i++)
+    {
+      DefaultEntry *entry = [defaultsEntries objectAtIndex: i];
+      
+      if ([[entry name] isEqual: name])
+        return entry;
     }
-  }
     
   return nil;
 }
@@ -242,7 +238,7 @@
 
       case ARRAY_EDITOR:
         {
-          unsigned i;
+          NSUInteger i;
           
           [editorBox setContentView: arrayEditorBox];
           
@@ -252,7 +248,7 @@
           
           for (i = 0; i < [value count]; i++) {
             NSString *str = [value objectAtIndex: i];
-            int count = [[arrayEdMatrix cells] count];
+            NSUInteger count = [[arrayEdMatrix cells] count];
 
             [arrayEdMatrix insertRow: count];
             cell = [arrayEdMatrix cellAtRow: count column: 0];   
@@ -516,7 +512,7 @@
     BOOL exists = NO;
     
     if (count > 0) {
-      unsigned i;
+      NSUInteger i;
       
       for (i = 0; i < count; i++) {
         NSString *cellstr = [[cells objectAtIndex: i] stringValue];
@@ -601,7 +597,7 @@
   
   for (i = 0; i < [defvalue count]; i++) {
     NSString *str = [defvalue objectAtIndex: i];
-    int count = [[arrayEdMatrix cells] count];
+    NSUInteger count = [[arrayEdMatrix cells] count];
 
     [arrayEdMatrix insertRow: count];
     cell = [arrayEdMatrix cellAtRow: count column: 0];   
