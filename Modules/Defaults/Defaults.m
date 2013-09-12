@@ -107,10 +107,10 @@
     [namesMatrix setIntercellSpacing: NSZeroSize];
     [namesMatrix setCellSize: NSMakeSize([namesScroll contentSize].width, fonth)];
     [namesMatrix setAutoscroll: YES];
-	  [namesMatrix setAllowsEmptySelection: YES];
+    [namesMatrix setAllowsEmptySelection: YES];
     [namesMatrix setTarget: self]; 
     [namesMatrix setAction: @selector(namesMatrixAction:)]; 
-	  [namesScroll setDocumentView: namesMatrix];	
+    [namesScroll setDocumentView: namesMatrix];	
     RELEASE (namesMatrix);
     
     for (i = 0; i < [defaultsEntries count]; i++) {
@@ -169,8 +169,17 @@
 
     // List
     [listEdPopup selectItemAtIndex: 0];
+
   
     [self disableControls];
+
+    /* set some locales */
+    [categoryLabel setStringValue:@"foo"];
+    [descriptionLabel setStringValue:@"bar"];
+    /*
+    [categoryLabel setTitle: [bundle localizedStringForKey:@"category" value:@"n/f" table:nil]];
+    [descriptionLabel setTitle: [bundle localizedStringForKey:@"description" value:@"n/f" table:nil]];
+    */
   }
 }
 

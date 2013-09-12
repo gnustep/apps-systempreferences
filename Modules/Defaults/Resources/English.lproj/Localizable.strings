@@ -1,3 +1,10 @@
+/* interface */
+
+"category"="Category";
+"description"="Description";
+
+
+/* key descriptions */
 "GSAbortKey"="The key used to abort the insertion of multi-stroke keybinding. Default is Control-g.";
 "GSAllowWindowsOverIcons"="A boolean, by default NO. If you set it to YES, normal windows can appear in front of app icons and mini windows.
 With some window managers it may be necessary to set this default to YES to prevent app icons and mini windows obscuring context and pop up menus.";

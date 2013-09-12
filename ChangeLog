@@ -1,3 +1,11 @@
+2013-09-12 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Defaults/Defaults.m
+	* Modules/Defaults/Defaults.h
+	* Modules/Defaults/Resources/English.lproj/Localizable.strings
+	* Modules/Defaults/Resources/English.lproj/Defaults.gorm
+	Allow localization of category and secription labels.
+
 2013-08-31 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Defaults/Resources/English.lproj/Defaults.plist

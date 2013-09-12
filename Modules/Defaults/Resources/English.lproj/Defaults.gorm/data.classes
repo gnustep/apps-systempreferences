@@ -58,7 +58,8 @@
 	    listEditorBox,
 	    listEdPopup,
 	    listEdDefaultRevert,
-	    listEdSet
+	    listEdSet,
+	    descriptionLabel
 	);
 	Super = NSPreferencePane;
     };

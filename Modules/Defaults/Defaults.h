@@ -46,6 +46,7 @@
   NSMatrix *namesMatrix;  
   IBOutlet id categoryLabel;
   IBOutlet id categoryField;
+  IBOutlet id descriptionLabel;
   IBOutlet id descriptionView;
   IBOutlet NSBox *editorBox;
 
