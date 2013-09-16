@@ -118,8 +118,14 @@
     };
     GSXIMInputMethodStyle = {
 	category = back;
-	defaultvalue = "";
-	editor = <*I0>;
+	defaultvalue = RootWindow;
+	values = (
+		RootWindow,
+		OffTheSpot,
+		OverTheSpot,
+		OnTheSpot
+	);
+	editor = <*I4>;
     };
     GraphicCompositing = {
 	category = back;
