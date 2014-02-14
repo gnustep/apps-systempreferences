@@ -9,6 +9,6 @@
       "Enrico Sersale"
     );
     URL = "http://www.gnustep.org/experience/systempreferences.html";
-    Copyright = "Copyright (C) 2005-2013 Free Software Foundation, Inc.";
+    Copyright = "Copyright (C) 2005-2014 Free Software Foundation, Inc.";
     CopyrightDescription = "Released under the GNU General Public License 2.0 or later";
 }
