@@ -40,7 +40,7 @@ With some window managers it may be necessary to set this default to YES to prev
 "NSMeasurementUnit" = "A string describing the measurement unit for rulers (see the NSRulerView class documentation). The default is Centimeters. Other possible values are Inches, Points, and Picas.";
 "NSMenuInterfaceStyle" = "An interface style specific to menu operation. If not set the NSInterfaceStyleDefault value is used.";
 "NSPreviewApp" = "A string value that defaults to \"gv\". This defines the application NSPrintOperation will try to connect to preview PostScript files, unless there is already an application registed as a Viewer of ps files.";
-"NSUseRunningCopy" = "This determines the behavior of an applicationms when a second copy is started up. 
+"NSUseRunningCopy" = "This determines the behavior of an application when a second copy is started up. 
 If set to YES the newly started copy makes the process which is already running active, then terminates itsself. 
 If set to NO, the newly started copy runs, but has a different name (so it cannot be contacted to provide services for other applications).";
 "UseWindowMakerIcons" = "UseWindowMakerIcons is for app icons, and has no effect when the window manager isn't Window Maker. It displays the application's icon window in the window Window Maker provides instead of creating one controlled by the app. This allows the icon to be docked. It is a boolean value which defaults to YES.";
