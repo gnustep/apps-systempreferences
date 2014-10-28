@@ -1,6 +1,6 @@
 /* Themes.h
  *  
- * Copyright (C) 2009-2013 Free Software Foundation, Inc.
+ * Copyright (C) 2009-2014 Free Software Foundation, Inc.
  *
  * Author: Riccardo Mottola <rmottola@users.sf.net>
  * Date: October 2009
@@ -91,6 +91,8 @@
   [licenseField setStringValue:license];
 
   themeDetails = [[[selectedTheme bundle] infoDictionary] objectForKey:@"GSThemeDetails"];
+  if (themeDetails == nil)
+    themeDetails = @"";
   [detailsView setString:themeDetails];
 
   if (YES == [[selectedTheme name] isEqualToString: @"GNUstep"])

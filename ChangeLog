@@ -1,3 +1,8 @@
+2014-10-28 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Themes/Themes.m
+	Don't crash if there is no description.
+
 2014-02-14 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Defaults/Resources/English.lproj/Localizable.strings
