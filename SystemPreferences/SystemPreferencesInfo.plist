@@ -3,6 +3,7 @@
     ApplicationDescription = "GNUstep System Preferences";
     ApplicationIcon = "SystemPreferences.tiff";
     ApplicationName = SystemPreferences;
+    CFBundleIdentifier = org.gnustep.SystemPreferences;
     ApplicationRelease = "1.2.0";
     Authors = (
       "Riccardo Mottola",
