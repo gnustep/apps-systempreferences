@@ -1,3 +1,8 @@
+2016-02-17 Riccardo Mottola <rm@gnu.org>
+
+	* Modules/Volumes/Volumes.m
+	Clean up some types.
+
 2014-10-28 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Themes/Themes.m

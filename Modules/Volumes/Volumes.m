@@ -1,6 +1,6 @@
 /* Volumes.m
  *  
- * Copyright (C) 2005 Free Software Foundation, Inc.
+ * Copyright (C) 2005-2016 Free Software Foundation, Inc.
  *
  * Author: Enrico Sersale <enrico@imago.ro>
  * Date: December 2005
@@ -41,7 +41,7 @@
     NSString *mtab = [self mtabPath];
     id cell;
     float fonth;
-    int i;
+    NSUInteger i;
 
     reservedNames = [NSMutableArray new];
     [reservedNames addObjectsFromArray: [self reservedMountNames]];
@@ -107,7 +107,7 @@
       
     for (i = 0; i < [removablePaths count]; i++) {
       NSString *path = [removablePaths objectAtIndex: i];
-      int count = [[mpointMatrix cells] count];
+      NSUInteger count = [[mpointMatrix cells] count];
 
       [mpointMatrix insertRow: count];
       cell = [mpointMatrix cellAtRow: count column: 0];   
@@ -141,9 +141,9 @@
 - (IBAction)mtypeButtAction:(id)sender
 {
   NSArray *cells = [mtypeMatrix cells];
-  int count = [cells count];
+  NSUInteger count = [cells count];
   id cell;
-  unsigned i;
+  NSUInteger i;
 
   if (sender == mtypeAdd) {
     NSString *mtype = [mtypeField stringValue];
@@ -497,7 +497,7 @@
 
 - (NSString *)mtabPath
 {
-  unsigned int systype = [[NSProcessInfo processInfo] operatingSystem];
+  NSUInteger systype = [[NSProcessInfo processInfo] operatingSystem];
 
   if (systype == NSGNULinuxOperatingSystem) {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
