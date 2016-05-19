@@ -1,3 +1,17 @@
+2016-05-19 Richard Frith-macdonald <rfm@gnu.org>
+
+	* Modules/ColorSchemes/GNUmakefile.preamble:
+	* Modules/Defaults/GNUmakefile.preamble:
+	* Modules/FileSystem/GNUmakefile.preamble:
+	* Modules/Fonts/GNUmakefile.preamble:
+	* Modules/Internet/GNUmakefile.preamble:
+	* Modules/ModifierKeys/GNUmakefile.preamble:
+	* Modules/Themes/GNUmakefile.preamble:
+	* Modules/TimeZone/GNUmakefile.preamble:
+	* Modules/Volumes/GNUmakefile.preamble:
+	* SystemPreferences/GNUmakefile.preamble:
+	Remove obsolete conditionals
+
 2016-02-17 Riccardo Mottola <rm@gnu.org>
 
 	* Modules/Volumes/Volumes.m

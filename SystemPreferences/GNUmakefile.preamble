@@ -25,14 +25,7 @@ endif
 # it doesn't work for you, you should install the PreferencesPanes
 # framework before compiling this application.
 
-# With gnustep-make v2, you can use the same -L flags on all systems
-# (the ones here used for mingw32).  So once gnustep-make v2 is
-# widespread, go ahead and remove the distinction.
-ifeq ($(findstring mingw32, $(GNUSTEP_TARGET_OS)), mingw32)
-  ADDITIONAL_LIB_DIRS += -L../PreferencePanes/$(FRAMEWORK_NAME).framework/$(GNUSTEP_TARGET_LDIR)
-else
-  ADDITIONAL_LIB_DIRS += -L../PreferencePanes/$(FRAMEWORK_NAME).framework/Versions/Current/$(GNUSTEP_TARGET_LDIR)
-endif
+ADDITIONAL_LIB_DIRS += -L../PreferencePanes/$(FRAMEWORK_NAME).framework/Versions/Current/$(GNUSTEP_TARGET_LDIR)
 
 #
 # Flags dealing with installing and uninstalling
