@@ -25,7 +25,12 @@ endif
 # it doesn't work for you, you should install the PreferencesPanes
 # framework before compiling this application.
 
-ADDITIONAL_LIB_DIRS += -L../PreferencePanes/$(FRAMEWORK_NAME).framework/Versions/Current/$(GNUSTEP_TARGET_LDIR)
+# Even with gnustep-make v2, we need a windows special case
+ifeq ($(findstring mingw32, $(GNUSTEP_TARGET_OS)), mingw32)	 
+  ADDITIONAL_LIB_DIRS += -L../PreferencePanes/$(FRAMEWORK_NAME).framework/$(GNUSTEP_TARGET_LDIR)	 
+else
+  ADDITIONAL_LIB_DIRS += -L../PreferencePanes/$(FRAMEWORK_NAME).framework/Versions/Current/$(GNUSTEP_TARGET_LDIR)
+endif
 
 #
 # Flags dealing with installing and uninstalling
