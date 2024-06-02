@@ -1,3 +1,7 @@
+2024-06-02  Richard frith-Macdonald <rfm@gnu.org>
+
+        * GNUmakefile: update version for release 1.2.1
+
 2016-05-19 Richard Frith-macdonald <rfm@gnu.org>
 
 	* Modules/ColorSchemes/GNUmakefile.preamble:

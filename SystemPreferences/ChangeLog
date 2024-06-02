@@ -1,3 +1,7 @@
+2024-06-02  Richard frith-Macdonald <rfm@gnu.org>
+
+	* GNUmakefile: update version for release 1.2.1
+
 2012-03-23  Wolfgang Lux  <wolfgang.lux@gmail.com>
 
 	* SystemPreferences.m (-applicationWillFinishLaunching:,
