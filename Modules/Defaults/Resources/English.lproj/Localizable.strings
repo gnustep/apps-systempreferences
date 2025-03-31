@@ -45,5 +45,4 @@ If set to YES the newly started copy makes the process which is already running 
 If set to NO, the newly started copy runs, but has a different name (so it cannot be contacted to provide services for other applications).";
 "UseWindowMakerIcons" = "UseWindowMakerIcons is for app icons, and has no effect when the window manager isn't Window Maker. It displays the application's icon window in the window Window Maker provides instead of creating one controlled by the app. This allows the icon to be docked. It is a boolean value which defaults to YES.";
 "XGPS-Shm" = "A boolean value which defaults to YES (as long as shared memory is available). If set to NO, shared memory is not used for various display specific operations.";
-
-
+ "GSHelpViewer" = "A string which can be used to specify the name of the application to be used to view application help. If this is not specified (or is an empty string) the 'best' available viewer is used (an application whose Info.plist says that it can view files of the appropriate type ... usually rtf or rtfd files). If this is set to NSHelpPanel or if no application can  be used to view the help file, the help is displayed by the shared help panel object built in to the application.";

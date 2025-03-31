@@ -40,6 +40,11 @@
 	defaultvalue = "*";
 	editor = <*I0>;
     };
+    GSHelpViewer = {
+	category = gui;
+	defaultvalue = "";
+	editor = <*I0>;
+    };
     GSInsertControlKeystrokes = {
 	category = gui;
 	defaultvalue = <*BN>;
