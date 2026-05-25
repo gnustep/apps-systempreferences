@@ -118,12 +118,12 @@
   [previewView setImage: previewImage];
 }
 
-- (IBAction)apply:(id)sender
+- (IBAction) previewTheme: (id)sender
 {
   [GSTheme setTheme: [GSTheme loadThemeNamed: [nameField stringValue]]];
 }
 
-- (IBAction)save:(id)sender
+- (IBAction) setTheme: (id)sender
 {
   NSUserDefaults      *defaults;
   NSMutableDictionary *domain;

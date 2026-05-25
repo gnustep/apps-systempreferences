@@ -5,7 +5,9 @@
 	    "apply:",
 	    "changeSelection:",
 	    "loadThemes:",
+	    "previewTheme:",
 	    "save:",
+	    "setTheme:",
 	    "settingsAction:",
 	    "styleAction:",
 	    "themeChanged:"
@@ -22,8 +24,8 @@
     };
     Themes = {
 	Actions = (
-	    "apply:",
-	    "save:",
+	    "previewTheme:",
+	    "setTheme:",
 	    "changeSelection:",
 	    "loadThemes:"
 	);
@@ -34,7 +36,18 @@
 	    detailsView,
 	    authorsView,
 	    versionField,
-	    licenseField
+	    licenseField,
+	    previewButton,
+	    setButton,
+	    matrix,
+	    previewView,
+	    nameField,
+	    detailsView,
+	    authorsView,
+	    versionField,
+	    licenseField,
+	    previewButton,
+	    setButton
 	);
 	Super = NSPreferencePane;
     };

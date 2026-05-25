@@ -36,11 +36,13 @@
   IBOutlet NSTextView   *authorsView;
   IBOutlet NSTextField  *versionField;
   IBOutlet NSTextField  *licenseField;
+  IBOutlet NSButton     *previewButton;
+  IBOutlet NSButton     *setButton;
 }
 
 
-- (IBAction)apply: (id)sender;
-- (IBAction)save: (id)sender;
+- (IBAction) previewTheme: (id)sender;
+- (IBAction) setTheme: (id)sender;
 - (void) changeSelection: (id)sender;
 - (void) loadThemes: (id)sender;
 
