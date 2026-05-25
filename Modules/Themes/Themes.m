@@ -130,7 +130,8 @@
   NSString            *themeName;
 
   defaults = [NSUserDefaults standardUserDefaults];
-  domain = [NSMutableDictionary dictionaryWithDictionary: [defaults persistentDomainForName: NSGlobalDomain]];
+  domain = [NSMutableDictionary dictionaryWithDictionary:
+    [defaults persistentDomainForName: NSGlobalDomain]];
   themeName = [nameField stringValue];
 
   if ([themeName isEqualToString:@"GNUstep"] == YES)
@@ -139,6 +140,10 @@
     [domain setObject:themeName
                forKey: @"GSTheme"];
   [defaults setPersistentDomain: domain forName: NSGlobalDomain];
+  [[NSDistributedNotificationCenter defaultCenter]
+    postNotificationName: @"GSThemeDefaultDidChangeNotification"
+    object: nil
+    userInfo: nil];
 }
 
 
