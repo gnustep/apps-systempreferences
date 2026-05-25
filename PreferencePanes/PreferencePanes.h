@@ -2,7 +2,8 @@
  *  
  * Copyright (C) 2005 Free Software Foundation, Inc.
  *
- * Author: Enrico Sersale <enrico@imago.ro>
+ * Authors: Enrico Sersale
+ *          Riccardo Mottola <rm@gnu.org>
  * Date: December 2005
  *
  * This file is part of the GNUstep PreferencePanes framework
@@ -25,7 +26,11 @@
 #ifndef PREFERENCE_PANES_H
 #define PREFERENCE_PANES_H
 
-#include "NSPreferencePane.h"
+#import "NSPreferencePane.h"
+
+// macro to load localization in bundle
+#define _b(k) \
+    [[NSBundle bundleForClass:[self class]] localizedStringForKey:k value:@"" table:nil]
 
 #endif // PREFERENCE_PANES_H
 
