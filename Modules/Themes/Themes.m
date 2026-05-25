@@ -141,7 +141,7 @@
                forKey: @"GSTheme"];
   [defaults setPersistentDomain: domain forName: NSGlobalDomain];
   [[NSDistributedNotificationCenter defaultCenter]
-    postNotificationName: @"GSThemeDefaultDidChangeNotification"
+    postNotificationName: @"GSThemePreferenceDidChangeNotification"
     object: nil
     userInfo: nil];
 }
