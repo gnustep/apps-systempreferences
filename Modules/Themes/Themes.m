@@ -51,8 +51,8 @@
   [matrix setAction: @selector(changeSelection:)];
   [matrix setTarget: self];
 
-  [previewButton setTitle:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"Preview" value:@"" table:nil]];
-  [setButton setTitle:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"Set" value:@"" table:nil]];
+  [previewButton setTitle:_b(@"Preview")];
+  [setButton setTitle:_b(@"Set")];
 
   [self loadThemes:self];
 }
