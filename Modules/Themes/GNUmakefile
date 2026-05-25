@@ -17,7 +17,11 @@ Themes_RESOURCE_FILES = \
 Themes.tiff \
 gnustep_preview_128.tiff \
 no_preview.tiff \
-Resources/English.lproj 
+Resources/*.lproj
+
+Themes_LANGUAGES = \
+	Resources/English \
+	Resources/German
 
 ifeq ($(findstring darwin, $(GNUSTEP_TARGET_OS)), darwin)
   ADDITIONAL_GUI_LIBS += -lGSPreferencePanes

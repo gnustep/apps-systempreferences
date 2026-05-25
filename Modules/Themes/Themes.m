@@ -29,7 +29,6 @@
 @implementation Themes
 
 
-
 - (void)mainViewDidLoad
 {
   NSButtonCell	*proto;
@@ -52,7 +51,8 @@
   [matrix setAction: @selector(changeSelection:)];
   [matrix setTarget: self];
 
-
+  [previewButton setTitle:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"Preview" value:@"" table:nil]];
+  [setButton setTitle:[[NSBundle bundleForClass:[self class]] localizedStringForKey:@"Set" value:@"" table:nil]];
 
   [self loadThemes:self];
 }
