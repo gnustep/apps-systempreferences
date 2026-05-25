@@ -1,8 +1,8 @@
 /* Themes.h
  *  
- * Copyright (C) 2009-2013 Free Software Foundation, Inc.
+ * Copyright (C) 2009-2026 Free Software Foundation, Inc.
  *
- * Author: Riccardo Mottola <rmottola@users.sf.net>
+ * Author: Riccardo Mottola <rm@gnu.org>
  * Date: October 2009
  *
  * This file is part of the GNUstep ColorSchemes Themes Preference Pane
@@ -31,10 +31,14 @@
 {
   IBOutlet NSMatrix	*matrix;
   IBOutlet NSImageView  *previewView;
+  IBOutlet NSBox        *previewBox;
   IBOutlet NSTextField  *nameField;
   IBOutlet NSTextView   *detailsView;
+  IBOutlet NSBox        *detailsBox;
   IBOutlet NSTextView   *authorsView;
+  IBOutlet NSBox        *authorsBox;
   IBOutlet NSTextField  *versionField;
+  IBOutlet NSTextField  *versionLabel;
   IBOutlet NSTextField  *licenseField;
   IBOutlet NSButton     *previewButton;
   IBOutlet NSButton     *setButton;

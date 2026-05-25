@@ -51,8 +51,12 @@
   [matrix setAction: @selector(changeSelection:)];
   [matrix setTarget: self];
 
+  [detailsBox setTitle:_b(@"Description")];
+  [authorsBox setTitle:_b(@"Authors")];
+  [previewBox setTitle:_b(@"Preview")];
   [previewButton setTitle:_b(@"Preview")];
   [setButton setTitle:_b(@"Set")];
+  [versionLabel setStringValue:_b(@"Version")];
 
   [self loadThemes:self];
 }
