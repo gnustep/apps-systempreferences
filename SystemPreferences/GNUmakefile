@@ -10,7 +10,11 @@ SystemPreferences_APPLICATION_ICON = SystemPreferences.png
 SystemPreferences_HAS_RESOURCE_BUNDLE = yes
 
 SystemPreferences_RESOURCE_FILES = Resources/Images/* \
-Resources/English.lproj  
+Resources/*.lproj
+
+SystemPreferences_LANGUAGES = \
+	Resources/English \
+	Resources/German
 
 # The Objective-C source files to be compiled
 

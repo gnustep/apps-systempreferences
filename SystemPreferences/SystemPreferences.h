@@ -37,7 +37,7 @@
   
   IBOutlet NSWindow *win;
   IBOutlet NSBox *controlsBox;
-  IBOutlet id showAllButt;
+  IBOutlet NSButton *showAllButton;
   IBOutlet NSBox *prefsBox;
   
   NSMutableArray *panes;
@@ -58,7 +58,7 @@
 
 - (void)clickOnIconOfPane:(id)pane;
 
-- (IBAction)showAllButtAction:(id)sender;
+- (IBAction)showAll:(id)sender;
 
 - (void)showIconsView;
 

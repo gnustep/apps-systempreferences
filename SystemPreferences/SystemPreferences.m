@@ -121,7 +121,9 @@ static SystemPreferences *systemPreferences = nil;
   
   [panes sortUsingSelector: @selector(comparePane:)];
   
-  [showAllButt setEnabled: NO];
+  [showAllButton setEnabled: NO];
+
+  [showAllButton setTitle: _(@"Show All")];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -178,7 +180,7 @@ static SystemPreferences *systemPreferences = nil;
 	}
       }
 
-      [self showAllButtAction: nil];
+      [self showAll: nil];
     }
   [self updateDefaults];
   return YES;
@@ -255,10 +257,10 @@ static SystemPreferences *systemPreferences = nil;
     
   [window setFrame: wr display: YES animate: YES];
   
-  [showAllButt setEnabled: YES];
+  [showAllButton setEnabled: YES];
 }
 
-- (IBAction)showAllButtAction:(id)sender
+- (IBAction)showAll:(id)sender
 {
   NSView *view = [prefsBox contentView];
 
@@ -291,7 +293,7 @@ static SystemPreferences *systemPreferences = nil;
     [window setFrame: wr display: YES animate: YES];
 
     currentPane = nil;
-    [showAllButt setEnabled: NO];
+    [showAllButton setEnabled: NO];
   }
 }
 
