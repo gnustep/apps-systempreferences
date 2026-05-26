@@ -1,1 +1,24 @@
+"System Preferences" = "Systemeinstellungen";
+
+// Menu
+"Info" = "Info";
+       "Help..." = "Hilfe...";
+
+"Edit" = "Bearbeiten";
+       "Cut" = "Ausschneiden";
+       "Copy" = "Kopieren";
+       "Paste" = "Einfügen";
+       "Delete" = "Löschen";
+       "Select All" = "Alles Auswählen";
+
+"Windows" = "Fenster";
+	"Arrange in Front" = "Im Vordergrund anordnen";
+	"Miniaturize Window" = "Fenster miniaturisieren";
+	"Close Window" = "Fenster schließen";
+
+"Services" = "Dienste";
+"Hide" = "Ausblenden";
+"Hide Others" = "Andere Ausblenden";
 "Show All" = "Alle Anzeigen";
+"Quit" = "Beenden";
+
