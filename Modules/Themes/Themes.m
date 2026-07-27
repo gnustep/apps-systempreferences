@@ -133,10 +133,15 @@
   NSMutableDictionary *domain;
   NSString            *themeName;
 
+  themeName = [nameField stringValue];
+
+  // set it for the current application
+  [GSTheme setTheme: [GSTheme loadThemeNamed: themeName]];
+
+  // set the default for the theme
   defaults = [NSUserDefaults standardUserDefaults];
   domain = [NSMutableDictionary dictionaryWithDictionary:
     [defaults persistentDomainForName: NSGlobalDomain]];
-  themeName = [nameField stringValue];
 
   if ([themeName isEqualToString:@"GNUstep"] == YES)
     [domain removeObjectForKey:@"GSTheme"];
@@ -144,6 +149,9 @@
     [domain setObject:themeName
                forKey: @"GSTheme"];
   [defaults setPersistentDomain: domain forName: NSGlobalDomain];
+  [defaults synchronize];
+
+  // send distributed notification for other running apps
   [[NSDistributedNotificationCenter defaultCenter]
     postNotificationName: @"GSThemePreferenceDidChangeNotification"
     object: nil
