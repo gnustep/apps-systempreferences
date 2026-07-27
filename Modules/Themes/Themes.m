@@ -1,8 +1,8 @@
 /* Themes.h
  *  
- * Copyright (C) 2009-2014 Free Software Foundation, Inc.
+ * Copyright (C) 2009-2026 Free Software Foundation, Inc.
  *
- * Author: Riccardo Mottola <rmottola@users.sf.net>
+ * Author: Riccardo Mottola <rm@gnu.org>
  * Date: October 2009
  *
  * This file is part of the GNUstep ColorSchemes Themes Preference Pane
