@@ -20,6 +20,11 @@
 	defaultvalue = <*BY>;
 	editor = <*I1>;
     };
+    GSUseIconManager = {
+	category = gui;
+	defaultvalue = <*BN>;
+	editor = <*I1>;
+    };
     GSBackend = {
 	category = back;
 	defaultvalue = "";
